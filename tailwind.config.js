@@ -8,14 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#1E130B',
-        secondary: '#412E15',
+        primary: '#4A3A2A',
+        secondary: '#30251A',
         accent: '#e2ddca',
+        grey: '#555555',
         background: '#FCFCFC',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
+        serif: ['"Crimson Pro"', 'serif'],
       }
     },
   },

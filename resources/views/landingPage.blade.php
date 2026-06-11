@@ -95,7 +95,7 @@
 </section>
 
     <!-- Fitur Utama Section -->
-    <section id="fitur" class="bg-[#191009] py-24 px-8 md:px-16">
+    <section id="fitur" class="bg-secondary py-24 px-8 md:px-16">
         <div class="max-w-6xl mx-auto text-center mb-16">
             <h2 class="font-serif text-4xl font-bold text-accent mb-4">Fitur Utama</h2>
             <p class="text-accent/70 text-lg max-w-2xl mx-auto">Dirancang untuk membantu pekerjaan jadi lebih cepat, mudah, dan nyaman.</p>
@@ -170,7 +170,7 @@
     </section>
 
     <!-- Tentang Kami Section -->
-    <section id="tentang" class="bg-background py-24 px-8 md:px-16 border-t border-gray-200">
+    <section id="tentang" class="bg-background py-24 px-8 md:px-16 border-t border-[#EFECE6]">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div class="w-full md:w-5/12">
                 <div class="relative">
@@ -203,8 +203,8 @@
 
         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Free Plan -->
-            <div class="bg-white border border-gray-100 rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300">
-                <div class="flex flex-col items-center mb-8 border-b border-gray-100 pb-8">
+            <div class="bg-white border border-[#EFECE6] rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300">
+                <div class="flex flex-col items-center mb-8 border-b border-[#EFECE6] pb-8">
                     <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-4">
                         <i class="fas fa-leaf text-primary"></i>
                     </div>
@@ -263,7 +263,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#150d08] pt-20 pb-10 px-8 md:px-16 border-t border-white/5">
+    <footer class="bg-secondary/95 pt-20 pb-10 px-8 md:px-16 border-t border-white/5">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div class="md:col-span-2">
                 <div class="flex items-center gap-2 mb-6">

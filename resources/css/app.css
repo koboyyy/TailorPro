@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@theme {
+    --color-primary: var(--base-primary);
+    --color-secondary: var(--base-secondary);
+    --color-accent: var(--base-accent);
+    --color-background: var(--base-bg);
+    --color-text: var(--base-text);
+    --color-grey: var(--base-grey);
+}
+
+/* 2. Menentukan nilai variabel CSS berdasarkan tema */
+@layer base {
+    :root {
+        /* Palet Tema Terang (Light Mode) */
+        --base-primary: #4A3A2A;
+        --base-secondary: #30251A;
+        --base-accent: #E2DDCA;
+        --base-bg: #FCFCFC;
+        --base-text: #000000;
+        --base-grey: #333333
+    }
+
+    /* Palet Tema Gelap (Dark Mode) */
+    /* Gunakan .dark jika memakai tombol toggle class, atau 
+     @media (prefers-color-scheme: dark) untuk mengikuti sistem OS */
+    .dark {
+        --base-primary: #60a5fa;
+        /* blue-400 */
+        --base-secondary: #94a3b8;
+        /* slate-400 */
+        --base-accent: #fbbf24;
+        /* amber-400 */
+        --base-bg: #0f172a;
+        /* slate-900 */
+        --base-text: #f1f4f9;
+        /* slate-100 */
+    }
+
+    /* Terapkan warna dasar secara otomatis ke body */
+    body {
+        background-color: var(--base-bg);
+        color: var(--base-text);
+    }
+}

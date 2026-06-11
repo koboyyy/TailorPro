@@ -39,7 +39,7 @@
     </script>
 
     <!-- Theme Detect Script -->
-    <script>
+    {{-- <script>
         if (
             localStorage.theme === "dark" ||
             (!("theme" in localStorage) &&
@@ -49,15 +49,15 @@
         } else {
             document.documentElement.classList.remove("dark");
         }
-    </script>
+    </script> --}}
 </head>
 
-<body class="h-full bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
+<body class="h-full bg-background text-grey dark:bg-slate-950 dark:text-slate-100 font-sans">
     
     <!-- Mobile Header Toggler -->
     <div class="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <div class="rounded-xl bg-amber-50 dark:bg-amber-900/20 p-2 text-[#4A3A2A] dark:text-accent">
+            <div class="rounded-xl bg-primary/10 dark:bg-primary/20 p-2 text-primary dark:text-accent">
                 <i class="fas fa-cut text-lg"></i>
             </div>
             <div>
@@ -95,12 +95,12 @@
                 </div>
 
                 @php
-                    $active = "bg-amber-50/70 text-[#4A3A2A] dark:bg-[#4A3A2A]/30 dark:text-accent font-bold";
-                    $default = "text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200";
+                    $active = "bg-primary/10 text-primary dark:bg-primary/30 dark:text-accent font-bold";
+                    $default = "text-grey hover:bg-background dark:text-slate-400 dark:hover:bg-slate-800 hover:text-secondary dark:hover:text-slate-200";
                 @endphp
 
                 <!-- Dashboard link -->
-                <a href="#" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('dashboard') ? $active : $default }}">
+                <a href="/dashboard" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('dashboard') ? $active : $default }}">
                     <i class="fas fa-columns w-5"></i>
                     <span>Dashboard</span>
                 </a>
@@ -142,7 +142,7 @@
                 <button
                     type="button"
                     data-theme-toggle
-                    class="mb-3 flex w-full items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 px-4 py-2 text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                    class="mb-3 flex w-full items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 px-4 py-2 text-[10px] font-bold text-grey dark:text-slate-400 hover:bg-background dark:hover:bg-slate-800 transition-all"
                 >
                     <span class="flex items-center gap-2">
                         <i class="fas fa-moon"></i>
@@ -151,9 +151,9 @@
                 </button>
 
                 <!-- USER CARD -->
-                <div class="rounded-2xl bg-slate-50 p-3 dark:bg-slate-800/50">
+                <div class="rounded-2xl bg-background p-3 dark:bg-slate-800/50">
                     <div class="flex items-center gap-3">
-                        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-amber-200 bg-amber-100 text-amber-800 dark:border-amber-900/30 dark:bg-amber-950/20 dark:text-accent">
+                        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-primary/10 text-primary dark:border-primary/30 dark:bg-primary/20 dark:text-accent">
                             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Admin avatar" class="w-full h-full object-cover">
                         </div>
 
@@ -166,19 +166,19 @@
                                 @endif
                             </div>
 
-                            <div class="text-[10px] font-medium text-slate-500 dark:text-slate-400">
+                            <div class="text-[10px] font-medium text-grey/80 dark:text-slate-400">
                                 Administrator
                             </div>
                         </div>
 
-                        <a href="#" class="text-slate-400 transition-colors hover:text-amber-800">
+                        <a href="#" class="text-slate-400 transition-colors hover:text-primary">
                             <i class="fas fa-cog"></i>
                         </a>
                     </div>
 
                     <!-- BADGE -->
-                    <div class="mt-2 inline-flex items-center gap-1 rounded-lg bg-amber-100 px-2 py-1 text-[10px] font-black uppercase text-amber-900 dark:bg-amber-900/30 dark:text-accent">
-                        <span class="h-1.5 w-1.5 rounded-full bg-amber-600"></span>
+                    <div class="mt-2 inline-flex items-center gap-1 rounded-lg bg-primary/10 px-2 py-1 text-[10px] font-black uppercase text-primary dark:bg-primary/30 dark:text-accent">
+                        <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
                         Role Aktif
                     </div>
                 </div>
@@ -197,6 +197,32 @@
         <!-- CONTENT -->
         <div class="flex-1 md:ml-72">
             <main class="px-4 py-8 sm:px-6 lg:px-8">
+                <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EFECE6]/70">
+                    <!-- Breadcrumbs -->
+                    <div class="text-xs text-grey font-medium tracking-wide">
+                        <span>page</span>
+                        <span class="mx-2 text-gray-400">/</span>
+                        <span class="text-primary font-semibold">ukuran baju</span>
+                    </div>
+
+                    <!-- Search & User Profile -->
+                    <div class="flex items-center gap-4 self-end sm:self-auto">
+                        <div class="relative w-64 max-w-xs">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-400 pointer-events-none text-xs">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text" id="search-input" placeholder="Pencarian pelanggan..." class="w-full pl-9 pr-4 py-2 bg-background dark:bg-slate-800 text-secondary dark:text-white text-xs border border-transparent rounded-full shadow-sm placeholder-grey/60 focus:outline-none focus:bg-white dark:focus:bg-slate-800 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200">
+                        </div>
+
+                        <div class="h-8 w-px bg-[#EFECE6]"></div>
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-semibold text-primary">Admin</span>
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Admin Profile" class="w-8 h-8 rounded-full object-cover border border-[#EFECE6]">
+                        </div>
+                    </div>
+                </header>
+                
                 @if (session('success'))
                     <div class="mb-6 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-900/40 dark:bg-emerald-950/40 dark:text-emerald-200">
                         <i class="fas fa-check-circle"></i>
@@ -244,5 +270,6 @@
             overlay.classList.toggle('hidden');
         }
     </script>
+    @yield('scripts')
 </body>
 </html>

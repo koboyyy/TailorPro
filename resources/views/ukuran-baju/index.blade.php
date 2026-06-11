@@ -9,17 +9,14 @@
     </div>
 </div>
 
-<!-- Include Header Component -->
-@include('ukuran-baju.partials.header')
-
         <!-- Page Content Title & Subtitle -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
                 <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight">Daftar Ukuran Baju</h1>
-                <p class="text-xs text-[#8A8A88] dark:text-slate-400 font-medium">Kelola data pengukuran fisik pelanggan secara detail.</p>
+                <p class="text-xs text-grey dark:text-slate-400 font-medium">Kelola data pengukuran fisik pelanggan secara detail.</p>
             </div>
             
-            <button id="btn-add-new" class="flex items-center justify-center gap-2 bg-[#4A3A2A] hover:bg-[#30251A] text-accent font-semibold text-xs px-5 py-3 rounded-xl shadow-lg shadow-[#4A3A2A]/15 transition duration-200 group active:scale-95">
+            <button id="btn-add-new" class="flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-accent font-semibold text-xs px-5 py-3 rounded-xl shadow-lg shadow-primary/15 transition duration-200 group active:scale-95">
                 <i class="fas fa-plus text-[10px] group-hover:rotate-90 transition-transform duration-200"></i>
                 <span>Tambah Ukuran Baru</span>
             </button>
@@ -242,8 +239,8 @@
             tableBody.innerHTML = filtered.map(c => {
                 const isActive = (c.id === selectedCustomerId && !isCreatingMode);
                 const activeClasses = isActive 
-                    ? 'bg-[#FAF9F6] dark:bg-slate-800/60 border-l-4 border-[#4A3A2A]' 
-                    : 'hover:bg-gray-50/50 dark:hover:bg-slate-800/30 border-l-4 border-transparent';
+                    ? 'bg-[#FAF9F6] dark:bg-slate-800/60 border-l-4 border-primary' 
+                    : 'hover:bg-background/50 dark:hover:bg-slate-800/30 border-l-4 border-transparent';
 
                 return `
                     <tr class="transition duration-150 cursor-pointer ${activeClasses}" onclick="selectCustomer(${c.id})">
@@ -252,7 +249,7 @@
                                 <div class="w-8 h-8 rounded-full ${c.avatarBg} font-bold text-[10px] flex items-center justify-center tracking-wider shrink-0 shadow-sm border border-black/5">
                                     ${c.initials}
                                 </div>
-                                <span class="truncate max-w-[120px] md:max-w-none block text-sm font-bold text-[#1E130B] dark:text-slate-100">${c.name}</span>
+                                <span class="truncate max-w-[120px] md:max-w-none block text-sm font-bold text-primary dark:text-slate-100">${c.name}</span>
                             </div>
                         </td>
                         <td class="px-6 py-4 text-center font-medium dark:text-slate-300">${c.l_badan} cm</td>
@@ -261,10 +258,10 @@
                         <td class="px-6 py-4 text-center font-light text-gray-500 dark:text-slate-400">${c.updated_at}</td>
                         <td class="px-6 py-4 text-right" onclick="event.stopPropagation()">
                             <div class="flex items-center justify-end gap-2.5">
-                                <button onclick="editCustomerFromAction(${c.id})" class="text-[#8A8A88] dark:text-slate-400 hover:text-[#4A3A2A] dark:hover:text-accent hover:scale-110 p-1 transition" title="Edit Ukuran">
+                                <button onclick="editCustomerFromAction(${c.id})" class="text-grey dark:text-slate-400 hover:text-primary dark:hover:text-accent hover:scale-110 p-1 transition" title="Edit Ukuran">
                                     <i class="far fa-edit text-xs"></i>
                                 </button>
-                                <button onclick="deleteCustomer(${c.id})" class="text-[#8A8A88] dark:text-slate-400 hover:text-red-700 hover:scale-110 p-1 transition" title="Hapus Pelanggan">
+                                <button onclick="deleteCustomer(${c.id})" class="text-grey dark:text-slate-400 hover:text-red-700 hover:scale-110 p-1 transition" title="Hapus Pelanggan">
                                     <i class="far fa-trash-can text-xs"></i>
                                 </button>
                             </div>
@@ -291,9 +288,9 @@
         window.editCustomerFromAction = function(id) {
             window.selectCustomer(id);
             // Flash the form to indicate visual focus
-            formPanel.classList.add('ring-2', 'ring-[#4A3A2A]/30');
+            formPanel.classList.add('ring-2', 'ring-primary/30');
             setTimeout(() => {
-                formPanel.classList.remove('ring-2', 'ring-[#4A3A2A]/30');
+                formPanel.classList.remove('ring-2', 'ring-primary/30');
             }, 600);
         };
 
@@ -303,7 +300,7 @@
                 // Prepare form for addition
                 formTitle.innerText = "Tambah Ukuran Baru";
                 formBadge.innerText = "PELANGGAN BARU";
-                formBadge.className = "bg-[#FAF9F6] text-[#A09F9C] text-[9px] font-bold tracking-wider px-2.5 py-1 rounded border border-[#EFECE6] uppercase";
+                formBadge.className = "bg-background text-grey text-[9px] font-bold tracking-wider px-2.5 py-1 rounded border border-[#EFECE6] dark:border-slate-800 uppercase";
                 
                 customerNameGroup.classList.remove('hidden');
                 
@@ -331,7 +328,7 @@
 
             formTitle.innerText = "Edit Detail Ukuran";
             formBadge.innerText = customer.name;
-            formBadge.className = "bg-[#F2ECE4] text-[#4A3A2A] text-[9px] font-bold tracking-wider px-2.5 py-1 rounded uppercase truncate max-w-[150px]";
+            formBadge.className = "bg-primary/10 text-primary dark:bg-slate-800 dark:text-accent text-[9px] font-bold tracking-wider px-2.5 py-1 rounded uppercase truncate max-w-[150px]";
             
             customerNameGroup.classList.add('hidden');
 
