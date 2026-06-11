@@ -1,6 +1,59 @@
-@extends('layouts.app')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailor Pro - Solusi Digital Penjahit</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4A3A2A',
+                        secondary: '#30251A',
+                        accent: '#e2ddca',
+                        grey: '#555555',
+                        background: '#FCFCFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Crimson Pro"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #4A3A2A; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30251A; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e2ddca; 
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-primary bg-background">
 
     <!-- Navbar -->
     <nav class="absolute w-full z-10 top-0 py-6 px-8 md:px-16 flex justify-between items-center text-accent">
@@ -28,16 +81,7 @@
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
             <img src="{{ asset('images/hero_background.png') }}" alt="Hero Background" class="w-full h-full object-cover opacity-30">
-            <!-- Gradient overlays to blend the image into the primary color and keep text readable -->
-            <!-- <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary"></div> -->
         </div>
-
-        <!-- Subtle Background Glow -->
-        <!-- <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none mix-blend-screen">
-            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[60%] rounded-full bg-secondary opacity-20 blur-[100px]"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[70%] rounded-full bg-secondary opacity-20 blur-[120px]"></div>
-        </div> -->
 
         <div class="relative z-10 md:w-5/12 text-accent mb-12 md:mb-0">
             <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">TylorPro</h1>
@@ -48,13 +92,7 @@
                 Login
             </a>
         </div>
-        <!-- <div class="relative z-10 md:w-6/12 flex justify-end">
-            <div class="relative w-full max-w-2xl transform transition-transform hover:scale-[1.02] duration-500">
-                <div class="absolute inset-0 bg-accent rounded-xl blur-lg opacity-20"></div>
-                <img src="{{ asset('images/hero_dashboard.png') }}" alt="TailorPro Dashboard" class="relative rounded-xl shadow-2xl border border-secondary/50 w-full object-cover">
-            </div>
-        </div> -->
-    </section>
+</section>
 
     <!-- Fitur Utama Section -->
     <section id="fitur" class="bg-[#191009] py-24 px-8 md:px-16">
@@ -261,4 +299,5 @@
         </div>
     </footer>
 
-@endsection
+</body>
+</html>
