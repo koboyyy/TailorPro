@@ -39,7 +39,7 @@
     </script>
 
     <!-- Theme Detect Script -->
-    {{-- <script>
+    <script>
         if (
             localStorage.theme === "dark" ||
             (!("theme" in localStorage) &&
@@ -49,7 +49,7 @@
         } else {
             document.documentElement.classList.remove("dark");
         }
-    </script> --}}
+    </script>
 </head>
 
 <body class="h-full bg-background text-grey dark:bg-slate-950 dark:text-slate-100 font-sans">
@@ -124,7 +124,7 @@
                 </a>
 
                 <!-- Data Pelanggan link -->
-                <a href="#" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('data-pelanggan') ? $active : $default }}">
+                <a href="/data-pelanggan" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('data-pelanggan') ? $active : $default }}">
                     <i class="fas fa-user-group w-5"></i>
                     <span>Data Pelanggan</span>
                 </a>
@@ -196,8 +196,8 @@
 
         <!-- CONTENT -->
         <div class="flex-1 md:ml-72">
-            <main class="px-4 py-8 sm:px-6 lg:px-8">
-                <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EFECE6]/70">
+
+            <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#EFECE6]/70 px-4 py-5 sm:px-6 lg:px-8">
                     <!-- Breadcrumbs -->
                     <div class="text-xs text-grey font-medium tracking-wide">
                         <span>page</span>
@@ -222,7 +222,10 @@
                         </div>
                     </div>
                 </header>
+
+            <main class="px-4 py-8 sm:px-6 lg:px-8">
                 
+
                 @if (session('success'))
                     <div class="mb-6 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-900/40 dark:bg-emerald-950/40 dark:text-emerald-200">
                         <i class="fas fa-check-circle"></i>
