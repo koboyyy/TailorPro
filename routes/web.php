@@ -13,3 +13,7 @@ Route::get('/ukuran-baju', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/laporan', function () {
+    return view('laporan');
+});
