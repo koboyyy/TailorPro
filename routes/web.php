@@ -18,3 +18,6 @@ Route::get('/data-pelanggan', function () {
     return view('data-pelanggan.index');
 });
 
+Route::get('/laporan', function () {
+    return view('laporan');
+});
