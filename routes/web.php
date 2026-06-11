@@ -10,3 +10,6 @@ Route::get('/ukuran-baju', function () {
     return view('ukuran-baju.index');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
