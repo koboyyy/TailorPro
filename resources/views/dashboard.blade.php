@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-7xl mx-auto space-y-6">
+<div class="mx-auto space-y-6">
     
     <!-- Greeting Section -->
     <div class="mb-8">

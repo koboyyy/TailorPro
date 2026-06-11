@@ -1,7 +1,7 @@
-@extends('layouts.laporan')
+@extends('layouts.app')
 
 @section('content')
-<div class="max-w-7xl mx-auto space-y-6 pb-10">
+<div class=" mx-auto space-y-6 pb-10">
 
     <!-- Header Section -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">

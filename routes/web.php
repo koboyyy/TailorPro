@@ -19,5 +19,5 @@ Route::get('/data-pelanggan', function () {
 });
 
 Route::get('/laporan', function () {
-    return view('laporan');
+    return view('laporan.index');
 });
