@@ -91,18 +91,36 @@
             <!-- NAVIGATION -->
             <nav class="flex-1 overflow-y-auto px-4 space-y-1">
                 <div class="mb-2 px-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                    Menu Navigasi
+                    MENU UTAMA
                 </div>
 
                 @php
-                    $active = "bg-primary/10 text-primary dark:bg-primary/30 dark:text-accent font-bold";
+                    $active = "bg-primary text-white font-bold shadow-md shadow-primary/10";
                     $default = "text-grey hover:bg-background dark:text-slate-400 dark:hover:bg-slate-800 hover:text-secondary dark:hover:text-slate-200";
                 @endphp
 
-                <!-- Dashboard link -->
+                <!-- Beranda link -->
                 <a href="/dashboard" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('dashboard') ? $active : $default }}">
-                    <i class="fas fa-columns w-5"></i>
-                    <span>Dashboard</span>
+                    <i class="fas fa-desktop w-5"></i>
+                    <span>Beranda</span>
+                </a>
+
+                <!-- Pesanan link -->
+                <a href="/pesanan" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('pesanan*') ? $active : $default }}">
+                    <i class="fas fa-exchange-alt w-5"></i>
+                    <span>Pesanan</span>
+                </a>
+
+                <!-- Hasilkan Pola link -->
+                <a href="/hasilan-pola" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('hasilan-pola*') ? $active : $default }}">
+                    <i class="fas fa-crop-simple w-5"></i>
+                    <span>Hasilkan Pola</span>
+                </a>
+
+                <!-- Data Pelanggan link -->
+                <a href="/data-pelanggan" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('data-pelanggan*') ? $active : $default }}">
+                    <i class="fas fa-user-group w-5"></i>
+                    <span>Data Pelanggan</span>
                 </a>
 
                 <!-- Ukuran Baju link -->
@@ -111,26 +129,14 @@
                     <span>Ukuran Baju</span>
                 </a>
 
-                <!-- Hasilkan Pola link -->
-                <a href="#" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('hasilan-pola') ? $active : $default }}">
-                    <i class="fas fa-crop-simple w-5"></i>
-                    <span>Hasilkan Pola</span>
-                </a>
-
-                <!-- Status Pengerjaan link -->
-                <a href="#" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('status-pengerjaan') ? $active : $default }}">
-                    <i class="fas fa-circle-notch w-5"></i>
-                    <span>Status Pengerjaan</span>
-                </a>
-
-                <!-- Data Pelanggan link -->
-                <a href="/data-pelanggan" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('data-pelanggan') ? $active : $default }}">
-                    <i class="fas fa-user-group w-5"></i>
-                    <span>Data Pelanggan</span>
+                <!-- Arsip Pola link -->
+                <a href="/arsip-pola" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('arsip-pola*') ? $active : $default }}">
+                    <i class="fas fa-box-archive w-5"></i>
+                    <span>Arsip Pola</span>
                 </a>
 
                 <!-- Laporan link -->
-                <a href="/laporan" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('laporan') ? $active : $default }}">
+                <a href="/laporan" class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('laporan*') ? $active : $default }}">
                     <i class="fas fa-chart-line w-5"></i>
                     <span>Laporan</span>
                 </a>
@@ -200,9 +206,9 @@
             <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#EFECE6]/70 px-4 py-5 sm:px-6 lg:px-8">
                     <!-- Breadcrumbs -->
                     <div class="text-xs text-grey font-medium tracking-wide">
-                        <span>page</span>
+                        <span>@yield('breadcrumb-parent', 'page')</span>
                         <span class="mx-2 text-gray-400">/</span>
-                        <span class="text-primary font-semibold">ukuran baju</span>
+                        <span class="text-primary font-semibold">@yield('breadcrumb-active', 'ukuran baju')</span>
                     </div>
 
                     <!-- Search & User Profile -->
