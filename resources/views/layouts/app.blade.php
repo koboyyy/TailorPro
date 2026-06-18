@@ -166,7 +166,7 @@
                         <div class="flex-1 overflow-hidden">
                             <div class="truncate text-xs font-bold text-slate-800 dark:text-white">
                                 @if(auth()->check())
-                                    {{ auth()->user()->username }}
+                                    {{ auth()->user()->name }}
                                 @else
                                     Admin Jahit
                                 @endif
@@ -190,7 +190,10 @@
                 </div>
 
                 <!-- LOGOUT -->
-                <a href="#" class="mt-2 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-xs font-bold text-red-500 transition-all hover:bg-red-50 dark:hover:bg-red-950/20">
+                <form id="logout-form" action="/logout" method="POST" class="hidden">
+                    @csrf
+                </form>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="mt-2 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-xs font-bold text-red-500 transition-all hover:bg-red-50 dark:hover:bg-red-950/20">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
                 </a>

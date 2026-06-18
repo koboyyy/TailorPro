@@ -67,8 +67,8 @@
             <a href="#tentang" class="hover:text-white transition">Tentang Kami</a>
         </div>
         <div class="hidden md:flex gap-4 items-center text-sm font-medium">
-            <a href="#" class="hover:text-white transition">Login</a>
-            <a href="#" class="hover:text-white transition">Register</a>
+            <a href="/login" class="hover:text-white transition">Login</a>
+            <a href="/register" class="hover:text-white transition">Register</a>
         </div>
         <!-- Mobile Menu Icon -->
         <div class="md:hidden">
@@ -88,7 +88,7 @@
             <p class="text-accent/80 text-lg md:text-xl font-light mb-10 leading-relaxed">
                 TailorPro hadir untuk membantu penjahit, butik, dan konveksi mengelola data pelanggan, ukuran baju, referensi desain, hingga tracking pengerjaan secara lebih praktis dan profesional.
             </p>
-            <a href="#" class="inline-block border border-accent text-accent px-10 py-3 rounded-full hover:bg-accent hover:text-primary transition duration-300 font-medium text-lg">
+            <a href="/login" class="inline-block border border-accent text-accent px-10 py-3 rounded-full hover:bg-accent hover:text-primary transition duration-300 font-medium text-lg">
                 Login
             </a>
         </div>

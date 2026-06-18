@@ -126,7 +126,13 @@
             
             <!-- PILIH PELANGGAN -->
             <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Pilih Pelanggan</h3>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white uppercase">Pilih Pelanggan</h3>
+                    <button type="button" onclick="openQuickCustomerModal()" class="text-xs text-primary dark:text-accent hover:text-secondary dark:hover:text-accent/80 font-bold flex items-center gap-1.5 transition">
+                        <i class="fas fa-plus-circle text-xs"></i>
+                        <span>Pelanggan Baru</span>
+                    </button>
+                </div>
                 
                 <div class="space-y-4">
                     <!-- Search Input -->
@@ -574,6 +580,38 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Quick Add Customer -->
+<div id="quick-customer-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm hidden transition-all duration-300">
+    <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="quick-customer-modal-container">
+        <div class="px-6 py-5 border-b border-[#EFECE6]/80 dark:border-slate-800/80 flex justify-between items-center">
+            <h3 class="font-serif text-lg font-bold text-primary dark:text-white">Tambah Pelanggan Baru</h3>
+            <button type="button" class="text-gray-400 hover:text-gray-600 dark:hover:text-white transition" onclick="closeQuickCustomerModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form id="quick-customer-form" onsubmit="saveQuickCustomer(event)">
+            <div class="p-6 space-y-4">
+                <div>
+                    <label for="quick-customer-name" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Nama Lengkap</label>
+                    <input type="text" id="quick-customer-name" required placeholder="Contoh: Siti Aminah" class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                </div>
+                <div>
+                    <label for="quick-customer-phone" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">No. Telepon / WhatsApp</label>
+                    <input type="tel" id="quick-customer-phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                </div>
+                <div>
+                    <label for="quick-customer-address" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Alamat</label>
+                    <textarea id="quick-customer-address" rows="3" placeholder="Alamat lengkap pelanggan..." class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition resize-none"></textarea>
+                </div>
+            </div>
+            <div class="px-6 py-4 border-t border-[#EFECE6]/80 dark:border-slate-800/80 flex justify-end gap-3 bg-gray-50/50 dark:bg-slate-850">
+                <button type="button" class="px-5 py-2.5 border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition active:scale-95" onclick="closeQuickCustomerModal()">Batal</button>
+                <button type="submit" class="px-5 py-2.5 bg-primary text-accent text-xs font-bold rounded-xl shadow transition active:scale-95">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -791,9 +829,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('hashchange', handleRouting);
     
-    // INITIAL LOAD
-    handleRouting();
-    updateCounts();
+    // INITIAL LOAD (moved to bottom of script to avoid ReferenceError initialization order bugs)
 
     // ==========================================================
     // JS EVENT LISTENERS
@@ -965,6 +1001,79 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('input-l-pinggul').value = "";
         document.getElementById('input-p-baju').value = "";
         document.getElementById('input-p-rok').value = "";
+    };
+
+    window.openQuickCustomerModal = function() {
+        const modal = document.getElementById('quick-customer-modal');
+        const container = document.getElementById('quick-customer-modal-container');
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            container.classList.remove('scale-95', 'opacity-0');
+            container.classList.add('scale-100', 'opacity-100');
+        }, 50);
+    };
+
+    window.closeQuickCustomerModal = function() {
+        const modal = document.getElementById('quick-customer-modal');
+        const container = document.getElementById('quick-customer-modal-container');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    };
+
+    window.saveQuickCustomer = function(event) {
+        event.preventDefault();
+        const nameInput = document.getElementById('quick-customer-name');
+        const phoneInput = document.getElementById('quick-customer-phone');
+        const addressInput = document.getElementById('quick-customer-address');
+
+        const name = nameInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const address = addressInput.value.trim();
+
+        if (!name || !phone) return;
+
+        // Auto-generate average measurement sizing metrics
+        const numericFields = ['l_badan', 'l_pinggang', 'l_punggung', 'p_bahu', 'p_lengan', 'l_lengan', 't_susu', 't_pinggang', 'l_pinggul', 'p_baju'];
+        const averages = {};
+
+        numericFields.forEach(field => {
+            const values = customerSizes
+                .map(c => parseFloat(c[field]))
+                .filter(val => !isNaN(val));
+            const sum = values.reduce((a, b) => a + b, 0);
+            averages[field] = values.length > 0 ? Math.round(sum / values.length) : 0;
+        });
+
+        const newId = customerSizes.length > 0 ? Math.max(...customerSizes.map(c => c.id)) + 1 : 1;
+        const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || "P";
+        const colorPool = ['bg-[#2D6A4F] text-white', 'bg-[#8C6D58] text-white', 'bg-[#2F3E46] text-white', 'bg-[#457B9D] text-white', 'bg-[#E76F51] text-white', 'bg-[#2A9D8F] text-white'];
+        const avatarBg = colorPool[Math.floor(Math.random() * colorPool.length)];
+
+        const newCustomer = {
+            id: newId,
+            name: name,
+            initials: initials,
+            avatarBg: avatarBg,
+            ...averages,
+            p_rok: "-"
+        };
+
+        customerSizes.push(newCustomer);
+
+        // Select the newly added customer
+        selectCustomer(newId);
+
+        // Close modal
+        closeQuickCustomerModal();
+
+        // Reset form
+        document.getElementById('quick-customer-form').reset();
+
+        // Show success notification
+        showNotification("Pelanggan baru berhasil ditambahkan!");
     };
 
     // Toggle row action menu
@@ -1414,6 +1523,10 @@ document.addEventListener('DOMContentLoaded', function() {
             toast.classList.add('translate-y-[-100px]', 'opacity-0');
         }, 3000);
     }
+
+    // INITIAL LOAD
+    handleRouting();
+    updateCounts();
 });
 </script>
 @endsection
