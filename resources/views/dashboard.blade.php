@@ -66,7 +66,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
         
         <!-- Chart Section -->
-        <div class="lg:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="font-serif text-lg font-bold text-primary dark:text-white">Tren Produksi</h2>
                 <button class="px-4 py-1.5 text-xs text-grey border border-gray-200 dark:border-slate-800 rounded-full hover:bg-background transition-colors">
@@ -146,113 +146,141 @@
     document.addEventListener('DOMContentLoaded', function() {
         const ctx = document.getElementById('productionChart').getContext('2d');
         
-        // Gradient for the chart area
-        let gradient = ctx.createLinearGradient(0, 0, 0, 300);
-        gradient.addColorStop(0, 'rgba(74, 58, 42, 0.2)'); // Adjust color as needed, currently using a brown tone
-        gradient.addColorStop(1, 'rgba(74, 58, 42, 0)');
+        let chartInstance = null;
+        
+        function getChartConfig(darkMode) {
+            // Gradient for the chart area
+            let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            if (darkMode) {
+                gradient.addColorStop(0, 'rgba(255, 255, 255, 0.1)'); // Lighter color for dark mode
+                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            } else {
+                gradient.addColorStop(0, 'rgba(74, 58, 42, 0.2)'); 
+                gradient.addColorStop(1, 'rgba(74, 58, 42, 0)');
+            }
 
-        const data = {
-            labels: ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'],
-            datasets: [{
-                label: 'Tren Produksi',
-                data: [8, 12, 9, 11, 16, 10, 12],
-                fill: true,
-                backgroundColor: gradient,
-                borderColor: '#4A3A2A',
-                borderWidth: 3,
-                tension: 0.4, // smooth curves
-                pointBackgroundColor: '#FAF9F6',
-                pointBorderColor: '#4A3A2A',
-                pointBorderWidth: 2,
-                pointRadius: function(context) {
-                    return context.dataIndex === 4 ? 6 : 0; // Only show point at index 4 (jumat/peak) like in image
-                },
-                pointHoverRadius: 6
-            }]
-        };
-
-        const config = {
-            type: 'line',
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
+            const data = {
+                labels: ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'],
+                datasets: [{
+                    label: 'Tren Produksi',
+                    data: [8, 12, 9, 11, 16, 10, 12],
+                    fill: true,
+                    backgroundColor: gradient,
+                    borderColor: darkMode ? '#ffffff' : '#4A3A2A',
+                    borderWidth: 3,
+                    tension: 0.4, // smooth curves
+                    pointBackgroundColor: darkMode ? '#0f172a' : '#ffffff',
+                    pointBorderColor: darkMode ? '#ffffff' : '#4A3A2A',
+                    pointBorderWidth: 2,
+                    pointRadius: function(context) {
+                        return context.dataIndex === 4 ? 6 : 0; 
                     },
-                    tooltip: {
-                        enabled: true
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 16,
-                        ticks: {
-                            stepSize: 4,
-                            color: '#555555',
-                            font: {
-                                size: 12
-                            }
-                        },
-                        border: {
+                    pointHoverRadius: 6
+                }]
+            };
+
+            return {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
                             display: false
                         },
-                        grid: {
-                            color: '#F3F4F6',
-                            drawBorder: false,
+                        tooltip: {
+                            enabled: true,
+                            backgroundColor: darkMode ? '#1e293b' : '#4A3A2A',
+                            titleColor: darkMode ? '#f8fafc' : '#ffffff',
+                            bodyColor: darkMode ? '#e2e8f0' : '#ffffff',
                         }
                     },
-                    x: {
-                        ticks: {
-                            color: '#555555',
-                            font: {
-                                size: 12
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            min: 0,
+                            max: 16,
+                            ticks: {
+                                stepSize: 4,
+                                color: darkMode ? '#94a3b8' : '#555555',
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            border: {
+                                display: false
+                            },
+                            grid: {
+                                color: darkMode ? '#1e293b' : '#F3F4F6',
+                                drawBorder: false,
                             }
                         },
-                        border: {
-                            display: false
-                        },
-                        grid: {
-                            display: false
+                        x: {
+                            ticks: {
+                                color: darkMode ? '#94a3b8' : '#555555',
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            border: {
+                                display: false
+                            },
+                            grid: {
+                                display: false
+                            }
                         }
-                    }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
                 },
-                interaction: {
-                    mode: 'index',
-                    intersect: false,
-                },
-            },
-            plugins: [{
-                // Plugin to draw the vertical dotted line at a specific point
-                id: 'verticalLine',
-                beforeDraw: (chart) => {
-                    const ctx = chart.canvas.getContext('2d');
-                    const xAxis = chart.scales.x;
-                    const yAxis = chart.scales.y;
-                    
-                    // Let's draw it at the highest point (index 4)
-                    const activeIndex = 4;
-                    const x = xAxis.getPixelForValue(activeIndex);
-                    const yTop = yAxis.getPixelForValue(chart.data.datasets[0].data[activeIndex]);
-                    const yBottom = yAxis.bottom;
+                plugins: [{
+                    id: 'verticalLine',
+                    beforeDraw: (chart) => {
+                        const ctx = chart.canvas.getContext('2d');
+                        const xAxis = chart.scales.x;
+                        const yAxis = chart.scales.y;
+                        
+                        const activeIndex = 4;
+                        const x = xAxis.getPixelForValue(activeIndex);
+                        const yTop = yAxis.getPixelForValue(chart.data.datasets[0].data[activeIndex]);
+                        const yBottom = yAxis.bottom;
 
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.moveTo(x, yTop);
-                    ctx.lineTo(x, yBottom);
-                    ctx.lineWidth = 1;
-                    ctx.strokeStyle = '#555555';
-                    ctx.setLineDash([5, 5]);
-                    ctx.stroke();
-                    ctx.restore();
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.moveTo(x, yTop);
+                        ctx.lineTo(x, yBottom);
+                        ctx.lineWidth = 1;
+                        ctx.strokeStyle = darkMode ? '#475569' : '#555555';
+                        ctx.setLineDash([5, 5]);
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+                }]
+            };
+        }
+
+        function initOrUpdateChart() {
+            const finalDarkMode = document.documentElement.classList.contains('dark');
+
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+            chartInstance = new Chart(ctx, getChartConfig(finalDarkMode));
+        }
+
+        initOrUpdateChart();
+        
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                if (mutation.attributeName === 'class') {
+                    initOrUpdateChart();
                 }
-            }]
-        };
-
-        new Chart(ctx, config);
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
     });
 </script>
 @endsection
