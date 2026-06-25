@@ -8,15 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#4A3A2A',
-        secondary: '#30251A',
-        accent: '#e2ddca',
-        grey: '#555555',
-        background: '#FCFCFC',
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        surface: 'var(--color-surface)',
+        grey: 'var(--color-grey)',
+        background: 'var(--color-background)',
+        'on-surface': 'var(--color-on-surface)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['"Crimson Pro"', 'serif'],
+        sans: ['"DM Sans"', 'sans-serif'],
+        serif: ['"DM Sans"', 'sans-serif'],
       }
     },
   },

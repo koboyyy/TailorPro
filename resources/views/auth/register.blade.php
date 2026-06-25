@@ -8,35 +8,60 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --color-primary: #4A3A2A;
+            --color-secondary: #30251A;
+            --color-accent: #E2DDCA;
+            --color-background: #FCFCFC;
+            --color-surface: #FFFFFF;
+            --color-text: #333333;
+            --color-on-surface: #333333;
+            --color-grey: #555555;
+        }
+        .dark {
+            --color-primary: #d5c4b4;
+            --color-secondary: #e4d9cd;
+            --color-accent: #35301d;
+            --color-background: #030303;
+            --color-surface: #131313;
+            --color-text: #cccccc;
+            --color-on-surface: #cccccc;
+            --color-grey: #555555;
+        }
+    </style>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#4A3A2A',
-                        secondary: '#30251A',
-                        accent: '#e2ddca',
-                        grey: '#555555',
-                        background: '#FCFCFC',
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        surface: 'var(--color-surface)',
+                        'on-surface': 'var(--color-on-surface)',
+                        grey: 'var(--color-grey)',
+                        background: 'var(--color-background)',
+                        text: 'var(--color-text)',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Crimson Pro"', 'serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        serif: ['"DM Sans"', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="h-full flex items-center justify-center bg-[#F4F1EA] dark:bg-slate-950 p-6 font-sans">
+<body class="h-full flex items-center justify-center bg-[#F4F1EA] dark:bg-background p-6 font-sans">
 
     <!-- Background Pattern/Circles -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -45,15 +70,15 @@
     </div>
 
     <!-- Register Container Card -->
-    <div class="relative z-10 w-full max-w-md bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-[#EFECE6] dark:border-slate-800/80 p-8 rounded-3xl shadow-[0_20px_50px_rgba(74,58,42,0.08)] transition-all duration-300">
+    <div class="relative z-10 w-full max-w-md bg-white/80 dark:bg-surface/80 backdrop-blur-md border border-[#EFECE6] dark:border-surface p-8 rounded-3xl shadow-[0_20px_50px_rgba(74,58,42,0.08)] transition-all duration-300">
         
         <!-- Logo & Title -->
         <div class="text-center mb-8">
             <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-accent shadow-lg shadow-primary/20 mb-4 animate-bounce">
                 <i class="fas fa-cut text-xl"></i>
             </div>
-            <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-2">Daftar Akun Baru</h1>
-            <p class="text-xs text-grey dark:text-slate-400 font-medium">Buat akun TailorPro Anda untuk mulai mencatat pesanan jahit</p>
+            <h1 class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-2">Daftar Akun Baru</h1>
+            <p class="text-xs text-grey dark:text-on-surface font-medium">Buat akun TailorPro Anda untuk mulai mencatat pesanan jahit</p>
         </div>
 
         <!-- Form -->
@@ -67,7 +92,7 @@
                     <span class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs">
                         <i class="fas fa-user"></i>
                     </span>
-                    <input type="text" id="name" name="name" value="{{ old('name') }}" required placeholder="Contoh: Ahmad Subagja" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                    <input type="text" id="name" name="name" value="{{ old('name') }}" required placeholder="Contoh: Ahmad Subagja" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                 </div>
                 @error('name')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
@@ -83,7 +108,7 @@
                     <span class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs">
                         <i class="fas fa-envelope"></i>
                     </span>
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" required placeholder="nama@email.com" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" required placeholder="nama@email.com" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                 </div>
                 @error('email')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
@@ -99,7 +124,7 @@
                     <span class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs">
                         <i class="fas fa-lock"></i>
                     </span>
-                    <input type="password" id="password" name="password" required placeholder="••••••••" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                    <input type="password" id="password" name="password" required placeholder="••••••••" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                 </div>
                 @error('password')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
@@ -115,14 +140,14 @@
                     <span class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs">
                         <i class="fas fa-shield-halved"></i>
                     </span>
-                    <input type="password" id="password_confirmation" name="password_confirmation" required placeholder="••••••••" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                    <input type="password" id="password_confirmation" name="password_confirmation" required placeholder="••••••••" class="w-full pl-10 pr-4 py-3.5 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
                 </div>
             </div>
 
             <!-- Terms and conditions checkbox -->
             <div class="flex items-start">
-                <input type="checkbox" id="terms" required class="w-4 h-4 mt-0.5 text-primary bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded focus:ring-primary focus:ring-offset-0 focus:outline-none cursor-pointer">
-                <label for="terms" class="ml-2 text-[10px] font-medium text-grey dark:text-slate-400 cursor-pointer select-none">Saya menyetujui seluruh <a href="#" class="font-bold text-primary dark:text-accent hover:underline">Ketentuan Layanan</a> & <a href="#" class="font-bold text-primary dark:text-accent hover:underline">Kebijakan Privasi</a></label>
+                <input type="checkbox" id="terms" required class="w-4 h-4 mt-0.5 text-primary bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded focus:ring-primary focus:ring-offset-0 focus:outline-none cursor-pointer">
+                <label for="terms" class="ml-2 text-[10px] font-medium text-grey dark:text-on-surface cursor-pointer select-none">Saya menyetujui seluruh <a href="#" class="font-bold text-primary dark:text-accent hover:underline">Ketentuan Layanan</a> & <a href="#" class="font-bold text-primary dark:text-accent hover:underline">Kebijakan Privasi</a></label>
             </div>
 
             <!-- Submit Button -->
@@ -135,14 +160,14 @@
         <!-- Divider -->
         <div class="relative flex items-center justify-center my-6">
             <div class="absolute inset-0 flex items-center">
-                <div class="w-full border-t border-[#EFECE6] dark:border-slate-800"></div>
+                <div class="w-full border-t border-[#EFECE6] dark:border-surface"></div>
             </div>
-            <span class="relative px-3 bg-white dark:bg-slate-900 text-[10px] font-bold text-gray-400 uppercase">atau</span>
+            <span class="relative px-3 bg-white dark:bg-surface text-[10px] font-bold text-gray-400 uppercase">atau</span>
         </div>
 
         <!-- Login Link -->
         <div class="text-center">
-            <p class="text-xs text-grey dark:text-slate-400 font-medium">
+            <p class="text-xs text-grey dark:text-on-surface font-medium">
                 Sudah punya akun TailorPro? 
                 <a href="/login" class="font-bold text-primary hover:text-secondary dark:text-accent dark:hover:text-accent/80 transition ml-0.5">Masuk di Sini</a>
             </p>

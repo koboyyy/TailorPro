@@ -15,12 +15,12 @@
 <!-- Header -->
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
     <div>
-        <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight">Hasilkan Pola Busana</h1>
-        <p class="text-xs text-grey dark:text-slate-400 font-medium">Hasilkan rancangan pola potongan busana secara otomatis berdasarkan ukuran pelanggan.</p>
+        <h1 class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-1 tracking-tight">Hasilkan Pola Busana</h1>
+        <p class="text-xs text-grey dark:text-on-surface font-medium">Hasilkan rancangan pola potongan busana secara otomatis berdasarkan ukuran pelanggan.</p>
     </div>
     
     <div class="flex items-center gap-3">
-        <button type="button" id="btn-save-draft" class="px-5 py-3 border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition shadow-sm active:scale-95">
+        <button type="button" id="btn-save-draft" class="px-5 py-3 border border-gray-200 dark:border-surface bg-white dark:bg-surface rounded-xl text-xs font-bold text-slate-700 dark:text-on-surface hover:bg-gray-50 dark:hover:bg-surface transition shadow-sm active:scale-95">
             Simpan Draf
         </button>
         <button type="button" id="btn-generate" class="flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-accent font-semibold text-xs px-5 py-3 rounded-xl shadow-lg shadow-primary/15 transition duration-200 active:scale-95">
@@ -33,8 +33,8 @@
 <!-- Main Designer Grid -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-8">
     <!-- PILIH JENIS BUSANA (2/3 width) -->
-    <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] h-full min-h-[260px]">
-        <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Pilih Jenis Busana</h3>
+    <div class="lg:col-span-2 bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] h-full min-h-[260px]">
+        <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Pilih Jenis Busana</h3>
         
         <div class="grid grid-cols-2 gap-4">
             <!-- Baju Button -->
@@ -44,28 +44,28 @@
             </button>
 
             <!-- Celana Button -->
-            <button type="button" data-type="CELANA" class="garment-type-card border border-[#EFECE6] dark:border-slate-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition hover:bg-gray-50 dark:hover:bg-slate-800 active:scale-95">
+            <button type="button" data-type="CELANA" class="garment-type-card border border-[#EFECE6] dark:border-surface p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition hover:bg-gray-50 dark:hover:bg-surface active:scale-95">
                 <i class="fa-solid fa-socks text-xl text-gray-400"></i>
-                <span class="text-xs font-bold text-gray-500 dark:text-slate-400">Celana</span>
+                <span class="text-xs font-bold text-gray-500 dark:text-on-surface">Celana</span>
             </button>
 
             <!-- Rok Button -->
-            <button type="button" data-type="ROK" class="garment-type-card border border-[#EFECE6] dark:border-slate-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition hover:bg-gray-50 dark:hover:bg-slate-800 active:scale-95">
+            <button type="button" data-type="ROK" class="garment-type-card border border-[#EFECE6] dark:border-surface p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition hover:bg-gray-50 dark:hover:bg-surface active:scale-95">
                 <i class="fa-solid fa-person-dress text-xl text-gray-400"></i>
-                <span class="text-xs font-bold text-gray-500 dark:text-slate-400">Rok</span>
+                <span class="text-xs font-bold text-gray-500 dark:text-on-surface">Rok</span>
             </button>
 
             <!-- Gamis Button -->
-            <button type="button" data-type="GAMIS" class="garment-type-card border border-[#EFECE6] dark:border-slate-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition hover:bg-gray-50 dark:hover:bg-slate-800 active:scale-95">
+            <button type="button" data-type="GAMIS" class="garment-type-card border border-[#EFECE6] dark:border-surface p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition hover:bg-gray-50 dark:hover:bg-surface active:scale-95">
                 <i class="fa-solid fa-user-group text-xl text-gray-400"></i>
-                <span class="text-xs font-bold text-gray-500 dark:text-slate-400">Gamis</span>
+                <span class="text-xs font-bold text-gray-500 dark:text-on-surface">Gamis</span>
             </button>
         </div>
     </div>
 
     <!-- PILIH PELANGGAN (1/3 width) -->
-    <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] h-full min-h-[260px] flex flex-col">
-        <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Pilih Pelanggan</h3>
+    <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] h-full min-h-[260px] flex flex-col">
+        <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Pilih Pelanggan</h3>
         
         <div class="space-y-4 flex-1 flex flex-col justify-between">
             <!-- Search Container -->
@@ -73,20 +73,20 @@
                 <span class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs">
                     <i class="fas fa-search"></i>
                 </span>
-                <input type="text" id="customer-search-input" placeholder="Cari nama atau ID..." class="w-full pl-10 pr-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                <input type="text" id="customer-search-input" placeholder="Cari nama atau ID..." class="w-full pl-10 pr-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                 
                 <!-- Dropdown Search Results -->
-                <div id="customer-search-results" class="hidden absolute left-0 right-0 mt-2 bg-white dark:bg-slate-850 border border-gray-100 dark:border-slate-700 rounded-2xl shadow-xl py-1.5 max-h-40 overflow-y-auto z-40">
+                <div id="customer-search-results" class="hidden absolute left-0 right-0 mt-2 bg-white dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl shadow-xl py-1.5 max-h-40 overflow-y-auto z-40">
                     <!-- Populated by JS -->
                 </div>
             </div>
 
             <!-- Selected Customer Profile Card -->
-            <div id="selected-customer-card" class="flex items-center justify-between p-3.5 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-700 rounded-2xl">
+            <div id="selected-customer-card" class="flex items-center justify-between p-3.5 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl">
                 <div class="flex items-center gap-3">
                     <div id="selected-customer-avatar" class="w-10 h-10 rounded-full font-bold text-sm flex items-center justify-center text-white bg-primary">AS</div>
                     <div>
-                        <span id="selected-customer-name" class="block text-sm font-bold text-slate-800 dark:text-slate-100">Ahmad Subagja</span>
+                        <span id="selected-customer-name" class="block text-sm font-bold text-slate-800 dark:text-on-surface">Ahmad Subagja</span>
                         <span id="selected-customer-id" class="block text-[9px] text-gray-400 mt-0.5">ID #T-2204</span>
                     </div>
                 </div>
@@ -96,12 +96,12 @@
             </div>
 
             <!-- Detail Ukuran Mini Summary -->
-            <div class="pt-3 border-t border-[#EFECE6]/80 dark:border-slate-800/80 mt-auto">
+            <div class="pt-3 border-t border-[#EFECE6]/80 dark:border-surface mt-auto">
                 <div class="flex justify-between items-center mb-3">
                     <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Detail Ukuran</span>
                     <button type="button" onclick="showFullSizesModal()" class="text-[9px] font-extrabold text-primary hover:text-secondary uppercase tracking-wider">Lihat Selengkapnya</button>
                 </div>
-                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-[11px] font-medium text-slate-700 dark:text-slate-300">
+                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-[11px] font-medium text-slate-700 dark:text-on-surface">
                     <div class="flex justify-between">
                         <span class="text-gray-400">Lingkar Dada</span>
                         <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-dada">96 cm</span>
@@ -125,35 +125,35 @@
 </div>
 
 <!-- PREVIEW POLA TEKNIS (Full Width) -->
-<div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] mb-8">
+<div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] mb-8">
     <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2">
-            <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">A</span>
+            <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">A</span>
             <div>
-                <h3 class="text-sm font-bold tracking-tight text-slate-800 dark:text-white">Preview Pola Teknis</h3>
+                <h3 class="text-sm font-bold tracking-tight text-slate-800 dark:text-on-surface">Preview Pola Teknis</h3>
                 <p class="text-[10px] text-gray-400">Draf Otomatis</p>
             </div>
         </div>
         
         <!-- Action Buttons -->
         <div class="flex items-center gap-1.5">
-            <button type="button" onclick="zoomIn()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perbesar">
+            <button type="button" onclick="zoomIn()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perbesar">
                 <i class="fas fa-search-plus text-xs"></i>
             </button>
-            <button type="button" onclick="zoomOut()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perkecil">
+            <button type="button" onclick="zoomOut()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perkecil">
                 <i class="fas fa-search-minus text-xs"></i>
             </button>
-            <button type="button" onclick="printPattern()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Cetak Pola">
+            <button type="button" onclick="printPattern()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Cetak Pola">
                 <i class="fas fa-print text-xs"></i>
             </button>
-            <button type="button" onclick="downloadSVG()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Unduh SVG">
+            <button type="button" onclick="downloadSVG()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Unduh SVG">
                 <i class="fas fa-download text-xs"></i>
             </button>
         </div>
     </div>
 
     <!-- Blueprint Canvas -->
-    <div class="blueprint-canvas-container relative w-full h-[450px] rounded-2xl overflow-hidden border border-[#EFECE6] dark:border-slate-800 flex items-center justify-center bg-[#FCFCFC] dark:bg-slate-950">
+    <div class="blueprint-canvas-container relative w-full h-[450px] rounded-2xl overflow-hidden border border-[#EFECE6] dark:border-surface flex items-center justify-center bg-[#FCFCFC] dark:bg-background">
         <!-- Grid overlay -->
         <div class="absolute inset-0 blueprint-grid opacity-70"></div>
         
@@ -171,18 +171,18 @@
 </div>
 
 <!-- ESTIMASI KAIN -->
-<div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-    <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-3 uppercase">Estimasi Kain Yang Terpakai</h3>
-    <div class="py-4 px-5 bg-gray-50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-sm font-black text-slate-800 dark:text-white tracking-wider" id="fabric-estimation">
+<div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+    <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-3 uppercase">Estimasi Kain Yang Terpakai</h3>
+    <div class="py-4 px-5 bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-sm font-black text-slate-800 dark:text-on-surface tracking-wider" id="fabric-estimation">
         3 METER
     </div>
 </div>
 
 <!-- Modals Detail Ukuran Lengkap -->
 <div id="sizes-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm hidden transition-all duration-300">
-    <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="sizes-modal-container">
-        <div class="px-6 py-5 border-b border-[#EFECE6]/80 dark:border-slate-800/80 flex justify-between items-center">
-            <h3 class="font-serif text-lg font-bold text-primary dark:text-white">Profil Ukuran Lengkap</h3>
+    <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="sizes-modal-container">
+        <div class="px-6 py-5 border-b border-[#EFECE6]/80 dark:border-surface flex justify-between items-center">
+            <h3 class="font-serif text-lg font-bold text-primary dark:text-on-surface">Profil Ukuran Lengkap</h3>
             <button type="button" class="text-gray-400 hover:text-gray-600 dark:hover:text-white transition" onclick="closeSizesModal()">
                 <i class="fas fa-times"></i>
             </button>
@@ -190,7 +190,7 @@
         <div class="p-6 space-y-4 max-h-[350px] overflow-y-auto" id="sizes-modal-content">
             <!-- Rendered by JS -->
         </div>
-        <div class="px-6 py-4 border-t border-[#EFECE6]/80 dark:border-slate-800/80 flex justify-end bg-gray-50/50 dark:bg-slate-850">
+        <div class="px-6 py-4 border-t border-[#EFECE6]/80 dark:border-surface flex justify-end bg-gray-50/50 dark:bg-surface">
             <button type="button" class="px-5 py-2.5 bg-primary text-accent text-xs font-bold rounded-xl shadow transition active:scale-95" onclick="closeSizesModal()">Tutup</button>
         </div>
     </div>
@@ -296,24 +296,24 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function() {
             document.querySelectorAll('.garment-type-card').forEach(c => {
                 c.classList.remove('border-primary', 'bg-primary/5');
-                c.classList.add('border-[#EFECE6]', 'dark:border-slate-800');
+                c.classList.add('border-[#EFECE6]', 'dark:border-surface');
                 // restore icon/text gray colors
                 const icon = c.querySelector('i');
                 const text = c.querySelector('span');
                 if (icon) icon.className = icon.className.replace('text-primary dark:text-accent', 'text-gray-400');
                 if (text) {
                     text.classList.remove('text-primary', 'dark:text-accent');
-                    text.classList.add('text-gray-500', 'dark:text-slate-400');
+                    text.classList.add('text-gray-500', 'dark:text-on-surface');
                 }
             });
 
-            this.classList.remove('border-[#EFECE6]', 'dark:border-slate-800');
+            this.classList.remove('border-[#EFECE6]', 'dark:border-surface');
             this.classList.add('border-primary', 'bg-primary/5');
             const activeIcon = this.querySelector('i');
             const activeText = this.querySelector('span');
             if (activeIcon) activeIcon.className = activeIcon.className.replace('text-gray-400', 'text-primary dark:text-accent');
             if (activeText) {
-                activeText.classList.remove('text-gray-500', 'dark:text-slate-400');
+                activeText.classList.remove('text-gray-500', 'dark:text-on-surface');
                 activeText.classList.add('text-primary', 'dark:text-accent');
             }
 
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 customerSearchResults.innerHTML = `<div class="px-4 py-2 text-xs text-gray-400">Tidak ada pelanggan ditemukan</div>`;
             } else {
                 customerSearchResults.innerHTML = matched.map(c => `
-                    <button type="button" class="w-full text-left px-4 py-2 text-xs text-slate-800 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 flex items-center gap-2" onclick="selectCustomer(${c.id})">
+                    <button type="button" class="w-full text-left px-4 py-2 text-xs text-slate-800 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-surface flex items-center gap-2" onclick="selectCustomer(${c.id})">
                         <span class="w-5 h-5 rounded-full ${c.avatarBg} font-bold text-[9px] flex items-center justify-center">${c.initials}</span>
                         <span>${c.name} (${c.code})</span>
                     </button>
@@ -389,9 +389,9 @@ document.addEventListener('DOMContentLoaded', function() {
         content.innerHTML = `
             <div class="divide-y divide-[#EFECE6]/80 dark:divide-slate-800">
                 ${metrics.map(m => `
-                    <div class="flex justify-between py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    <div class="flex justify-between py-2.5 text-xs font-semibold text-slate-700 dark:text-on-surface">
                         <span class="text-gray-400">${m.label}</span>
-                        <span class="font-bold text-slate-800 dark:text-white">${m.val} ${m.val !== "-" ? "cm" : ""}</span>
+                        <span class="font-bold text-slate-800 dark:text-on-surface">${m.val} ${m.val !== "-" ? "cm" : ""}</span>
                     </div>
                 `).join('')}
             </div>

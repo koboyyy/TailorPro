@@ -19,8 +19,8 @@
     <!-- Title & Add Button Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-            <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight">Pesanan</h1>
-            <p class="text-xs text-grey dark:text-slate-400 font-medium">Kelola dan pantau setiap tahapan produksi busana pelanggan Anda.</p>
+            <h1 class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-1 tracking-tight">Pesanan</h1>
+            <p class="text-xs text-grey dark:text-on-surface font-medium">Kelola dan pantau setiap tahapan produksi busana pelanggan Anda.</p>
         </div>
         
         <a href="#tambah" class="flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-accent font-semibold text-xs px-5 py-3 rounded-xl shadow-lg shadow-primary/15 transition duration-200 group active:scale-95">
@@ -30,33 +30,33 @@
     </div>
 
     <!-- Status Tabs Filter -->
-    <div class="flex flex-wrap gap-2 mb-6 border-b border-[#EFECE6]/70 dark:border-slate-800/70 pb-5">
+    <div class="flex flex-wrap gap-2 mb-6 border-b border-[#EFECE6]/70 dark:border-surface pb-5">
         <button data-status="Semua" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-primary text-primary transition duration-150 active-tab font-medium">
             Semua <span class="font-bold text-[10px] ml-1" id="count-semua">4</span>
         </button>
-        <button data-status="MENUNGGU" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-slate-800 transition duration-150 font-medium">
+        <button data-status="MENUNGGU" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-surface transition duration-150 font-medium">
             Menunggu <span class="font-bold text-[10px] ml-1" id="count-menunggu">1</span>
         </button>
-        <button data-status="PEMOTONGAN" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-slate-800 transition duration-150 font-medium">
+        <button data-status="PEMOTONGAN" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-surface transition duration-150 font-medium">
             Pemotongan <span class="font-bold text-[10px] ml-1" id="count-pemotongan">1</span>
         </button>
-        <button data-status="PENJAHITAN" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-slate-800 transition duration-150 font-medium">
+        <button data-status="PENJAHITAN" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-surface transition duration-150 font-medium">
             Penjahitan <span class="font-bold text-[10px] ml-1" id="count-penjahitan">1</span>
         </button>
-        <button data-status="PENYELESAIAN" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-slate-800 transition duration-150 font-medium">
+        <button data-status="PENYELESAIAN" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-surface transition duration-150 font-medium">
             Penyelesaian <span class="font-bold text-[10px] ml-1" id="count-penyelesaian">1</span>
         </button>
-        <button data-status="SELESAI" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-slate-800 transition duration-150 font-medium">
+        <button data-status="SELESAI" class="status-tab px-4 py-2 text-xs font-semibold rounded-full border border-transparent text-grey hover:bg-gray-100 dark:hover:bg-surface transition duration-150 font-medium">
             Selesai <span class="font-bold text-[10px] ml-1" id="count-selesai">0</span>
         </button>
     </div>
 
     <!-- Main Table Container -->
-    <div class="bg-white dark:bg-slate-900 rounded-3xl border border-[#EFECE6] dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
+    <div class="bg-white dark:bg-surface rounded-3xl border border-[#EFECE6] dark:border-surface shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
         <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
                 <thead>
-                    <tr class="bg-white dark:bg-slate-800/30 border-b border-[#EFECE6]/80 dark:border-slate-800/80 text-[10px] font-bold tracking-wider text-gray-400 dark:text-slate-400 uppercase">
+                    <tr class="bg-white dark:bg-surface border-b border-[#EFECE6]/80 dark:border-surface text-[10px] font-bold tracking-wider text-gray-400 dark:text-on-surface uppercase">
                         <th class="px-8 py-5">PELANGGAN & PESANAN</th>
                         <th class="px-8 py-5">TENGGAT WAKTU</th>
                         <th class="px-8 py-5">PROGRES PRODUKSI</th>
@@ -71,21 +71,21 @@
 
         <!-- Empty State -->
         <div id="empty-state" class="hidden py-16 px-6 text-center">
-            <div class="w-16 h-16 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center mx-auto mb-4 text-gray-400">
+            <div class="w-16 h-16 rounded-full bg-slate-50 dark:bg-surface flex items-center justify-center mx-auto mb-4 text-gray-400">
                 <i class="fas fa-search text-xl"></i>
             </div>
-            <h4 class="text-sm font-semibold text-slate-800 dark:text-white mb-1">Pesanan Tidak Ditemukan</h4>
-            <p class="text-xs text-gray-500 dark:text-slate-400 max-w-xs mx-auto">Tidak ada data pesanan yang cocok dengan kriteria Anda.</p>
+            <h4 class="text-sm font-semibold text-slate-800 dark:text-on-surface mb-1">Pesanan Tidak Ditemukan</h4>
+            <p class="text-xs text-gray-500 dark:text-on-surface max-w-xs mx-auto">Tidak ada data pesanan yang cocok dengan kriteria Anda.</p>
         </div>
 
         <!-- Pagination Footer -->
-        <div class="px-8 py-5 border-t dark:bg-slate-900 border-[#EFECE6]/80 dark:border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/50">
+        <div class="px-8 py-5 border-t dark:bg-surface border-[#EFECE6]/80 dark:border-surface flex flex-col md:flex-row items-center justify-between gap-4 bg-white/50">
             <span class="text-[11px] text-gray-400 font-medium" id="pagination-info">
                 Menampilkan 1-4 dari 24 pesanan aktif
             </span>
 
             <div class="flex items-center gap-1.5">
-                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-800 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-200 transition shadow-sm">
+                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-surface bg-white dark:bg-surface text-gray-400 hover:bg-gray-50 dark:hover:bg-surface hover:border-gray-200 transition shadow-sm">
                     <i class="fas fa-chevron-left text-[9px]"></i>
                 </button>
 
@@ -93,15 +93,15 @@
                     1
                 </button>
 
-                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-800 text-gray-500 dark:text-slate-300 text-xs font-bold hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-200 transition shadow-sm">
+                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-surface bg-white dark:bg-surface text-gray-500 dark:text-on-surface text-xs font-bold hover:bg-gray-50 dark:hover:bg-surface hover:border-gray-200 transition shadow-sm">
                     2
                 </button>
 
-                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-800 text-gray-500 dark:text-slate-300 text-xs font-bold hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-200 transition shadow-sm">
+                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-surface bg-white dark:bg-surface text-gray-500 dark:text-on-surface text-xs font-bold hover:bg-gray-50 dark:hover:bg-surface hover:border-gray-200 transition shadow-sm">
                     3
                 </button>
 
-                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-800 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-200 transition shadow-sm">
+                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-surface bg-white dark:bg-surface text-gray-400 hover:bg-gray-50 dark:hover:bg-surface hover:border-gray-200 transition shadow-sm">
                     <i class="fas fa-chevron-right text-[9px]"></i>
                 </button>
             </div>
@@ -114,8 +114,8 @@
 <!-- ========================================================== -->
 <div id="view-form" class="hidden space-y-6">
     <div class="mb-6">
-        <h1 id="form-title" class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight">Tambah Pesanan Baru</h1>
-        <p id="form-subtitle" class="text-xs text-grey dark:text-slate-400 font-medium">Lengkapi profil pesanan baju pelanggan</p>
+        <h1 id="form-title" class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-1 tracking-tight">Tambah Pesanan Baru</h1>
+        <p id="form-subtitle" class="text-xs text-grey dark:text-on-surface font-medium">Lengkapi profil pesanan baju pelanggan</p>
     </div>
 
     <form id="order-form" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -125,9 +125,9 @@
         <div class="lg:col-span-2 space-y-6">
             
             <!-- PILIH PELANGGAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white uppercase">Pilih Pelanggan</h3>
+                    <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface uppercase">Pilih Pelanggan</h3>
                     <button type="button" onclick="openQuickCustomerModal()" class="text-xs text-primary dark:text-accent hover:text-secondary dark:hover:text-accent/80 font-bold flex items-center gap-1.5 transition">
                         <i class="fas fa-plus-circle text-xs"></i>
                         <span>Pelanggan Baru</span>
@@ -140,20 +140,20 @@
                         <span class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs">
                             <i class="fas fa-search"></i>
                         </span>
-                        <input type="text" id="customer-search-input" placeholder="Cari nama atau ID..." class="w-full pl-10 pr-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                        <input type="text" id="customer-search-input" placeholder="Cari nama atau ID..." class="w-full pl-10 pr-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                         
                         <!-- Search Results Dropdown -->
-                        <div id="customer-search-results" class="hidden absolute left-0 right-0 mt-2 bg-white dark:bg-slate-850 border border-gray-100 dark:border-slate-700 rounded-2xl shadow-xl py-1.5 max-h-48 overflow-y-auto z-40">
+                        <div id="customer-search-results" class="hidden absolute left-0 right-0 mt-2 bg-white dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl shadow-xl py-1.5 max-h-48 overflow-y-auto z-40">
                             <!-- Populated by JS -->
                         </div>
                     </div>
 
                     <!-- Selected Customer Card -->
-                    <div id="selected-customer-display" class="hidden flex items-center justify-between p-4 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-700 rounded-2xl">
+                    <div id="selected-customer-display" class="hidden flex items-center justify-between p-4 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl">
                         <div class="flex items-center gap-3">
                             <div id="selected-customer-avatar" class="w-10 h-10 rounded-full font-bold text-sm flex items-center justify-center text-white">S</div>
                             <div>
-                                <span id="selected-customer-name" class="block text-sm font-bold text-slate-800 dark:text-slate-100">Siti Aminah</span>
+                                <span id="selected-customer-name" class="block text-sm font-bold text-slate-800 dark:text-on-surface">Siti Aminah</span>
                                 <span class="block text-[10px] text-gray-400">Profil Pelanggan Terpilih</span>
                             </div>
                         </div>
@@ -163,32 +163,32 @@
             </div>
 
             <!-- DETAIL PESANAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Detail Pesanan</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Detail Pesanan</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Jenis Pesanan -->
                     <div class="md:col-span-1">
                         <label for="input-type" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Jenis Pesanan</label>
-                        <input type="text" id="input-type" required placeholder="Gamis Syar'i" class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                        <input type="text" id="input-type" required placeholder="Gamis Syar'i" class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                     </div>
 
                     <!-- Jumlah Pesanan -->
                     <div>
                         <label for="input-quantity" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Jumlah Pesanan</label>
-                        <input type="number" id="input-quantity" value="1" required class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                        <input type="number" id="input-quantity" value="1" required class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                     </div>
 
                     <!-- Tanggal Masuk -->
                     <div>
                         <label for="input-start-date" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Tanggal Masuk</label>
-                        <input type="date" id="input-start-date" required class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                        <input type="date" id="input-start-date" required class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                     </div>
 
                     <!-- Tenggat Waktu -->
                     <div>
                         <label for="input-deadline" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Tenggat Waktu</label>
-                        <input type="date" id="input-deadline" required class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                        <input type="date" id="input-deadline" required class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                     </div>
 
                     <!-- Harga -->
@@ -196,22 +196,22 @@
                         <label for="input-price" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Harga</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-4 flex items-center text-xs font-semibold text-gray-400">Rp</span>
-                            <input type="text" id="input-price" required placeholder="250.000" class="w-full pl-10 pr-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="text" id="input-price" required placeholder="250.000" class="w-full pl-10 pr-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- DETAIL PENGUKURAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Detail Pengukuran</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Detail Pengukuran</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Lingkar Badan -->
                     <div>
                         <label for="input-l-badan" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Badan</label>
                         <div class="relative">
-                            <input type="number" id="input-l-badan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-l-badan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -220,7 +220,7 @@
                     <div>
                         <label for="input-l-pinggang" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggang</label>
                         <div class="relative">
-                            <input type="number" id="input-l-pinggang" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-l-pinggang" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                     <div>
                         <label for="input-l-punggung" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Punggung</label>
                         <div class="relative">
-                            <input type="number" id="input-l-punggung" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-l-punggung" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                     <div>
                         <label for="input-p-bahu" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Bahu</label>
                         <div class="relative">
-                            <input type="number" id="input-p-bahu" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-p-bahu" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -247,7 +247,7 @@
                     <div>
                         <label for="input-p-lengan" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Lengan</label>
                         <div class="relative">
-                            <input type="number" id="input-p-lengan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-p-lengan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -256,7 +256,7 @@
                     <div>
                         <label for="input-l-lengan" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Lengan</label>
                         <div class="relative">
-                            <input type="number" id="input-l-lengan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-l-lengan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                     <div>
                         <label for="input-t-susu" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Susu</label>
                         <div class="relative">
-                            <input type="number" id="input-t-susu" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-t-susu" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -274,7 +274,7 @@
                     <div>
                         <label for="input-t-pinggang" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Pinggang</label>
                         <div class="relative">
-                            <input type="number" id="input-t-pinggang" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-t-pinggang" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -283,7 +283,7 @@
                     <div>
                         <label for="input-l-pinggul" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggul</label>
                         <div class="relative">
-                            <input type="number" id="input-l-pinggul" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-l-pinggul" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -292,7 +292,7 @@
                     <div>
                         <label for="input-p-baju" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Baju</label>
                         <div class="relative">
-                            <input type="number" id="input-p-baju" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="number" id="input-p-baju" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -301,7 +301,7 @@
                     <div>
                         <label for="input-p-rok" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Rok</label>
                         <div class="relative">
-                            <input type="text" id="input-p-rok" placeholder="-" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                            <input type="text" id="input-p-rok" placeholder="-" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -312,13 +312,13 @@
         <!-- Right Side: References (1 Column wide) -->
         <div class="space-y-6">
             <!-- FOTO REFERENSI -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Foto Referensi</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Foto Referensi</h3>
                 
-                <div id="image-dropzone" class="border border-dashed border-[#EFECE6] dark:border-slate-800 rounded-2xl p-6 text-center cursor-pointer hover:border-primary dark:hover:border-slate-500 transition min-h-[220px] flex flex-col justify-center items-center">
+                <div id="image-dropzone" class="border border-dashed border-[#EFECE6] dark:border-surface rounded-2xl p-6 text-center cursor-pointer hover:border-primary dark:hover:border-slate-500 transition min-h-[220px] flex flex-col justify-center items-center">
                     <input type="file" id="form-photo-input" class="hidden" accept="image/*">
                     <div id="upload-prompt" class="space-y-3">
-                        <div class="w-12 h-12 rounded-full bg-gray-50 dark:bg-slate-800 flex items-center justify-center mx-auto text-gray-400">
+                        <div class="w-12 h-12 rounded-full bg-gray-50 dark:bg-surface flex items-center justify-center mx-auto text-gray-400">
                             <i class="fa-regular fa-image text-lg"></i>
                         </div>
                         <div>
@@ -326,19 +326,19 @@
                             <p class="text-[10px] text-gray-400 mt-1">PNG, JPG atau WEBP (Maksimal. 5mb)</p>
                         </div>
                     </div>
-                    <img id="form-photo-preview" class="hidden w-full max-h-56 object-cover rounded-xl mt-2 border border-gray-100 dark:border-slate-800">
+                    <img id="form-photo-preview" class="hidden w-full max-h-56 object-cover rounded-xl mt-2 border border-gray-100 dark:border-surface">
                 </div>
             </div>
 
             <!-- CATATAN TAMBAHAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Catatan Tambahan</h3>
-                <textarea id="input-notes" rows="4" class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" placeholder="Tidak ada catatan tambahan"></textarea>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Catatan Tambahan</h3>
+                <textarea id="input-notes" rows="4" class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition" placeholder="Tidak ada catatan tambahan"></textarea>
             </div>
 
             <!-- Action buttons in Sidebar -->
             <div class="flex items-center gap-3 pt-2">
-                <a href="#list" class="flex-1 text-center py-3 border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition shadow-sm">Batal</a>
+                <a href="#list" class="flex-1 text-center py-3 border border-gray-200 dark:border-surface bg-white dark:bg-surface rounded-xl text-xs font-bold text-slate-700 dark:text-on-surface hover:bg-gray-50 dark:hover:bg-surface transition shadow-sm">Batal</a>
                 <button type="submit" class="flex-1 flex items-center justify-center gap-2 py-3 bg-primary hover:bg-secondary text-accent font-bold text-xs rounded-xl shadow-lg shadow-primary/10 transition duration-200"><i class="fas fa-save"></i> Simpan Pesanan</button>
             </div>
         </div>
@@ -351,11 +351,11 @@
 <div id="view-detail" class="hidden space-y-6">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-            <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight">Detail Pesanan</h1>
-            <p class="text-xs text-grey dark:text-slate-400 font-medium">Kelola informasi pelanggan dan progres produksi pesanan pelanggan.</p>
+            <h1 class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-1 tracking-tight">Detail Pesanan</h1>
+            <p class="text-xs text-grey dark:text-on-surface font-medium">Kelola informasi pelanggan dan progres produksi pesanan pelanggan.</p>
         </div>
         
-        <a href="#list" class="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition shadow-sm">
+        <a href="#list" class="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-200 dark:border-surface bg-white dark:bg-surface rounded-xl text-xs font-bold text-slate-700 dark:text-on-surface hover:bg-gray-50 dark:hover:bg-surface transition shadow-sm">
             <i class="fas fa-arrow-left"></i> Kembali
         </a>
     </div>
@@ -365,14 +365,14 @@
         <div class="lg:col-span-2 space-y-6">
             
             <!-- PELANGGAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Pelanggan</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Pelanggan</h3>
                 
-                <div class="flex items-center justify-between p-4 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-700 rounded-2xl">
+                <div class="flex items-center justify-between p-4 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl">
                     <div class="flex items-center gap-3">
                         <div id="detail-customer-avatar" class="w-10 h-10 rounded-full font-bold text-sm flex items-center justify-center text-white bg-primary">S</div>
                         <div>
-                            <span id="detail-customer-name" class="block text-sm font-bold text-slate-800 dark:text-slate-100">Siti Aminah</span>
+                            <span id="detail-customer-name" class="block text-sm font-bold text-slate-800 dark:text-on-surface">Siti Aminah</span>
                             <span class="block text-[10px] text-gray-400">Profil Pelanggan</span>
                         </div>
                     </div>
@@ -383,15 +383,15 @@
             </div>
 
             <!-- DETAIL PENGUKURAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Detail Pengukuran</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Detail Pengukuran</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Lingkar Badan -->
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Badan</span>
                         <div class="relative">
-                            <input type="text" id="detail-l-badan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-l-badan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -400,7 +400,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggang</span>
                         <div class="relative">
-                            <input type="text" id="detail-l-pinggang" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-l-pinggang" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -409,7 +409,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Punggung</span>
                         <div class="relative">
-                            <input type="text" id="detail-l-punggung" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-l-punggung" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -418,7 +418,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Bahu</span>
                         <div class="relative">
-                            <input type="text" id="detail-p-bahu" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-p-bahu" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -427,7 +427,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Lengan</span>
                         <div class="relative">
-                            <input type="text" id="detail-p-lengan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-855 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-p-lengan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-855 border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -436,7 +436,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Lengan</span>
                         <div class="relative">
-                            <input type="text" id="detail-l-lengan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-l-lengan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -445,7 +445,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Susu</span>
                         <div class="relative">
-                            <input type="text" id="detail-t-susu" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-t-susu" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -454,7 +454,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Pinggang</span>
                         <div class="relative">
-                            <input type="text" id="detail-t-pinggang" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-t-pinggang" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -463,7 +463,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggul</span>
                         <div class="relative">
-                            <input type="text" id="detail-l-pinggul" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-l-pinggul" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -472,7 +472,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Baju</span>
                         <div class="relative">
-                            <input type="text" id="detail-p-baju" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-p-baju" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -481,7 +481,7 @@
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Rok</span>
                         <div class="relative">
-                            <input type="text" id="detail-p-rok" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300">
+                            <input type="text" id="detail-p-rok" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface">
                             <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
@@ -489,37 +489,37 @@
             </div>
 
             <!-- DETAIL PESANAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Detail Pesanan</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Detail Pesanan</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Jenis Pesanan</span>
-                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-slate-850 rounded-2xl border border-gray-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-type">Gamis Syar'i</div>
+                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-surface rounded-2xl border border-gray-100 dark:border-surface text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-type">Gamis Syar'i</div>
                     </div>
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Jumlah Pesanan</span>
-                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-slate-850 rounded-2xl border border-gray-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-quantity">1</div>
+                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-surface rounded-2xl border border-gray-100 dark:border-surface text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-quantity">1</div>
                     </div>
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Tanggal Masuk</span>
-                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-slate-850 rounded-2xl border border-gray-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-start-date">17 Agustus 2026</div>
+                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-surface rounded-2xl border border-gray-100 dark:border-surface text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-start-date">17 Agustus 2026</div>
                     </div>
                     <div>
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Tenggat Waktu</span>
-                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-slate-850 rounded-2xl border border-gray-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-deadline">25 Agustus 2026</div>
+                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-surface rounded-2xl border border-gray-100 dark:border-surface text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-deadline">25 Agustus 2026</div>
                     </div>
                     <div class="md:col-span-1">
                         <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Harga</span>
-                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-slate-850 rounded-2xl border border-gray-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-price">Rp250.000</div>
+                        <div class="py-3 px-4 bg-gray-50/50 dark:bg-surface rounded-2xl border border-gray-100 dark:border-surface text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-display-price">Rp250.000</div>
                     </div>
                 </div>
             </div>
 
             <!-- CATATAN TAMBAHAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Catatan Tambahan</h3>
-                <div class="py-4 px-4 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-gray-600 dark:text-slate-300" id="detail-display-notes">
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Catatan Tambahan</h3>
+                <div class="py-4 px-4 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-xs text-gray-600 dark:text-on-surface" id="detail-display-notes">
                     Tidak ada catatan tambahan
                 </div>
             </div>
@@ -528,21 +528,21 @@
         <!-- Right Side: Status Progress & History Timeline (1 Column wide) -->
         <div class="space-y-6">
             <!-- FOTO REFERENSI -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Foto Referensi</h3>
-                <div class="relative overflow-hidden rounded-2xl border border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-850 min-h-[220px] flex items-center justify-center">
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Foto Referensi</h3>
+                <div class="relative overflow-hidden rounded-2xl border border-gray-100 dark:border-surface bg-gray-50 dark:bg-surface min-h-[220px] flex items-center justify-center">
                     <img id="detail-photo-preview" src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400" alt="Foto Referensi" class="w-full max-h-72 object-cover">
                 </div>
             </div>
 
             <!-- UPDATE STATUS PENGERJAAN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Update Status Pengerjaan</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Update Status Pengerjaan</h3>
                 
                 <div class="space-y-4">
                     <div>
                         <label for="detail-update-status" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Jumlah Pesanan Status</label>
-                        <select id="detail-update-status" class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                        <select id="detail-update-status" class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                             <option value="MENUNGGU">Menunggu</option>
                             <option value="PEMOTONGAN">Pemotongan</option>
                             <option value="PENJAHITAN">Penjahitan</option>
@@ -556,7 +556,7 @@
                             <label for="detail-update-progress" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400">PROGRESS</label>
                             <span class="text-xs font-bold text-slate-800 dark:text-slate-200" id="detail-update-progress-label">65%</span>
                         </div>
-                        <input type="range" id="detail-update-progress" min="0" max="100" class="w-full h-1 bg-gray-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary">
+                        <input type="range" id="detail-update-progress" min="0" max="100" class="w-full h-1 bg-gray-200 dark:bg-surface rounded-lg appearance-none cursor-pointer accent-primary">
                     </div>
 
                     <button type="button" onclick="updateOrderStatus()" class="w-full flex items-center justify-center gap-2 py-3 bg-primary hover:bg-secondary text-accent font-bold text-xs rounded-xl shadow-lg transition duration-200">
@@ -566,10 +566,10 @@
             </div>
 
             <!-- RIWAYAT STATUS -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Riwayat Status</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Riwayat Status</h3>
                 
-                <div class="relative border-l-2 border-gray-100 dark:border-slate-800 ml-2 pl-4 space-y-6" id="detail-timeline">
+                <div class="relative border-l-2 border-gray-100 dark:border-surface ml-2 pl-4 space-y-6" id="detail-timeline">
                     <!-- Timeline items loaded dynamically -->
                 </div>
 
@@ -583,9 +583,9 @@
 
 <!-- Modal Quick Add Customer -->
 <div id="quick-customer-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm hidden transition-all duration-300">
-    <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="quick-customer-modal-container">
-        <div class="px-6 py-5 border-b border-[#EFECE6]/80 dark:border-slate-800/80 flex justify-between items-center">
-            <h3 class="font-serif text-lg font-bold text-primary dark:text-white">Tambah Pelanggan Baru</h3>
+    <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="quick-customer-modal-container">
+        <div class="px-6 py-5 border-b border-[#EFECE6]/80 dark:border-surface flex justify-between items-center">
+            <h3 class="font-serif text-lg font-bold text-primary dark:text-on-surface">Tambah Pelanggan Baru</h3>
             <button type="button" class="text-gray-400 hover:text-gray-600 dark:hover:text-white transition" onclick="closeQuickCustomerModal()">
                 <i class="fas fa-times"></i>
             </button>
@@ -594,19 +594,19 @@
             <div class="p-6 space-y-4">
                 <div>
                     <label for="quick-customer-name" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Nama Lengkap</label>
-                    <input type="text" id="quick-customer-name" required placeholder="Contoh: Siti Aminah" class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                    <input type="text" id="quick-customer-name" required placeholder="Contoh: Siti Aminah" class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                 </div>
                 <div>
                     <label for="quick-customer-phone" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">No. Telepon / WhatsApp</label>
-                    <input type="tel" id="quick-customer-phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition">
+                    <input type="tel" id="quick-customer-phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition">
                 </div>
                 <div>
                     <label for="quick-customer-address" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Alamat</label>
-                    <textarea id="quick-customer-address" rows="3" placeholder="Alamat lengkap pelanggan..." class="w-full px-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition resize-none"></textarea>
+                    <textarea id="quick-customer-address" rows="3" placeholder="Alamat lengkap pelanggan..." class="w-full px-4 py-3 bg-background dark:bg-surface border border-[#EFECE6]/80 dark:border-surface rounded-2xl text-xs text-secondary dark:text-on-surface focus:outline-none focus:border-primary transition resize-none"></textarea>
                 </div>
             </div>
-            <div class="px-6 py-4 border-t border-[#EFECE6]/80 dark:border-slate-800/80 flex justify-end gap-3 bg-gray-50/50 dark:bg-slate-850">
-                <button type="button" class="px-5 py-2.5 border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition active:scale-95" onclick="closeQuickCustomerModal()">Batal</button>
+            <div class="px-6 py-4 border-t border-[#EFECE6]/80 dark:border-surface flex justify-end gap-3 bg-gray-50/50 dark:bg-surface">
+                <button type="button" class="px-5 py-2.5 border border-gray-200 dark:border-surface bg-white dark:bg-surface rounded-xl text-xs font-bold text-slate-700 dark:text-on-surface hover:bg-gray-50 dark:hover:bg-surface transition active:scale-95" onclick="closeQuickCustomerModal()">Batal</button>
                 <button type="submit" class="px-5 py-2.5 bg-primary text-accent text-xs font-bold rounded-xl shadow transition active:scale-95">Simpan</button>
             </div>
         </form>
@@ -871,7 +871,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 customerSearchResults.innerHTML = `<div class="px-4 py-2 text-xs text-gray-400">Tidak ada pelanggan ditemukan</div>`;
             } else {
                 customerSearchResults.innerHTML = matched.map(c => `
-                    <button type="button" class="w-full text-left px-4 py-2 text-xs text-slate-800 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 flex items-center gap-2" onclick="selectCustomer(${c.id})">
+                    <button type="button" class="w-full text-left px-4 py-2 text-xs text-slate-800 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-surface flex items-center gap-2" onclick="selectCustomer(${c.id})">
                         <span class="w-5 h-5 rounded-full ${c.avatarBg} font-bold text-[9px] flex items-center justify-center">${c.initials}</span>
                         <span>${c.name}</span>
                     </button>
@@ -1226,7 +1226,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="relative pl-2">
                     <div class="absolute -left-[23px] top-1.5 w-2.5 h-2.5 rounded-full ${dotClass} border-4 border-white dark:border-slate-900"></div>
                     <div>
-                        <span class="block text-xs font-bold text-slate-800 dark:text-slate-100">${labelText}</span>
+                        <span class="block text-xs font-bold text-slate-800 dark:text-on-surface">${labelText}</span>
                         <span class="block text-[10px] text-gray-400 mt-0.5">${item.time}</span>
                         <span class="block text-[10px] text-gray-400 font-medium mt-0.5">Oleh ${item.author} • ${item.location}</span>
                     </div>
@@ -1411,9 +1411,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (diffDays < 0) {
             return { text: 'Terlewat ' + Math.abs(diffDays) + ' Hari', class: 'text-red-700 font-bold dark:text-red-400 italic' };
         } else if (diffDays === 6) { 
-            return { text: 'On Schedule', class: 'text-gray-400 dark:text-slate-400 font-medium italic' };
+            return { text: 'On Schedule', class: 'text-gray-400 dark:text-on-surface font-medium italic' };
         } else {
-            return { text: diffDays + ' Hari Lagi', class: 'text-gray-400 dark:text-slate-400 font-medium italic' };
+            return { text: diffDays + ' Hari Lagi', class: 'text-gray-400 dark:text-on-surface font-medium italic' };
         }
     }
 
@@ -1447,7 +1447,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formattedDate = formatIndonesianDate(o.deadline);
             
             return `
-                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition duration-150">
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-surface/40 transition duration-150">
                     <!-- Customer and Apparel type -->
                     <td class="px-8 py-5">
                         <div class="flex items-center gap-4">
@@ -1455,7 +1455,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 ${o.initials}
                             </div>
                             <div>
-                                <span class="block text-sm font-bold text-slate-800 dark:text-slate-100">${o.customer}</span>
+                                <span class="block text-sm font-bold text-slate-800 dark:text-on-surface">${o.customer}</span>
                                 <span class="inline-block px-2.5 py-1 text-[9px] font-bold text-primary dark:text-accent bg-primary/10 dark:bg-primary/30 rounded-md mt-1 leading-none">${o.type}</span>
                             </div>
                         </div>
@@ -1463,7 +1463,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     <!-- Deadline -->
                     <td class="px-8 py-5">
-                        <span class="block text-sm font-bold text-slate-800 dark:text-slate-100">${formattedDate}</span>
+                        <span class="block text-sm font-bold text-slate-800 dark:text-on-surface">${formattedDate}</span>
                         <span class="block text-[10px] mt-0.5 ${deadlineInfo.class}">${deadlineInfo.text}</span>
                     </td>
                     
@@ -1471,10 +1471,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td class="px-8 py-5">
                         <div class="w-64 max-w-full">
                             <div class="flex items-center justify-between mb-1.5">
-                                <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-800 dark:text-slate-300">${o.status}</span>
+                                <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-800 dark:text-on-surface">${o.status}</span>
                                 <span class="text-[10px] font-bold text-gray-400">${o.progress}%</span>
                             </div>
-                            <div class="w-full bg-gray-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="w-full bg-gray-100 dark:bg-surface h-1.5 rounded-full overflow-hidden">
                                 <div class="bg-primary h-full rounded-full" style="width: ${o.progress}%"></div>
                             </div>
                         </div>
@@ -1483,15 +1483,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Action Buttons -->
                     <td class="px-8 py-5 text-right">
                         <div class="flex items-center justify-end gap-2.5">
-                            <a href="#detail-${o.id}" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Lihat Detail">
+                            <a href="#detail-${o.id}" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Lihat Detail">
                                 <i class="fa-regular fa-eye text-xs"></i>
                             </a>
                             <div class="relative">
-                                <button onclick="toggleDropdown(event, ${o.id})" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Menu">
+                                <button onclick="toggleDropdown(event, ${o.id})" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Menu">
                                     <i class="fa-solid fa-ellipsis-vertical text-xs"></i>
                                 </button>
-                                <div id="dropdown-${o.id}" class="absolute right-0 mt-2 w-32 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-lg py-1.5 hidden z-45">
-                                    <a href="#edit-${o.id}" class="w-full text-left px-4 py-2 text-xs text-gray-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700/50 flex items-center gap-2 transition">
+                                <div id="dropdown-${o.id}" class="absolute right-0 mt-2 w-32 bg-white dark:bg-surface border border-gray-100 dark:border-surface rounded-xl shadow-lg py-1.5 hidden z-45">
+                                    <a href="#edit-${o.id}" class="w-full text-left px-4 py-2 text-xs text-gray-600 dark:text-on-surface hover:bg-gray-50 dark:hover:bg-surface/50 flex items-center gap-2 transition">
                                         <i class="fa-regular fa-edit text-[10px]"></i> Edit
                                     </a>
                                     <button onclick="deleteOrder(${o.id})" class="w-full text-left px-4 py-2 text-xs text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 flex items-center gap-2 transition">

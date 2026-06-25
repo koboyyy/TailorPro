@@ -4,8 +4,8 @@
   <!-- Page Content Title & Subtitle -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
-                <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight">Data Pelanggan</h1>
-                <p class="text-xs text-grey dark:text-slate-400 font-medium">Kelola informasi kontak dan riwayat pesanan pelanggan Anda.</p>
+                <h1 class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-1 tracking-tight">Data Pelanggan</h1>
+                <p class="text-xs text-grey dark:text-on-surface font-medium">Kelola informasi kontak dan riwayat pesanan pelanggan Anda.</p>
             </div>
             
             <button id="btn-add-new" class="flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-accent font-semibold text-xs px-5 py-3 rounded-xl shadow-lg shadow-primary/15 transition duration-200 group active:scale-95">
@@ -18,66 +18,66 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-[30px]">
         
         <!-- Card 1 -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-slate-700 transition-colors">
+        <div class="bg-white dark:bg-surface rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-surface flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-surface transition-colors">
             <p class="text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider mb-4 uppercase">Total Pelanggan</p>
             <div class="flex items-end justify-between mt-auto z-10">
-                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white">1,284</h3>
+                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-on-surface">1,284</h3>
                 <span class="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 px-2 py-1 rounded-lg">
                     <i class="fa-solid fa-arrow-trend-up"></i> +18.4%
                 </span>
             </div>
             <!-- Decorative background -->
-            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-slate-800/50 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
-            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-slate-900 rounded-full opacity-50"></div>
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-surface rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-surface rounded-full opacity-50"></div>
         </div>
 
         <!-- Card 2 -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-slate-700 transition-colors">
+        <div class="bg-white dark:bg-surface rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-surface flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-surface transition-colors">
             <p class="text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider mb-4 uppercase">Pelanggan Aktif</p>
             <div class="flex items-end justify-between mt-auto z-10">
-                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white">156</h3>
+                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-on-surface">156</h3>
                 <span class="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 px-2 py-1 rounded-lg">
                     <i class="fa-solid fa-arrow-trend-up"></i> +5.2%
                 </span>
             </div>
             <!-- Decorative background -->
-            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-slate-800/50 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
-            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-slate-900 rounded-full opacity-50"></div>
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-surface rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-surface rounded-full opacity-50"></div>
         </div>
 
         <!-- Card 3 -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-slate-700 transition-colors">
+        <div class="bg-white dark:bg-surface rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-surface flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-surface transition-colors">
             <p class="text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider mb-4 uppercase">Member Baru</p>
             <div class="flex items-end justify-between mt-auto z-10">
-                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white">42</h3>
+                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-on-surface">42</h3>
                 <span class="flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 px-2 py-1 rounded-lg">
                     <i class="fa-solid fa-user-plus"></i> +12
                 </span>
             </div>
             <!-- Decorative background -->
-            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-slate-800/50 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
-            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-slate-900 rounded-full opacity-50"></div>
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-surface rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-surface rounded-full opacity-50"></div>
         </div>
 
         <!-- Card 3 -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-slate-700 transition-colors">
+        <div class="bg-white dark:bg-surface rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-surface flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-surface transition-colors">
             <p class="text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider mb-4 uppercase">Repeat Order</p>
             <div class="flex items-end justify-between mt-auto z-10">
-                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white">42%</h3>
+                <h3 class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-on-surface">42%</h3>
                 <span class="flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 px-2 py-1 rounded-lg">
                     <i class="fa-solid fa-user-plus"></i> Sangat Tinggi
                 </span>
             </div>
             <!-- Decorative background -->
-            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-slate-800/50 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
-            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-slate-900 rounded-full opacity-50"></div>
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-surface rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-surface rounded-full opacity-50"></div>
         </div>
     </div>
 
-<section class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-[#EFECE6] dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
-    <div class="px-6 py-5 border-b border-[#EFECE6]/80 dark:border-slate-800/80 flex justify-between items-center">
-        <h3 class="text-sm font-bold tracking-tight text-slate-800 dark:text-white">Semua Pelanggan</h3>
-        <button id="filter-btn" class="w-8 h-8 rounded-lg border border-[#EFECE6] dark:border-slate-800 bg-white dark:bg-slate-800 flex items-center justify-center text-xs text-gray-500 dark:text-slate-400 hover:text-blue-600 hover:border-gray-300 transition">
+<section class="lg:col-span-2 bg-white dark:bg-surface rounded-2xl border border-[#EFECE6] dark:border-surface shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
+    <div class="px-6 py-5 border-b border-[#EFECE6]/80 dark:border-surface flex justify-between items-center">
+        <h3 class="text-sm font-bold tracking-tight text-slate-800 dark:text-on-surface">Semua Pelanggan</h3>
+        <button id="filter-btn" class="w-8 h-8 rounded-lg border border-[#EFECE6] dark:border-surface bg-white dark:bg-surface flex items-center justify-center text-xs text-gray-500 dark:text-on-surface hover:text-blue-600 hover:border-gray-300 transition">
             <i class="fas fa-sliders-h"></i>
         </button>
     </div>
@@ -85,7 +85,7 @@
     <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
             <thead>
-                <tr class="bg-white dark:bg-slate-800/30 border-b border-[#EFECE6]/80 dark:border-slate-800/80 text-[10px] font-bold tracking-wider text-gray-400 dark:text-slate-400 uppercase">
+                <tr class="bg-white dark:bg-surface border-b border-[#EFECE6]/80 dark:border-surface text-[10px] font-bold tracking-wider text-gray-400 dark:text-on-surface uppercase">
                     <th class="px-6 py-4">Nama Pelanggan</th>
                     <th class="px-6 py-4">No. Telepon</th>
                     <th class="px-6 py-4">Alamat</th>
@@ -107,7 +107,7 @@
         <p class="text-xs text-gray-500 max-w-xs mx-auto">Tidak ada data pelanggan yang cocok dengan kata kunci pencarian Anda.</p>
     </div>
 
-    <div class="px-6 py-4 border-t dark:bg-slate-900 border-[#EFECE6]/80 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/50">
+    <div class="px-6 py-4 border-t dark:bg-surface border-[#EFECE6]/80 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/50">
         <span class="text-[11px] text-gray-400 font-medium">
             Menampilkan 1 - 5 dari 1,284 pelanggan
         </span>
@@ -250,25 +250,25 @@
                 : `<div class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 font-bold text-xs flex items-center justify-center tracking-wider shrink-0 shadow-sm">${c.initials}</div>`;
 
             return `
-                <tr class="${c.row_bg} hover:bg-slate-50 transition duration-150 dark:bg-slate-900">
+                <tr class="${c.row_bg === 'bg-[#FAF9F6]' ? 'bg-[#FAF9F6] dark:bg-[#30251A] border-l-4 border-primary' : 'bg-white dark:bg-surface border-l-4 border-transparent'} hover:bg-slate-50 transition duration-150 group active:bg-slate-100 dark:active:bg-[#30251A] dark:hover:bg-[#30251A]/50">
                     <td class="px-6 py-5">
                         <div class="flex items-center gap-3">
                             ${avatarElement}
                             <div>
-                                <span class="block text-sm font-bold text-slate-800 dark:text-slate-100">${c.name}</span>
-                                <span class="block text-[10px] text-gray-400 mt-0.5">Member sejak ${c.member_since}</span>
+                                <span class="block text-sm font-bold text-slate-800 ${c.row_bg === 'bg-[#FAF9F6]' ? 'dark:text-primary' : 'dark:text-on-surface'} group-hover:text-primary dark:group-hover:text-primary group-active:text-primary dark:group-active:text-primary">${c.name}</span>
+                                <span class="block text-[10px] text-gray-400 mt-0.5 ${c.row_bg === 'bg-[#FAF9F6]' ? 'dark:text-primary/80' : ''} group-hover:text-primary/80 dark:group-hover:text-primary/80 group-active:text-primary/80 dark:group-active:text-primary/80">Member sejak ${c.member_since}</span>
                             </div>
                         </div>
                     </td>
                     
                     <td class="px-6 py-5 align-top">
-                        <span class="block mt-1 font-medium text-gray-600 dark:text-slate-300 w-32 break-words">
+                        <span class="block mt-1 font-medium text-gray-600 ${c.row_bg === 'bg-[#FAF9F6]' ? 'dark:text-primary' : 'dark:text-on-surface'} w-32 break-words group-hover:text-primary dark:group-hover:text-primary group-active:text-primary dark:group-active:text-primary">
                             ${c.phone}
                         </span>
                     </td>
                     
                     <td class="px-6 py-5 align-top">
-                        <span class="block mt-1 text-gray-500 dark:text-slate-400">
+                        <span class="block mt-1 text-gray-500 ${c.row_bg === 'bg-[#FAF9F6]' ? 'dark:text-primary' : 'dark:text-on-surface'} group-hover:text-primary dark:group-hover:text-primary group-active:text-primary dark:group-active:text-primary">
                             ${c.address}
                         </span>
                     </td>

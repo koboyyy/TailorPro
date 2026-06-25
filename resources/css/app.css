@@ -5,10 +5,10 @@
 @theme {
     --color-primary: var(--base-primary);
     --color-secondary: var(--base-secondary);
-    --color-accent: var(--base-accent);
+    --color-surface: var(--base-surface);
     --color-background: var(--base-bg);
     --color-text: var(--base-text);
-    --color-grey: var(--base-grey);
+    --color-on-surface: var(--base-on-surface);
 }
 
 /* 2. Menentukan nilai variabel CSS berdasarkan tema */
@@ -17,26 +17,22 @@
         /* Palet Tema Terang (Light Mode) */
         --base-primary: #4A3A2A;
         --base-secondary: #30251A;
-        --base-accent: #E2DDCA;
+        --base-surface: #FFFFFF;
         --base-bg: #FCFCFC;
-        --base-text: #000000;
-        --base-grey: #333333
+        --base-text: #333333;
+        --base-on-surface: #333333;
     }
 
     /* Palet Tema Gelap (Dark Mode) */
     /* Gunakan .dark jika memakai tombol toggle class, atau 
      @media (prefers-color-scheme: dark) untuk mengikuti sistem OS */
     .dark {
-        --base-primary: #60a5fa;
-        /* blue-400 */
-        --base-secondary: #94a3b8;
-        /* slate-400 */
-        --base-accent: #fbbf24;
-        /* amber-400 */
-        --base-bg: #0f172a;
-        /* slate-900 */
-        --base-text: #f1f4f9;
-        /* slate-100 */
+        --base-primary: #d5c4b4;
+        --base-secondary: #e4d9cd;
+        --base-surface: #131313;
+        --base-bg: #030303;
+        --base-text: #cccccc;
+        --base-on-surface: #cccccc;
     }
 
     /* Terapkan warna dasar secara otomatis ke body */

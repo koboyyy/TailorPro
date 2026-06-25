@@ -10,28 +10,53 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --color-primary: #4A3A2A;
+            --color-secondary: #30251A;
+            --color-accent: #E2DDCA;
+            --color-background: #FCFCFC;
+            --color-surface: #FFFFFF;
+            --color-text: #333333;
+            --color-on-surface: #333333;
+            --color-grey: #555555;
+        }
+        .dark {
+            --color-primary: #d5c4b4;
+            --color-secondary: #e4d9cd;
+            --color-accent: #35301d;
+            --color-background: #030303;
+            --color-surface: #131313;
+            --color-text: #cccccc;
+            --color-on-surface: #cccccc;
+            --color-grey: #555555;
+        }
+    </style>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#4A3A2A',
-                        secondary: '#30251A',
-                        accent: '#e2ddca',
-                        grey: '#555555',
-                        background: '#FCFCFC',
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        surface: 'var(--color-surface)',
+                        'on-surface': 'var(--color-on-surface)',
+                        grey: 'var(--color-grey)',
+                        background: 'var(--color-background)',
+                        text: 'var(--color-text)',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Crimson Pro"', 'serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        serif: ['"DM Sans"', 'sans-serif'],
                     }
                 }
             }
@@ -52,19 +77,19 @@
     </script>
 </head>
 
-<body class="h-full bg-background text-grey dark:bg-slate-950 dark:text-slate-100 font-sans">
+<body class="h-full bg-background text-grey dark:bg-background dark:text-on-surface font-sans">
     
     <!-- Mobile Header Toggler -->
-    <div class="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center">
+    <div class="md:hidden bg-white dark:bg-surface border-b border-slate-200 dark:border-surface px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
             <div class="rounded-xl bg-primary/10 dark:bg-primary/20 p-2 text-primary dark:text-accent">
                 <i class="fas fa-cut text-lg"></i>
             </div>
             <div>
-                <span class="font-serif text-lg font-bold tracking-wide text-slate-800 dark:text-white">JAHITSPACE</span>
+                <span class="font-serif text-lg font-bold tracking-wide text-slate-800 dark:text-on-surface">JAHITSPACE</span>
             </div>
         </div>
-        <button id="mobile-sidebar-toggle" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white focus:outline-none">
+        <button id="mobile-sidebar-toggle" class="text-slate-600 dark:text-on-surface hover:text-slate-900 dark:hover:text-white focus:outline-none">
             <i class="fas fa-bars text-xl"></i>
         </button>
     </div>
@@ -73,7 +98,7 @@
     <div class="min-h-full flex flex-col md:flex-row">
         
         <!-- SIDEBAR -->
-        <header id="global-sidebar" class="hidden md:flex flex-col border-b md:border-b-0 md:border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 md:w-72 md:fixed md:inset-y-0 z-30 transition-all duration-300">
+        <header id="global-sidebar" class="hidden md:flex flex-col border-b md:border-b-0 md:border-r border-slate-200 bg-white dark:border-surface dark:bg-surface md:w-72 md:fixed md:inset-y-0 z-30 transition-all duration-300">
             
             <!-- LOGO -->
             <div class="flex items-center gap-3 px-6 py-8">
@@ -82,7 +107,7 @@
                 </div>
 
                 <div class="leading-tight">
-                    <div class="font-bold tracking-tight text-slate-800 dark:text-white font-serif text-lg">
+                    <div class="font-bold tracking-tight text-slate-800 dark:text-primary font-serif text-lg">
                         TailorPro
                     </div>
                 </div>
@@ -95,8 +120,8 @@
                 </div>
 
                 @php
-                    $active = "bg-primary text-white font-bold shadow-md shadow-primary/10";
-                    $default = "text-grey hover:bg-background dark:text-slate-400 dark:hover:bg-slate-800 hover:text-secondary dark:hover:text-slate-200";
+                    $active = "bg-primary text-white dark:text-[#30251A] font-bold shadow-md shadow-primary/10";
+                    $default = "text-grey hover:bg-background dark:text-primary dark:hover:bg-surface hover:text-secondary dark:hover:text-primary/80";
                 @endphp
 
                 <!-- Beranda link -->
@@ -143,12 +168,12 @@
             </nav>
 
             <!-- FOOTER -->
-            <div class="border-t border-slate-100 p-4 dark:border-slate-800">
+            <div class="border-t border-slate-100 p-4 dark:border-surface">
                 <!-- THEME TOGGLE -->
                 <button
                     type="button"
                     data-theme-toggle
-                    class="mb-3 flex w-full items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 px-4 py-2 text-[10px] font-bold text-grey dark:text-slate-400 hover:bg-background dark:hover:bg-slate-800 transition-all"
+                    class="mb-3 flex w-full items-center justify-between rounded-xl border border-slate-200 dark:border-surface px-4 py-2 text-[10px] font-bold text-grey dark:text-on-surface hover:bg-background dark:hover:bg-surface transition-all"
                 >
                     <span class="flex items-center gap-2">
                         <i class="fas fa-moon"></i>
@@ -157,14 +182,14 @@
                 </button>
 
                 <!-- USER CARD -->
-                <div class="rounded-2xl bg-background p-3 dark:bg-slate-800/50">
+                <div class="rounded-2xl bg-background p-3 dark:bg-surface">
                     <div class="flex items-center gap-3">
                         <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-primary/10 text-primary dark:border-primary/30 dark:bg-primary/20 dark:text-accent">
                             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Admin avatar" class="w-full h-full object-cover">
                         </div>
 
                         <div class="flex-1 overflow-hidden">
-                            <div class="truncate text-xs font-bold text-slate-800 dark:text-white">
+                            <div class="truncate text-xs font-bold text-slate-800 dark:text-on-surface">
                                 @if(auth()->check())
                                     {{ auth()->user()->name }}
                                 @else
@@ -172,7 +197,7 @@
                                 @endif
                             </div>
 
-                            <div class="text-[10px] font-medium text-grey/80 dark:text-slate-400">
+                            <div class="text-[10px] font-medium text-grey/80 dark:text-on-surface">
                                 Administrator
                             </div>
                         </div>
@@ -220,7 +245,7 @@
                             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-400 pointer-events-none text-xs">
                                 <i class="fas fa-search"></i>
                             </span>
-                            <input type="text" id="search-input" placeholder="Pencarian pelanggan..." class="w-full pl-9 pr-4 py-2 bg-background dark:bg-slate-800 text-secondary dark:text-white text-xs border border-transparent rounded-full shadow-sm placeholder-grey/60 focus:outline-none focus:bg-white dark:focus:bg-slate-800 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200">
+                            <input type="text" id="search-input" placeholder="Pencarian pelanggan..." class="w-full pl-9 pr-4 py-2 bg-background dark:bg-surface text-secondary dark:text-on-surface text-xs border border-transparent rounded-full shadow-sm placeholder-grey/60 focus:outline-none focus:bg-white dark:focus:bg-slate-800 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200">
                         </div>
 
                         <div class="h-8 w-px bg-[#EFECE6]"></div>

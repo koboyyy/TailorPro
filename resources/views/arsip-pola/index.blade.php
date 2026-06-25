@@ -19,8 +19,8 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-            <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight">Arsip Pola Busana</h1>
-            <p class="text-xs text-grey dark:text-slate-400 font-medium">Kelola, lihat kembali, cetak, atau unduh pola-pola potongan busana yang telah dihasilkan sebelumnya.</p>
+            <h1 class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-1 tracking-tight">Arsip Pola Busana</h1>
+            <p class="text-xs text-grey dark:text-on-surface font-medium">Kelola, lihat kembali, cetak, atau unduh pola-pola potongan busana yang telah dihasilkan sebelumnya.</p>
         </div>
         
         <a href="/hasilan-pola" class="flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-accent font-semibold text-xs px-5 py-3 rounded-xl shadow-lg shadow-primary/15 transition duration-200 group active:scale-95">
@@ -30,11 +30,11 @@
     </div>
 
     <!-- Main Table Container -->
-    <div class="bg-white dark:bg-slate-900 rounded-3xl border border-[#EFECE6] dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
+    <div class="bg-white dark:bg-surface rounded-3xl border border-[#EFECE6] dark:border-surface shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
         <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
                 <thead>
-                    <tr class="bg-white dark:bg-slate-800/30 border-b border-[#EFECE6]/80 dark:border-slate-800/80 text-[10px] font-bold tracking-wider text-gray-400 dark:text-slate-400 uppercase">
+                    <tr class="bg-white dark:bg-surface border-b border-[#EFECE6]/80 dark:border-surface text-[10px] font-bold tracking-wider text-gray-400 dark:text-on-surface uppercase">
                         <th class="px-8 py-5">NAMA POLA</th>
                         <th class="px-8 py-5">JENIS BUSANA</th>
                         <th class="px-8 py-5">PELANGGAN</th>
@@ -51,25 +51,25 @@
 
         <!-- Empty State -->
         <div id="empty-state" class="hidden py-16 px-6 text-center">
-            <div class="w-16 h-16 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center mx-auto mb-4 text-gray-400">
+            <div class="w-16 h-16 rounded-full bg-slate-50 dark:bg-surface flex items-center justify-center mx-auto mb-4 text-gray-400">
                 <i class="fas fa-search text-xl"></i>
             </div>
-            <h4 class="text-sm font-semibold text-slate-800 dark:text-white mb-1">Pola Tidak Ditemukan</h4>
-            <p class="text-xs text-gray-500 dark:text-slate-400 max-w-xs mx-auto">Tidak ada arsip pola yang cocok dengan kriteria pencarian Anda.</p>
+            <h4 class="text-sm font-semibold text-slate-800 dark:text-on-surface mb-1">Pola Tidak Ditemukan</h4>
+            <p class="text-xs text-gray-500 dark:text-on-surface max-w-xs mx-auto">Tidak ada arsip pola yang cocok dengan kriteria pencarian Anda.</p>
         </div>
 
         <!-- Footer -->
-        <div class="px-8 py-5 border-t dark:bg-slate-900 border-[#EFECE6]/80 dark:border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 bg-white/50">
+        <div class="px-8 py-5 border-t dark:bg-surface border-[#EFECE6]/80 dark:border-surface flex flex-col md:flex-row items-center justify-between gap-4 bg-white/50">
             <span class="text-[11px] text-gray-400 font-medium" id="pagination-info">
                 Menampilkan 1-3 dari 3 pola tersimpan
             </span>
 
             <div class="flex items-center gap-1.5">
-                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-800 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-200 transition shadow-sm">
+                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-surface bg-white dark:bg-surface text-gray-400 hover:bg-gray-50 dark:hover:bg-surface hover:border-gray-200 transition shadow-sm">
                     <i class="fas fa-chevron-left text-[9px]"></i>
                 </button>
                 <button class="w-7 h-7 flex items-center justify-center rounded-md bg-primary text-white text-xs font-bold shadow-sm">1</button>
-                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-800 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-200 transition shadow-sm">
+                <button class="w-7 h-7 flex items-center justify-center rounded-md border border-gray-100 dark:border-surface bg-white dark:bg-surface text-gray-400 hover:bg-gray-50 dark:hover:bg-surface hover:border-gray-200 transition shadow-sm">
                     <i class="fas fa-chevron-right text-[9px]"></i>
                 </button>
             </div>
@@ -83,11 +83,11 @@
 <div id="view-detail" class="hidden space-y-6">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-            <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight" id="detail-title">Detail Pola Baju</h1>
-            <p class="text-xs text-grey dark:text-slate-400 font-medium" id="detail-subtitle">Tampilan pola potongan teknis dan rincian ukuran pelanggan.</p>
+            <h1 class="font-serif text-3xl font-bold text-primary dark:text-on-surface mb-1 tracking-tight" id="detail-title">Detail Pola Baju</h1>
+            <p class="text-xs text-grey dark:text-on-surface font-medium" id="detail-subtitle">Tampilan pola potongan teknis dan rincian ukuran pelanggan.</p>
         </div>
         
-        <a href="#list" class="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition shadow-sm">
+        <a href="#list" class="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-200 dark:border-surface bg-white dark:bg-surface rounded-xl text-xs font-bold text-slate-700 dark:text-on-surface hover:bg-gray-50 dark:hover:bg-surface transition shadow-sm">
             <i class="fas fa-arrow-left"></i> Kembali ke Arsip
         </a>
     </div>
@@ -96,35 +96,35 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         
         <!-- Left Side: Blueprint (2 Columns wide) -->
-        <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+        <div class="lg:col-span-2 bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">A</span>
+                    <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">A</span>
                     <div>
-                        <h3 class="text-sm font-bold tracking-tight text-slate-800 dark:text-white">Pola Gambar Vektor</h3>
+                        <h3 class="text-sm font-bold tracking-tight text-slate-800 dark:text-on-surface">Pola Gambar Vektor</h3>
                         <p class="text-[10px] text-gray-400">Berkas SVG Interaktif</p>
                     </div>
                 </div>
                 
                 <!-- SVG Controls -->
                 <div class="flex items-center gap-1.5">
-                    <button type="button" onclick="zoomIn()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perbesar">
+                    <button type="button" onclick="zoomIn()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perbesar">
                         <i class="fas fa-search-plus text-xs"></i>
                     </button>
-                    <button type="button" onclick="zoomOut()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perkecil">
+                    <button type="button" onclick="zoomOut()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Perkecil">
                         <i class="fas fa-search-minus text-xs"></i>
                     </button>
-                    <button type="button" onclick="printPattern()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Cetak Pola">
+                    <button type="button" onclick="printPattern()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Cetak Pola">
                         <i class="fas fa-print text-xs"></i>
                     </button>
-                    <button type="button" onclick="downloadSVG()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary transition" title="Unduh SVG">
+                    <button type="button" onclick="downloadSVG()" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary transition" title="Unduh SVG">
                         <i class="fas fa-download text-xs"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Blueprint Canvas -->
-            <div class="blueprint-canvas-container relative w-full h-[430px] rounded-2xl overflow-hidden border border-[#EFECE6] dark:border-slate-800 flex items-center justify-center bg-[#FCFCFC] dark:bg-slate-950">
+            <div class="blueprint-canvas-container relative w-full h-[430px] rounded-2xl overflow-hidden border border-[#EFECE6] dark:border-surface flex items-center justify-center bg-[#FCFCFC] dark:bg-background">
                 <div class="absolute inset-0 blueprint-grid opacity-70"></div>
                 <div id="svg-wrapper" class="relative z-10 w-full h-full flex items-center justify-center transition-transform duration-200" style="transform: scale(1.0)">
                     <!-- Loaded dynamically -->
@@ -135,14 +135,14 @@
         <!-- Right Side: Details (1 Column wide) -->
         <div class="space-y-6">
             <!-- PELANGGAN CARD -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Pelanggan</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Pelanggan</h3>
                 
-                <div class="flex items-center justify-between p-3.5 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-700 rounded-2xl">
+                <div class="flex items-center justify-between p-3.5 bg-gray-50/50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl">
                     <div class="flex items-center gap-3">
                         <div id="detail-customer-avatar" class="w-10 h-10 rounded-full font-bold text-sm flex items-center justify-center text-white bg-primary">AS</div>
                         <div>
-                            <span id="detail-customer-name" class="block text-sm font-bold text-slate-800 dark:text-slate-100">Ahmad Subagja</span>
+                            <span id="detail-customer-name" class="block text-sm font-bold text-slate-800 dark:text-on-surface">Ahmad Subagja</span>
                             <span id="detail-customer-id" class="block text-[9px] text-gray-400 mt-0.5">ID #T-2204</span>
                         </div>
                     </div>
@@ -153,17 +153,17 @@
             </div>
 
             <!-- DETAILED SIZES LIST -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-4 uppercase">Rincian Ukuran Pola</h3>
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-4 uppercase">Rincian Ukuran Pola</h3>
                 <div class="divide-y divide-[#EFECE6]/80 dark:divide-slate-800" id="detail-sizes-list">
                     <!-- Sizes dynamically loaded -->
                 </div>
             </div>
 
             <!-- ESTIMASI KAIN -->
-            <div class="bg-white dark:bg-slate-900 border border-[#EFECE6] dark:border-slate-800 rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-white mb-3 uppercase">Estimasi Kain Terpakai</h3>
-                <div class="py-4 px-5 bg-gray-50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-sm font-black text-slate-800 dark:text-white tracking-wider" id="detail-fabric-estimation">
+            <div class="bg-white dark:bg-surface border border-[#EFECE6] dark:border-surface rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                <h3 class="text-xs font-bold tracking-tight text-slate-800 dark:text-on-surface mb-3 uppercase">Estimasi Kain Terpakai</h3>
+                <div class="py-4 px-5 bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface rounded-2xl text-sm font-black text-slate-800 dark:text-on-surface tracking-wider" id="detail-fabric-estimation">
                     3 METER
                 </div>
             </div>
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tableBody.innerHTML = filtered.map(p => {
             const statusClass = p.status === 'Aktif' 
                 ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400' 
-                : 'bg-gray-100 text-gray-500 dark:bg-slate-800 dark:text-slate-400';
+                : 'bg-gray-100 text-gray-500 dark:bg-surface dark:text-on-surface';
             
             // Format Jenis Busana Readable
             const typeLabelMap = {
@@ -340,13 +340,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const typeLabel = typeLabelMap[p.type] || p.type;
 
             return `
-                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition duration-150">
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-surface/40 transition duration-150">
                     <!-- Pattern Name & Icon -->
                     <td class="px-8 py-5">
                         <div class="flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">${p.type.charAt(0)}</span>
+                            <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">${p.type.charAt(0)}</span>
                             <div>
-                                <span class="block text-sm font-bold text-slate-800 dark:text-slate-100">${p.name}</span>
+                                <span class="block text-sm font-bold text-slate-800 dark:text-on-surface">${p.name}</span>
                             </div>
                         </div>
                     </td>
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </td>
 
                     <!-- Date -->
-                    <td class="px-8 py-5 text-gray-500 dark:text-slate-400 align-middle">
+                    <td class="px-8 py-5 text-gray-500 dark:text-on-surface align-middle">
                         ${p.date}
                     </td>
 
@@ -380,13 +380,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Action buttons -->
                     <td class="px-8 py-5 text-right align-middle">
                         <div class="flex items-center justify-end gap-2">
-                            <a href="#detail-${p.id}" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Lihat Pola">
+                            <a href="#detail-${p.id}" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Lihat Pola">
                                 <i class="fa-regular fa-eye text-xs"></i>
                             </a>
-                            <button onclick="downloadSVGEffect(${p.id})" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Unduh SVG">
+                            <button onclick="downloadSVGEffect(${p.id})" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-primary dark:hover:text-accent hover:scale-105 active:scale-95 transition" title="Unduh SVG">
                                 <i class="fas fa-download text-xs"></i>
                             </button>
-                            <button onclick="deletePattern(${p.id})" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-700 flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-105 active:scale-95 transition" title="Hapus Pola">
+                            <button onclick="deletePattern(${p.id})" class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-surface border border-gray-100 dark:border-surface flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-105 active:scale-95 transition" title="Hapus Pola">
                                 <i class="fa-regular fa-trash-can text-xs"></i>
                             </button>
                         </div>
@@ -427,9 +427,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         document.getElementById('detail-sizes-list').innerHTML = metrics.map(m => `
-            <div class="flex justify-between py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <div class="flex justify-between py-2.5 text-xs font-semibold text-slate-700 dark:text-on-surface">
                 <span class="text-gray-400">${m.label}</span>
-                <span class="font-bold text-slate-800 dark:text-white">${m.val} ${m.val !== "-" ? "cm" : ""}</span>
+                <span class="font-bold text-slate-800 dark:text-on-surface">${m.val} ${m.val !== "-" ? "cm" : ""}</span>
             </div>
         `).join('');
 

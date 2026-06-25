@@ -8,27 +8,53 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --color-primary: #4A3A2A;
+            --color-secondary: #30251A;
+            --color-accent: #E2DDCA;
+            --color-background: #FCFCFC;
+            --color-surface: #FFFFFF;
+            --color-text: #333333;
+            --color-on-surface: #333333;
+            --color-grey: #555555;
+        }
+        .dark {
+            --color-primary: #d5c4b4;
+            --color-secondary: #e4d9cd;
+            --color-accent: #35301d;
+            --color-background: #030303;
+            --color-surface: #131313;
+            --color-text: #cccccc;
+            --color-on-surface: #cccccc;
+            --color-grey: #555555;
+        }
+    </style>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#4A3A2A',
-                        secondary: '#30251A',
-                        accent: '#e2ddca',
-                        grey: '#555555',
-                        background: '#FCFCFC',
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        surface: 'var(--color-surface)',
+                        'on-surface': 'var(--color-on-surface)',
+                        grey: 'var(--color-grey)',
+                        background: 'var(--color-background)',
+                        text: 'var(--color-text)',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Crimson Pro"', 'serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        serif: ['"DM Sans"', 'sans-serif'],
                     }
                 }
             }
