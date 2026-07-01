@@ -22,7 +22,7 @@
         --base-text: #000000;
         --base-grey: #333333
     }
-
+ 
     /* Palet Tema Gelap (Dark Mode) */
     /* Gunakan .dark jika memakai tombol toggle class, atau 
      @media (prefers-color-scheme: dark) untuk mengikuti sistem OS */
