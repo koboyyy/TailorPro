@@ -11,19 +11,34 @@
                 <p class="text-grey dark:text-slate-400 text-sm">Pantau performa bisnis dan pertumbuhan pendapatan Anda.</p>
             </div>
             <div class="flex items-center gap-3">
-                <button
-                    class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
-                >
-                    <i class="fa-regular fa-calendar text-gray-400"></i>
-                    30 Hari Terakhir
-                    <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
-                </button>
-                <button
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
+                    >
+                        <i class="fa-regular fa-calendar text-gray-400"></i>
+                        @if($filter == '7')
+                            7 Hari Terakhir
+                        @elseif($filter == '365')
+                            1 Tahun Terakhir
+                        @else
+                            30 Hari Terakhir
+                        @endif
+                        <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden">
+                        <a href="{{ route('laporan.index', ['filter' => 7]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '7' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">7 Hari Terakhir</a>
+                        <a href="{{ route('laporan.index', ['filter' => 30]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '30' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">30 Hari Terakhir</a>
+                        <a href="{{ route('laporan.index', ['filter' => 365]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '365' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">1 Tahun Terakhir</a>
+                    </div>
+                </div>
+                <a
+                    href="{{ route('laporan.pdf', ['filter' => $filter]) }}"
                     class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
                 >
                     <i class="fa-solid fa-download text-gray-400"></i>
                     Cetak PDF
-                </button>
+                </a>
             </div>
         </div>
 
@@ -38,12 +53,12 @@
                     <h3
                         class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white"
                     >
-                        Rp 48.250.000
+                        Rp {{ number_format($totalPendapatan, 0, ',', '.') }}
                     </h3>
                     <span
-                        class="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 px-2 py-1 rounded-lg"
+                        class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pendapatanGrowth >= 0 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50' : 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50' }}"
                     >
-                        <i class="fa-solid fa-arrow-trend-up"></i> +18.4%
+                        <i class="fa-solid {{ $pendapatanGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"></i> {{ $pendapatanGrowth >= 0 ? '+' : '' }}{{ number_format($pendapatanGrowth, 1) }}%
                     </span>
                 </div>
                 <!-- Decorative background -->
@@ -64,12 +79,12 @@
                     <h3
                         class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white"
                     >
-                        156
+                        {{ $totalPesanan }}
                     </h3>
                     <span
-                        class="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 px-2 py-1 rounded-lg"
+                        class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pesananGrowth >= 0 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50' : 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50' }}"
                     >
-                        <i class="fa-solid fa-arrow-trend-up"></i> +5.2%
+                        <i class="fa-solid {{ $pesananGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"></i> {{ $pesananGrowth >= 0 ? '+' : '' }}{{ number_format($pesananGrowth, 1) }}%
                     </span>
                 </div>
                 <!-- Decorative background -->
@@ -90,12 +105,12 @@
                     <h3
                         class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white"
                     >
-                        42
+                        {{ $pelangganBaru }}
                     </h3>
                     <span
-                        class="flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 px-2 py-1 rounded-lg"
+                        class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pelangganGrowth >= 0 ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50' : 'text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700' }}"
                     >
-                        <i class="fa-solid fa-user-plus"></i> +12
+                        <i class="fa-solid fa-user-plus"></i> {{ $pelangganGrowth >= 0 ? '+' : '' }}{{ $pelangganGrowth }}
                     </span>
                 </div>
                 <!-- Decorative background -->
@@ -190,146 +205,55 @@
                         </tr>
                     </thead>
                     <tbody class="text-sm">
-                        <!-- Row 1 -->
+                        @forelse($transaksiTerakhir as $t)
                         <tr
                             class="border-b border-gray-50 dark:border-slate-800/50 hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors"
                         >
                             <td class="py-4 px-2 font-bold text-gray-600 dark:text-slate-300">
-                                #TX-9021
+                                #TX-{{ str_pad($t->id, 4, '0', STR_PAD_LEFT) }}
                             </td>
                             <td class="py-4 px-2">
                                 <div class="flex items-center gap-3">
                                     <img
-                                        src="https://ui-avatars.com/api/?name=Andi+Saputra&background=E5E7EB&color=374151"
+                                        src="https://ui-avatars.com/api/?name={{ urlencode($t->pelanggan->name ?? 'Unknown') }}&background=E5E7EB&color=374151"
                                         class="w-8 h-8 rounded-full object-cover"
                                     />
                                     <span class="font-bold text-slate-800 dark:text-white"
-                                        >Andi Saputra</span
+                                        >{{ $t->pelanggan->name ?? 'Unknown' }}</span
                                     >
                                 </div>
                             </td>
                             <td class="py-4 px-2 text-gray-500 dark:text-slate-400">
-                                Jas Formal Custom
+                                {{ $t->type }}
                             </td>
                             <td class="py-4 px-2 text-gray-400 dark:text-slate-500 font-medium">
-                                24 Jun 2024
+                                {{ \Carbon\Carbon::parse($t->created_at)->format('d M Y') }}
                             </td>
                             <td class="py-4 px-2 font-bold text-slate-800 dark:text-white">
-                                Rp 3.500.000
+                                Rp {{ number_format((int)preg_replace('/[^0-9]/', '', $t->price), 0, ',', '.') }}
                             </td>
                             <td class="py-4 px-2">
+                                @php
+                                    $statusColor = 'bg-gray-50 text-gray-600 border-gray-100 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700';
+                                    if(in_array(strtoupper($t->status), ['SELESAI', 'DIAMBIL'])) {
+                                        $statusColor = 'bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-950/30 dark:text-emerald-400 dark:border-emerald-900/50';
+                                    } elseif(strtoupper($t->status) == 'DIPROSES') {
+                                        $statusColor = 'bg-indigo-50 text-indigo-600 border-indigo-100 dark:bg-indigo-950/30 dark:text-indigo-400 dark:border-indigo-900/50';
+                                    } elseif(strtoupper($t->status) == 'MENUNGGU') {
+                                        $statusColor = 'bg-orange-50 text-orange-600 border-orange-100 dark:bg-orange-950/30 dark:text-orange-400 dark:border-orange-900/50';
+                                    }
+                                @endphp
                                 <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/50 tracking-wider"
-                                    >SELESAI</span
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider {{ $statusColor }}"
+                                    >{{ strtoupper($t->status) }}</span
                                 >
                             </td>
                         </tr>
-
-                        <!-- Row 2 -->
-                        <tr
-                            class="border-b border-gray-50 dark:border-slate-800/50 hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors"
-                        >
-                            <td class="py-4 px-2 font-bold text-gray-600 dark:text-slate-300">
-                                #TX-9020
-                            </td>
-                            <td class="py-4 px-2">
-                                <div class="flex items-center gap-3">
-                                    <img
-                                        src="https://ui-avatars.com/api/?name=Sarah+Wijaya&background=E5E7EB&color=374151"
-                                        class="w-8 h-8 rounded-full object-cover"
-                                    />
-                                    <span class="font-bold text-slate-800 dark:text-white"
-                                        >Sarah Wijaya</span
-                                    >
-                                </div>
-                            </td>
-                            <td class="py-4 px-2 text-gray-500 dark:text-slate-400">
-                                Kebaya Modifikasi
-                            </td>
-                            <td class="py-4 px-2 text-gray-400 dark:text-slate-500 font-medium">
-                                23 Jun 2024
-                            </td>
-                            <td class="py-4 px-2 font-bold text-slate-800 dark:text-white">
-                                Rp 2.150.000
-                            </td>
-                            <td class="py-4 px-2">
-                                <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/50 tracking-wider"
-                                    >DIPROSES</span
-                                >
-                            </td>
+                        @empty
+                        <tr>
+                            <td colspan="6" class="py-8 text-center text-gray-500">Belum ada transaksi</td>
                         </tr>
-
-                        <!-- Row 3 -->
-                        <tr
-                            class="border-b border-gray-50 dark:border-slate-800/50 hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors"
-                        >
-                            <td class="py-4 px-2 font-bold text-gray-600 dark:text-slate-300">
-                                #TX-9019
-                            </td>
-                            <td class="py-4 px-2">
-                                <div class="flex items-center gap-3">
-                                    <img
-                                        src="https://ui-avatars.com/api/?name=Kevin+Pratama&background=E5E7EB&color=374151"
-                                        class="w-8 h-8 rounded-full object-cover"
-                                    />
-                                    <span class="font-bold text-slate-800 dark:text-white"
-                                        >Kevin Pratama</span
-                                    >
-                                </div>
-                            </td>
-                            <td class="py-4 px-2 text-gray-500 dark:text-slate-400">
-                                Alterasi Celana (4x)
-                            </td>
-                            <td class="py-4 px-2 text-gray-400 dark:text-slate-500 font-medium">
-                                22 Jun 2024
-                            </td>
-                            <td class="py-4 px-2 font-bold text-slate-800 dark:text-white">
-                                Rp 600.000
-                            </td>
-                            <td class="py-4 px-2">
-                                <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-orange-50 dark:bg-orange-950/30 text-orange-600 dark:text-orange-400 border border-orange-100 dark:border-orange-900/50 tracking-wider"
-                                    >SIAP AMBIL</span
-                                >
-                            </td>
-                        </tr>
-
-                        <!-- Row 4 -->
-                        <tr
-                            class="hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors"
-                        >
-                            <td class="py-4 px-2 font-bold text-gray-600 dark:text-slate-300">
-                                #TX-9018
-                            </td>
-                            <td class="py-4 px-2">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-slate-300"
-                                    >
-                                        RM
-                                    </div>
-                                    <span class="font-bold text-slate-800 dark:text-white"
-                                        >Ria Monica</span
-                                    >
-                                </div>
-                            </td>
-                            <td class="py-4 px-2 text-gray-500 dark:text-slate-400">
-                                Dress Pesta Satin
-                            </td>
-                            <td class="py-4 px-2 text-gray-400 dark:text-slate-500 font-medium">
-                                21 Jun 2024
-                            </td>
-                            <td class="py-4 px-2 font-bold text-slate-800 dark:text-white">
-                                Rp 1.850.000
-                            </td>
-                            <td class="py-4 px-2">
-                                <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/50 tracking-wider"
-                                    >SELESAI</span
-                                >
-                            </td>
-                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -349,12 +273,16 @@
             const gridColor = isDarkMode ? '#1e293b' : '#F3F4F6';
             const tickColor = isDarkMode ? '#94a3b8' : '#9CA3AF';
 
+            const chartLabels = @json($chartLabels);
+            const chartDataValues = @json($chartData);
+            const chartTargetValues = @json($chartTarget);
+
             const data = {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
+                labels: chartLabels,
                 datasets: [
                     {
                         label: 'Pendapatan',
-                        data: [32, 28, 45, 38, 52, 48],
+                        data: chartDataValues,
                         borderColor: primaryColor,
                         backgroundColor: primaryColor,
                         borderWidth: 3,
@@ -367,7 +295,7 @@
                     },
                     {
                         label: 'Target',
-                        data: [30, 30, 35, 35, 40, 40],
+                        data: chartTargetValues,
                         borderColor: targetColor,
                         backgroundColor: 'transparent',
                         borderWidth: 2,

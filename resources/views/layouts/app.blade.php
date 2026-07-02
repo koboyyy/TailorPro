@@ -208,7 +208,7 @@
                             class="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-primary/10 text-primary dark:border-primary/30 dark:bg-primary/20 dark:text-accent"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
+                                src="{{ auth()->check() && auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->check() ? auth()->user()->name : 'Admin') . '&background=E5E7EB&color=374151' }}"
                                 alt="Admin avatar"
                                 class="w-full h-full object-cover"
                             />
@@ -228,9 +228,9 @@
                             </div>
                         </div>
 
-                        <a href="#" class="text-slate-400 transition-colors hover:text-primary">
+                        <button onclick="document.getElementById('profile-modal').classList.remove('hidden')" class="text-slate-400 transition-colors hover:text-primary">
                             <i class="fas fa-cog"></i>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- BADGE -->
@@ -298,14 +298,14 @@
 
                     <div class="h-8 w-px bg-[#EFECE6]"></div>
 
-                    <div class="flex items-center gap-3">
-                        <span class="text-xs font-semibold text-primary">Admin</span>
+                    <button onclick="document.getElementById('profile-modal').classList.remove('hidden')" class="flex items-center gap-3 hover:opacity-80 transition-opacity focus:outline-none">
+                        <span class="text-xs font-semibold text-primary">{{ auth()->check() ? auth()->user()->name : 'Admin' }}</span>
                         <img
-                            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
+                            src="{{ auth()->check() && auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->check() ? auth()->user()->name : 'Admin') . '&background=E5E7EB&color=374151' }}"
                             alt="Admin Profile"
                             class="w-8 h-8 rounded-full object-cover border border-[#EFECE6]"
                         />
-                    </div>
+                    </button>
                 </div>
             </header>
 
@@ -357,6 +357,91 @@
             sidebar.classList.toggle('left-0');
             sidebar.classList.toggle('flex');
             overlay.classList.toggle('hidden');
+        }
+    </script>
+    
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('profile-modal').classList.add('hidden')"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 rounded-2xl shadow-xl w-[90%] max-w-md max-h-[90vh] overflow-hidden flex flex-col">
+            <div class="p-6 overflow-y-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold font-serif text-slate-800 dark:text-white">Profil Admin</h2>
+                    <button onclick="document.getElementById('profile-modal').classList.add('hidden')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                </div>
+                
+                @if($errors->any())
+                <div class="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg">
+                    <ul class="list-disc pl-5">
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                
+                <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    
+                    <div class="flex justify-center mb-6 relative group">
+                        <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-200 relative">
+                            <img id="avatar-preview" src="{{ auth()->check() && auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->check() ? auth()->user()->name : 'Admin') . '&background=E5E7EB&color=374151' }}" alt="Preview" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" onclick="document.getElementById('avatar-input').click()">
+                                <i class="fas fa-camera text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <input type="file" id="avatar-input" name="avatar" class="hidden" accept="image/*" onchange="previewImage(this)">
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1">Nama Lengkap</label>
+                            <input type="text" name="name" value="{{ auth()->check() ? auth()->user()->name : '' }}" required class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:text-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1">Email</label>
+                            <input type="email" name="email" value="{{ auth()->check() ? auth()->user()->email : '' }}" required class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:text-white">
+                        </div>
+                        <hr class="border-gray-100 dark:border-slate-800 my-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1">Password Saat Ini (kosongkan jika tidak diubah)</label>
+                            <input type="password" name="current_password" class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:text-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1">Password Baru</label>
+                            <input type="password" name="new_password" class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:text-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1">Konfirmasi Password Baru</label>
+                            <input type="password" name="new_password_confirmation" class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:text-white">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full mt-6 py-2.5 bg-primary hover:bg-secondary text-white text-sm font-bold rounded-xl transition-colors">
+                        Simpan Perubahan
+                    </button>
+                </form>
+                
+                <hr class="border-gray-100 dark:border-slate-800 my-6">
+                
+                <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w-full py-2.5 bg-red-50 hover:bg-red-100 text-red-600 dark:bg-red-900/20 dark:hover:bg-red-900/40 text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('avatar-preview').src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
         }
     </script>
     @yield ('scripts')

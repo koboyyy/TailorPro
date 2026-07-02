@@ -23,7 +23,8 @@ Route::get('/data-pelanggan', [DataPelangganController::class, 'index']);
 Route::post('/data-pelanggan/simpan', [DataPelangganController::class, 'store'])->name('data-pelanggan.store');
 Route::put('/data-pelanggan/{id}', [DataPelangganController::class, 'update'])->name('data-pelanggan.update');
 Route::delete('/data-pelanggan/{id}', [DataPelangganController::class, 'destroy'])->name('data-pelanggan.destroy');
-Route::get('/laporan', [LaporanController::class, 'index']);
+Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+Route::get('/laporan/pdf', [LaporanController::class, 'pdf'])->name('laporan.pdf');
 Route::get('/arsip-pola', [ArsipPolaController::class, 'index']);
 Route::delete('/arsip-pola/{id}', [ArsipPolaController::class, 'destroy'])->name('arsip-pola.destroy');
 
@@ -44,7 +45,9 @@ Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+use App\Http\Controllers\ProfileController;
 
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 
 
 
