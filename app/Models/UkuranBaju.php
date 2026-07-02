@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class UkuranBaju extends Model
 {
     protected $table = 'ukuran_bajus';
+    protected $guarded = ['id']; // Memperbolehkan mass-assignment
 
     protected $fillable = [
         'pelanggan_id',

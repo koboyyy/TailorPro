@@ -20,6 +20,6 @@ module.exports = {
         serif: ['"DM Sans"', 'sans-serif'],
       }
     },
-  },
-  plugins: [],
+    plugins: [],
+  }
 }

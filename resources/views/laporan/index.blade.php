@@ -1,5 +1,6 @@
-@extends('layouts.app')
+@extends ('layouts.app')
 
+<<<<<<< HEAD
 @section('content')
 <div class=" mx-auto space-y-6 pb-10">
 
@@ -84,14 +85,268 @@
                 <div class="flex items-center gap-2">
                     <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-slate-600"></div>
                     Target
+=======
+@section ('content')
+    <div class="mx-auto space-y-6 pb-10">
+        <!-- Header Section -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+                <h1 class="font-serif text-3xl font-bold text-primary dark:text-white mb-2">
+                    Laporan Penjualan
+                </h1>
+                <p class="text-grey dark:text-slate-400 text-sm">Pantau performa bisnis dan pertumbuhan pendapatan Anda.</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
+                    >
+                        <i class="fa-regular fa-calendar text-gray-400"></i>
+                        @if($filter == '7')
+                            7 Hari Terakhir
+                        @elseif($filter == '365')
+                            1 Tahun Terakhir
+                        @else
+                            30 Hari Terakhir
+                        @endif
+                        <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden">
+                        <a href="{{ route('laporan.index', ['filter' => 7]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '7' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">7 Hari Terakhir</a>
+                        <a href="{{ route('laporan.index', ['filter' => 30]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '30' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">30 Hari Terakhir</a>
+                        <a href="{{ route('laporan.index', ['filter' => 365]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '365' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">1 Tahun Terakhir</a>
+                    </div>
+>>>>>>> origin/main
                 </div>
+                <a
+                    href="{{ route('laporan.pdf', ['filter' => $filter]) }}"
+                    class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
+                >
+                    <i class="fa-solid fa-download text-gray-400"></i>
+                    Cetak PDF
+                </a>
             </div>
         </div>
-        
-        <div class="relative h-[300px] w-full">
-            <canvas id="revenueChart"></canvas>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-slate-700 transition-colors"
+            >
+                <p class="text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider mb-4 uppercase">Total Pendapatan</p>
+                <div class="flex items-end justify-between mt-auto z-10">
+                    <h3
+                        class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white"
+                    >
+                        Rp {{ number_format($totalPendapatan, 0, ',', '.') }}
+                    </h3>
+                    <span
+                        class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pendapatanGrowth >= 0 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50' : 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50' }}"
+                    >
+                        <i class="fa-solid {{ $pendapatanGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"></i> {{ $pendapatanGrowth >= 0 ? '+' : '' }}{{ number_format($pendapatanGrowth, 1) }}%
+                    </span>
+                </div>
+                <!-- Decorative background -->
+                <div
+                    class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-slate-800/50 rounded-full opacity-50 group-hover:scale-110 transition-transform"
+                ></div>
+                <div
+                    class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-slate-900 rounded-full opacity-50"
+                ></div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-slate-700 transition-colors"
+            >
+                <p class="text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider mb-4 uppercase">Total Pesanan</p>
+                <div class="flex items-end justify-between mt-auto z-10">
+                    <h3
+                        class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white"
+                    >
+                        {{ $totalPesanan }}
+                    </h3>
+                    <span
+                        class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pesananGrowth >= 0 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50' : 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50' }}"
+                    >
+                        <i class="fa-solid {{ $pesananGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"></i> {{ $pesananGrowth >= 0 ? '+' : '' }}{{ number_format($pesananGrowth, 1) }}%
+                    </span>
+                </div>
+                <!-- Decorative background -->
+                <div
+                    class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-slate-800/50 rounded-full opacity-50 group-hover:scale-110 transition-transform"
+                ></div>
+                <div
+                    class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-slate-900 rounded-full opacity-50"
+                ></div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col justify-between h-36 relative overflow-hidden group hover:border-gray-300 dark:hover:border-slate-700 transition-colors"
+            >
+                <p class="text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider mb-4 uppercase">Pelanggan Baru</p>
+                <div class="flex items-end justify-between mt-auto z-10">
+                    <h3
+                        class="font-serif text-[32px] leading-none font-bold text-slate-800 dark:text-white"
+                    >
+                        {{ $pelangganBaru }}
+                    </h3>
+                    <span
+                        class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pelangganGrowth >= 0 ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50' : 'text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700' }}"
+                    >
+                        <i class="fa-solid fa-user-plus"></i> {{ $pelangganGrowth >= 0 ? '+' : '' }}{{ $pelangganGrowth }}
+                    </span>
+                </div>
+                <!-- Decorative background -->
+                <div
+                    class="absolute -bottom-8 -right-8 w-32 h-32 bg-gray-50 dark:bg-slate-800/50 rounded-full opacity-50 group-hover:scale-110 transition-transform"
+                ></div>
+                <div
+                    class="absolute -bottom-4 -right-4 w-20 h-20 bg-white dark:bg-slate-900 rounded-full opacity-50"
+                ></div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div
+            class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 mt-6"
+        >
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="font-serif text-lg font-bold text-slate-800 dark:text-white">
+                        Tren Pendapatan Bulanan
+                    </h2>
+                    <p class="text-xs text-gray-400 dark:text-slate-400 mt-1">Statistik performa selama 6 bulan terakhir</p>
+                </div>
+                <div
+                    class="flex items-center gap-4 text-xs font-medium text-gray-500 dark:text-slate-400"
+                >
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-primary dark:bg-accent"></div>
+                        Pendapatan
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-slate-600"></div>
+                        Target
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative h-[300px] w-full">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div
+            class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 mt-6"
+        >
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="font-serif text-lg font-bold text-slate-800 dark:text-white">
+                    Transaksi Terakhir
+                </h2>
+                <a
+                    href="#"
+                    class="text-sm font-bold text-primary dark:text-accent hover:text-secondary dark:hover:text-white transition-colors"
+                    >Lihat Semua Transaksi</a
+                >
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-gray-100 dark:border-slate-800">
+                            <th
+                                class="py-4 px-2 text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider uppercase"
+                            >
+                                ID Transaksi
+                            </th>
+                            <th
+                                class="py-4 px-2 text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider uppercase"
+                            >
+                                Pelanggan
+                            </th>
+                            <th
+                                class="py-4 px-2 text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider uppercase"
+                            >
+                                Layanan
+                            </th>
+                            <th
+                                class="py-4 px-2 text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider uppercase"
+                            >
+                                Tanggal
+                            </th>
+                            <th
+                                class="py-4 px-2 text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider uppercase"
+                            >
+                                Jumlah
+                            </th>
+                            <th
+                                class="py-4 px-2 text-[11px] font-bold text-gray-400 dark:text-slate-500 tracking-wider uppercase"
+                            >
+                                Status
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        @forelse($transaksiTerakhir as $t)
+                        <tr
+                            class="border-b border-gray-50 dark:border-slate-800/50 hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors"
+                        >
+                            <td class="py-4 px-2 font-bold text-gray-600 dark:text-slate-300">
+                                #TX-{{ str_pad($t->id, 4, '0', STR_PAD_LEFT) }}
+                            </td>
+                            <td class="py-4 px-2">
+                                <div class="flex items-center gap-3">
+                                    <img
+                                        src="https://ui-avatars.com/api/?name={{ urlencode($t->pelanggan->name ?? 'Unknown') }}&background=E5E7EB&color=374151"
+                                        class="w-8 h-8 rounded-full object-cover"
+                                    />
+                                    <span class="font-bold text-slate-800 dark:text-white"
+                                        >{{ $t->pelanggan->name ?? 'Unknown' }}</span
+                                    >
+                                </div>
+                            </td>
+                            <td class="py-4 px-2 text-gray-500 dark:text-slate-400">
+                                {{ $t->type }}
+                            </td>
+                            <td class="py-4 px-2 text-gray-400 dark:text-slate-500 font-medium">
+                                {{ \Carbon\Carbon::parse($t->created_at)->format('d M Y') }}
+                            </td>
+                            <td class="py-4 px-2 font-bold text-slate-800 dark:text-white">
+                                Rp {{ number_format((int)preg_replace('/[^0-9]/', '', $t->price), 0, ',', '.') }}
+                            </td>
+                            <td class="py-4 px-2">
+                                @php
+                                    $statusColor = 'bg-gray-50 text-gray-600 border-gray-100 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700';
+                                    if(in_array(strtoupper($t->status), ['SELESAI', 'DIAMBIL'])) {
+                                        $statusColor = 'bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-950/30 dark:text-emerald-400 dark:border-emerald-900/50';
+                                    } elseif(strtoupper($t->status) == 'DIPROSES') {
+                                        $statusColor = 'bg-indigo-50 text-indigo-600 border-indigo-100 dark:bg-indigo-950/30 dark:text-indigo-400 dark:border-indigo-900/50';
+                                    } elseif(strtoupper($t->status) == 'MENUNGGU') {
+                                        $statusColor = 'bg-orange-50 text-orange-600 border-orange-100 dark:bg-orange-950/30 dark:text-orange-400 dark:border-orange-900/50';
+                                    }
+                                @endphp
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider {{ $statusColor }}"
+                                    >{{ strtoupper($t->status) }}</span
+                                >
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="6" class="py-8 text-center text-gray-500">Belum ada transaksi</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <!-- Table Section -->
     <div class="bg-white dark:bg-surface rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-surface mt-6">
@@ -185,162 +440,170 @@
         </div>
     </div>
 </div>
+=======
+>>>>>>> origin/main
 @endsection
 
-@section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const ctx = document.getElementById('revenueChart').getContext('2d');
-        const isDarkMode = document.documentElement.classList.contains('dark');
-        
-        const primaryColor = isDarkMode ? '#e2ddca' : '#4A3A2A';
-        const targetColor = isDarkMode ? '#475569' : '#D1D5DB';
-        const gridColor = isDarkMode ? '#1e293b' : '#F3F4F6';
-        const tickColor = isDarkMode ? '#94a3b8' : '#9CA3AF';
+@section ('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            const isDarkMode = document.documentElement.classList.contains('dark');
 
-        const data = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
-            datasets: [
-                {
-                    label: 'Pendapatan',
-                    data: [32, 28, 45, 38, 52, 48],
-                    borderColor: primaryColor,
-                    backgroundColor: primaryColor,
-                    borderWidth: 3,
-                    tension: 0.4,
-                    pointBackgroundColor: primaryColor,
-                    pointBorderColor: isDarkMode ? '#0f172a' : '#ffffff',
-                    pointBorderWidth: 2,
-                    pointRadius: 4,
-                    pointHoverRadius: 6
-                },
-                {
-                    label: 'Target',
-                    data: [30, 30, 35, 35, 40, 40],
-                    borderColor: targetColor,
-                    backgroundColor: 'transparent',
-                    borderWidth: 2,
-                    borderDash: [4, 4],
-                    tension: 0.4,
-                    pointRadius: 0,
-                    pointHoverRadius: 0
-                }
-            ]
-        };
+            const primaryColor = isDarkMode ? '#e2ddca' : '#4A3A2A';
+            const targetColor = isDarkMode ? '#475569' : '#D1D5DB';
+            const gridColor = isDarkMode ? '#1e293b' : '#F3F4F6';
+            const tickColor = isDarkMode ? '#94a3b8' : '#9CA3AF';
 
-        const config = {
-            type: 'line',
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
+            const chartLabels = @json($chartLabels);
+            const chartDataValues = @json($chartData);
+            const chartTargetValues = @json($chartTarget);
+
+            const data = {
+                labels: chartLabels,
+                datasets: [
+                    {
+                        label: 'Pendapatan',
+                        data: chartDataValues,
+                        borderColor: primaryColor,
+                        backgroundColor: primaryColor,
+                        borderWidth: 3,
+                        tension: 0.4,
+                        pointBackgroundColor: primaryColor,
+                        pointBorderColor: isDarkMode ? '#0f172a' : '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
                     },
-                    tooltip: {
-                        enabled: true,
-                        backgroundColor: isDarkMode ? '#ffffff' : '#1F2937',
-                        titleColor: isDarkMode ? '#0f172a' : '#ffffff',
-                        bodyColor: isDarkMode ? '#0f172a' : '#ffffff',
-                        padding: 12,
-                        titleFont: { size: 13, family: 'Inter' },
-                        bodyFont: { size: 13, family: 'Inter' },
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    label += 'Rp ' + context.parsed.y + ' Juta';
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 50,
-                        ticks: {
-                            stepSize: 10,
-                            color: tickColor,
-                            font: {
-                                size: 11,
-                                family: 'Inter'
-                            },
-                            callback: function(value, index, values) {
-                                if (value === 0) return 'Rp 0';
-                                return 'Rp ' + value + 'M';
-                            }
-                        },
-                        border: {
+                    {
+                        label: 'Target',
+                        data: chartTargetValues,
+                        borderColor: targetColor,
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        borderDash: [4, 4],
+                        tension: 0.4,
+                        pointRadius: 0,
+                        pointHoverRadius: 0,
+                    },
+                ],
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
                             display: false,
                         },
-                        grid: {
-                            color: gridColor,
-                            drawBorder: false,
-                        }
+                        tooltip: {
+                            enabled: true,
+                            backgroundColor: isDarkMode ? '#ffffff' : '#1F2937',
+                            titleColor: isDarkMode ? '#0f172a' : '#ffffff',
+                            bodyColor: isDarkMode ? '#0f172a' : '#ffffff',
+                            padding: 12,
+                            titleFont: { size: 13, family: 'Inter' },
+                            bodyFont: { size: 13, family: 'Inter' },
+                            callbacks: {
+                                label: function (context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += 'Rp ' + context.parsed.y + ' Juta';
+                                    }
+                                    return label;
+                                },
+                            },
+                        },
                     },
-                    x: {
-                        ticks: {
-                            color: tickColor,
-                            font: {
-                                size: 12,
-                                family: 'Inter'
-                            }
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            min: 0,
+                            max: 50,
+                            ticks: {
+                                stepSize: 10,
+                                color: tickColor,
+                                font: {
+                                    size: 11,
+                                    family: 'Inter',
+                                },
+                                callback: function (value, index, values) {
+                                    if (value === 0) return 'Rp 0';
+                                    return 'Rp ' + value + 'M';
+                                },
+                            },
+                            border: {
+                                display: false,
+                            },
+                            grid: {
+                                color: gridColor,
+                                drawBorder: false,
+                            },
                         },
-                        border: {
-                            display: false
+                        x: {
+                            ticks: {
+                                color: tickColor,
+                                font: {
+                                    size: 12,
+                                    family: 'Inter',
+                                },
+                            },
+                            border: {
+                                display: false,
+                            },
+                            grid: {
+                                display: false,
+                            },
                         },
-                        grid: {
-                            display: false
-                        }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                },
+            };
+
+            const myChart = new Chart(ctx, config);
+
+            // Update chart colors on theme toggle
+            const observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.attributeName === 'class') {
+                        const isDark = document.documentElement.classList.contains('dark');
+                        const newPrimary = isDark ? '#e2ddca' : '#4A3A2A';
+                        const newTarget = isDark ? '#475569' : '#D1D5DB';
+                        const newGrid = isDark ? '#1e293b' : '#F3F4F6';
+                        const newTick = isDark ? '#94a3b8' : '#9CA3AF';
+                        const newPointBorder = isDark ? '#0f172a' : '#ffffff';
+
+                        myChart.data.datasets[0].borderColor = newPrimary;
+                        myChart.data.datasets[0].backgroundColor = newPrimary;
+                        myChart.data.datasets[0].pointBackgroundColor = newPrimary;
+                        myChart.data.datasets[0].pointBorderColor = newPointBorder;
+                        myChart.data.datasets[1].borderColor = newTarget;
+
+                        myChart.options.scales.y.grid.color = newGrid;
+                        myChart.options.scales.y.ticks.color = newTick;
+                        myChart.options.scales.x.ticks.color = newTick;
+
+                        myChart.options.plugins.tooltip.backgroundColor = isDark
+                            ? '#ffffff'
+                            : '#1F2937';
+                        myChart.options.plugins.tooltip.titleColor = isDark ? '#0f172a' : '#ffffff';
+                        myChart.options.plugins.tooltip.bodyColor = isDark ? '#0f172a' : '#ffffff';
+
+                        myChart.update();
                     }
-                },
-                interaction: {
-                    mode: 'index',
-                    intersect: false,
-                },
-            }
-        };
-
-        const myChart = new Chart(ctx, config);
-
-        // Update chart colors on theme toggle
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === "class") {
-                    const isDark = document.documentElement.classList.contains('dark');
-                    const newPrimary = isDark ? '#e2ddca' : '#4A3A2A';
-                    const newTarget = isDark ? '#475569' : '#D1D5DB';
-                    const newGrid = isDark ? '#1e293b' : '#F3F4F6';
-                    const newTick = isDark ? '#94a3b8' : '#9CA3AF';
-                    const newPointBorder = isDark ? '#0f172a' : '#ffffff';
-
-                    myChart.data.datasets[0].borderColor = newPrimary;
-                    myChart.data.datasets[0].backgroundColor = newPrimary;
-                    myChart.data.datasets[0].pointBackgroundColor = newPrimary;
-                    myChart.data.datasets[0].pointBorderColor = newPointBorder;
-                    myChart.data.datasets[1].borderColor = newTarget;
-
-                    myChart.options.scales.y.grid.color = newGrid;
-                    myChart.options.scales.y.ticks.color = newTick;
-                    myChart.options.scales.x.ticks.color = newTick;
-                    
-                    myChart.options.plugins.tooltip.backgroundColor = isDark ? '#ffffff' : '#1F2937';
-                    myChart.options.plugins.tooltip.titleColor = isDark ? '#0f172a' : '#ffffff';
-                    myChart.options.plugins.tooltip.bodyColor = isDark ? '#0f172a' : '#ffffff';
-
-                    myChart.update();
-                }
+                });
             });
+            observer.observe(document.documentElement, { attributes: true });
         });
-        observer.observe(document.documentElement, { attributes: true });
-    });
-</script>
+    </script>
 @endsection
