@@ -282,7 +282,7 @@
 
                 <!-- Search & User Profile -->
                 <div class="flex items-center gap-4 self-end sm:self-auto">
-                    <div class="relative w-64 max-w-xs">
+                    <form action="{{ url('/data-pelanggan') }}" method="GET" class="relative w-64 max-w-xs">
                         <span
                             class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-400 pointer-events-none text-xs"
                         >
@@ -291,10 +291,12 @@
                         <input
                             type="text"
                             id="search-input"
+                            name="q"
+                            value="{{ request('q') }}"
                             placeholder="Pencarian pelanggan..."
                             class="w-full pl-9 pr-4 py-2 bg-background dark:bg-slate-800 text-secondary dark:text-white text-xs border border-transparent rounded-full shadow-sm placeholder-grey/60 focus:outline-none focus:bg-white dark:focus:bg-slate-800 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
                         />
-                    </div>
+                    </form>
 
                     <div class="h-8 w-px bg-[#EFECE6]"></div>
 
@@ -302,6 +304,16 @@
                         <span class="text-xs font-semibold text-primary">{{ auth()->check() ? auth()->user()->name : 'Admin' }}</span>
                         <img
                             src="{{ auth()->check() && auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->check() ? auth()->user()->name : 'Admin') . '&background=E5E7EB&color=374151' }}"
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-semibold text-primary">
+                            @if (auth()->check())
+                                {{ auth()->user()->name }}
+                            @else
+                                Admin
+                            @endif
+                        </span>
+                        <img
+                            src="https://ui-avatars.com/api/?name={{ urlencode(auth()->check() ? auth()->user()->name : 'Admin') }}&background=4A3A2A&color=fff"
                             alt="Admin Profile"
                             class="w-8 h-8 rounded-full object-cover border border-[#EFECE6]"
                         />
