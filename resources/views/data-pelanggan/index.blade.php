@@ -243,10 +243,11 @@
     </div>
 
     <script>
-        let customersData = {!! json_encode($customers ?? []) !!};
+        let customersData = @json($customers ?? []);
         let customers = customersData;
 
-        let searchQuery = '';
+        let urlParams = new URLSearchParams(window.location.search);
+        let searchQuery = urlParams.get('q') || '';
         let currentPage = 1;
         const itemsPerPage = 10;
 
@@ -273,11 +274,12 @@
         };
 
         function renderTable() {
-            const filtered = customers.filter(
-                (c) =>
-                    (c.name && c.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
-                    (c.phone && c.phone.includes(searchQuery))
-            );
+            try {
+                const filtered = customers.filter(
+                    (c) =>
+                        (c.name && String(c.name).toLowerCase().includes(searchQuery.toLowerCase())) ||
+                        (c.phone && String(c.phone).includes(searchQuery))
+                );
             
             const totalPages = Math.ceil(filtered.length / itemsPerPage);
             const startIndex = (currentPage - 1) * itemsPerPage;
@@ -356,8 +358,12 @@
             document.getElementById('pagination-info').innerText = 
                 `Menampilkan ${startIndex + 1} - ${endItem} dari ${filtered.length} pelanggan`;
                 
-            // Update tombol paginasi
-            renderPagination(totalPages);
+                // Update tombol paginasi
+                renderPagination(totalPages);
+            } catch (error) {
+                tableBody.innerHTML = `<tr><td colspan="6" class="text-red-500 font-bold p-4">Error JS: ${error.message} - ${error.stack}</td></tr>`;
+                emptyState.classList.add('hidden');
+            }
         }
 
         function renderPagination(totalPages) {
@@ -438,7 +444,7 @@
                 status: document.getElementById('customerStatus').value,
             };
             
-            const url = id ? \`/data-pelanggan/\${id}\` : '/data-pelanggan/simpan';
+            const url = id ? `/data-pelanggan/${id}` : '/data-pelanggan/simpan';
             const method = id ? 'PUT' : 'POST';
             
             fetch(url, {
@@ -470,7 +476,7 @@
 
         function deleteCustomer(id) {
             if (confirm('Apakah Anda yakin ingin menghapus pelanggan ini?')) {
-                fetch(\`/data-pelanggan/\${id}\`, {
+                fetch(`/data-pelanggan/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
