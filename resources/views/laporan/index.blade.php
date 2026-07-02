@@ -130,9 +130,23 @@
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="font-serif text-lg font-bold text-slate-800 dark:text-white">
-                        Tren Pendapatan Bulanan
+                        @if($filter == '7')
+                            Tren Pendapatan Harian
+                        @elseif($filter == '365')
+                            Tren Pendapatan Bulanan
+                        @else
+                            Tren Pendapatan Harian
+                        @endif
                     </h2>
-                    <p class="text-xs text-gray-400 dark:text-slate-400 mt-1">Statistik performa selama 6 bulan terakhir</p>
+                    <p class="text-xs text-gray-400 dark:text-slate-400 mt-1">
+                        @if($filter == '7')
+                            Statistik performa selama 7 hari terakhir
+                        @elseif($filter == '365')
+                            Statistik performa selama 1 tahun terakhir
+                        @else
+                            Statistik performa selama 30 hari terakhir
+                        @endif
+                    </p>
                 </div>
                 <div
                     class="flex items-center gap-4 text-xs font-medium text-gray-500 dark:text-slate-400"
@@ -332,7 +346,14 @@
                                         label += ': ';
                                     }
                                     if (context.parsed.y !== null) {
-                                        label += 'Rp ' + context.parsed.y + ' Juta';
+                                        let val = context.parsed.y;
+                                        if (val >= 1000000) {
+                                            label += 'Rp ' + (val / 1000000) + ' Juta';
+                                        } else if (val > 0) {
+                                            label += 'Rp ' + (val / 1000) + ' Ribu';
+                                        } else {
+                                            label += 'Rp 0';
+                                        }
                                     }
                                     return label;
                                 },
@@ -343,9 +364,31 @@
                         y: {
                             beginAtZero: true,
                             min: 0,
-                            max: 50,
+                            afterBuildTicks: function(axis) {
+                                const filter = '{{ $filter }}';
+                                let maxVal = axis.max || 0;
+                                let customTicks = [];
+
+                                if (filter === '7') {
+                                    customTicks = [0, 100000, 250000, 500000, 1000000];
+                                    while (customTicks[customTicks.length - 1] < maxVal) {
+                                        customTicks.push(customTicks[customTicks.length - 1] + 500000);
+                                    }
+                                } else if (filter === '30') {
+                                    customTicks = [0, 500000, 1000000, 3000000, 5000000];
+                                    while (customTicks[customTicks.length - 1] < maxVal) {
+                                        customTicks.push(customTicks[customTicks.length - 1] + 2000000);
+                                    }
+                                } else {
+                                    customTicks = [0, 1000000, 3000000, 5000000, 10000000, 15000000, 20000000];
+                                    while (customTicks[customTicks.length - 1] < maxVal) {
+                                        customTicks.push(customTicks[customTicks.length - 1] + 5000000);
+                                    }
+                                }
+                                
+                                axis.ticks = customTicks.map(v => ({ value: v }));
+                            },
                             ticks: {
-                                stepSize: 10,
                                 color: tickColor,
                                 font: {
                                     size: 11,
@@ -353,7 +396,11 @@
                                 },
                                 callback: function (value, index, values) {
                                     if (value === 0) return 'Rp 0';
-                                    return 'Rp ' + value + 'M';
+                                    if (value >= 1000000) {
+                                        return 'Rp ' + (value / 1000000) + 'jt';
+                                    } else {
+                                        return 'Rp ' + (value / 1000) + 'rb';
+                                    }
                                 },
                             },
                             border: {
