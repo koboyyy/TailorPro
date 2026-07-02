@@ -15,14 +15,14 @@
 @layer base {
     :root {
         /* Palet Tema Terang (Light Mode) */
-        --base-primary: #4A3A2A;
-        --base-secondary: #30251A;
-        --base-accent: #E2DDCA;
-        --base-bg: #FCFCFC;
+        --base-primary: #4a3a2a;
+        --base-secondary: #30251a;
+        --base-accent: #e2ddca;
+        --base-bg: #fcfcfc;
         --base-text: #000000;
-        --base-grey: #333333
+        --base-grey: #333333;
     }
- 
+
     /* Palet Tema Gelap (Dark Mode) */
     /* Gunakan .dark jika memakai tombol toggle class, atau 
      @media (prefers-color-scheme: dark) untuk mengikuti sistem OS */

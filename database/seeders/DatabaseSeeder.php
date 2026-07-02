@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
                 'sizes' => [
                     'l_badan' => 88, 'l_pinggang' => 76, 'l_punggung' => 40, 'p_bahu' => 12,
                     'p_lengan' => 24, 'l_lengan' => 32, 't_susu' => 25, 't_pinggang' => 38,
-                    'l_pinggul' => 94, 'p_baju' => 70, 'p_rok' => '-'
+                    'l_pinggul' => 94, 'p_baju' => 70, 'p_rok' => 0
                 ]
             ],
             [
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
                 'sizes' => [
                     'l_badan' => 92, 'l_pinggang' => 80, 'l_punggung' => 42, 'p_bahu' => 13,
                     'p_lengan' => 25, 'l_lengan' => 34, 't_susu' => 26, 't_pinggang' => 39,
-                    'l_pinggul' => 96, 'p_baju' => 72, 'p_rok' => '-'
+                    'l_pinggul' => 96, 'p_baju' => 72, 'p_rok' => 0
                 ]
             ],
             [
@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
                 'sizes' => [
                     'l_badan' => 84, 'l_pinggang' => 68, 'l_punggung' => 38, 'p_bahu' => 11,
                     'p_lengan' => 23, 'l_lengan' => 30, 't_susu' => 24, 't_pinggang' => 37,
-                    'l_pinggul' => 90, 'p_baju' => 65, 'p_rok' => '-'
+                    'l_pinggul' => 90, 'p_baju' => 65, 'p_rok' => 0
                 ]
             ],
             [
@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
                 'sizes' => [
                     'l_badan' => 96, 'l_pinggang' => 84, 'l_punggung' => 44, 'p_bahu' => 14,
                     'p_lengan' => 26, 'l_lengan' => 36, 't_susu' => 27, 't_pinggang' => 40,
-                    'l_pinggul' => 100, 'p_baju' => 75, 'p_rok' => '-'
+                    'l_pinggul' => 100, 'p_baju' => 75, 'p_rok' => 0
                 ]
             ],
             [
@@ -99,7 +99,7 @@ class DatabaseSeeder extends Seeder
                 'sizes' => [
                     'l_badan' => 96, 'l_pinggang' => 80, 'l_punggung' => 44, 'p_bahu' => 14,
                     'p_lengan' => 24, 'l_lengan' => 34, 't_susu' => 26, 't_pinggang' => 39,
-                    'l_pinggul' => 98, 'p_baju' => 72, 'p_rok' => '-'
+                    'l_pinggul' => 98, 'p_baju' => 72, 'p_rok' => 0
                 ]
             ],
         ];
@@ -138,7 +138,7 @@ class DatabaseSeeder extends Seeder
                 'notes' => 'Tidak ada catatan tambahan',
                 'l_badan' => 88, 'l_pinggang' => 76, 'l_punggung' => 40, 'p_bahu' => 12,
                 'p_lengan' => 24, 'l_lengan' => 32, 't_susu' => 25, 't_pinggang' => 38,
-                'l_pinggul' => 94, 'p_baju' => 70, 'p_rok' => '-'
+                'l_pinggul' => 94, 'p_baju' => 70, 'p_rok' => 0
             ]);
 
             RiwayatStatus::create([
@@ -178,7 +178,7 @@ class DatabaseSeeder extends Seeder
                 'notes' => 'Kerah tegak, kancing dalam.',
                 'l_badan' => 92, 'l_pinggang' => 80, 'l_punggung' => 42, 'p_bahu' => 13,
                 'p_lengan' => 25, 'l_lengan' => 34, 't_susu' => 26, 't_pinggang' => 39,
-                'l_pinggul' => 96, 'p_baju' => 72, 'p_rok' => '-'
+                'l_pinggul' => 96, 'p_baju' => 72, 'p_rok' => 0
             ]);
 
             RiwayatStatus::create([
@@ -211,7 +211,7 @@ class DatabaseSeeder extends Seeder
                 'notes' => 'Bahan brokat dengan furing satin.',
                 'l_badan' => 84, 'l_pinggang' => 68, 'l_punggung' => 38, 'p_bahu' => 11,
                 'p_lengan' => 23, 'l_lengan' => 30, 't_susu' => 24, 't_pinggang' => 37,
-                'l_pinggul' => 90, 'p_baju' => 65, 'p_rok' => '-'
+                'l_pinggul' => 90, 'p_baju' => 65, 'p_rok' => 0
             ]);
 
             RiwayatStatus::create([
@@ -258,7 +258,7 @@ class DatabaseSeeder extends Seeder
                 'notes' => 'Model loose dress casual.',
                 'l_badan' => 96, 'l_pinggang' => 84, 'l_punggung' => 44, 'p_bahu' => 14,
                 'p_lengan' => 26, 'l_lengan' => 36, 't_susu' => 27, 't_pinggang' => 40,
-                'l_pinggul' => 100, 'p_baju' => 75, 'p_rok' => '-'
+                'l_pinggul' => 100, 'p_baju' => 75, 'p_rok' => 0
             ]);
 
             RiwayatStatus::create([
@@ -286,7 +286,7 @@ class DatabaseSeeder extends Seeder
                 'l_pinggang' => 80,
                 'l_pinggul' => 98,
                 'p_celana' => 95,
-                'p_rok' => '-'
+                'p_rok' => 0
             ]);
         }
         if ($siti) {
@@ -303,7 +303,7 @@ class DatabaseSeeder extends Seeder
                 'l_pinggang' => 76,
                 'l_pinggul' => 94,
                 'p_celana' => 90,
-                'p_rok' => '-'
+                'p_rok' => 0
             ]);
         }
     }
