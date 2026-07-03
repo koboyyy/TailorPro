@@ -74,26 +74,56 @@ class LaporanController extends Controller
                                     ->orderBy('created_at', 'desc')
                                     ->get();
 
-        // --- Data Chart Pendapatan Bulanan (6 bulan terakhir) ---
+        // --- Data Chart Pendapatan ---
         $chartData = [];
         $chartLabels = [];
         $chartTarget = [];
         
-        for ($i = 5; $i >= 0; $i--) {
-            $month = Carbon::now()->subMonths($i);
-            $chartLabels[] = $month->translatedFormat('M');
-
-            $monthlySum = 0;
-            $monthlyOrders = Pesanan::whereMonth('created_at', $month->month)
-                                    ->whereYear('created_at', $month->year)
-                                    ->get();
-            
-            foreach($monthlyOrders as $mo) {
-                $monthlySum += (int)preg_replace('/[^0-9]/', '', $mo->price);
+        if ($filter == '7') {
+            for ($i = 6; $i >= 0; $i--) {
+                $date = Carbon::now()->subDays($i);
+                $chartLabels[] = $date->translatedFormat('d M');
+                
+                $sum = 0;
+                $orders = Pesanan::whereDate('created_at', $date->toDateString())->get();
+                foreach($orders as $o) {
+                    $sum += (int)preg_replace('/[^0-9]/', '', $o->price);
+                }
+                
+                $chartData[] = $sum;
+                $chartTarget[] = 500000;
             }
-            
-            $chartData[] = round($monthlySum / 1000000, 2);
-            $chartTarget[] = 10;
+        } elseif ($filter == '365') {
+            for ($i = 11; $i >= 0; $i--) {
+                $month = Carbon::now()->subMonths($i);
+                $chartLabels[] = $month->translatedFormat('M Y');
+                
+                $sum = 0;
+                $orders = Pesanan::whereMonth('created_at', $month->month)
+                                 ->whereYear('created_at', $month->year)
+                                 ->get();
+                foreach($orders as $o) {
+                    $sum += (int)preg_replace('/[^0-9]/', '', $o->price);
+                }
+                
+                $chartData[] = $sum;
+                $chartTarget[] = 5000000;
+            }
+        } else {
+            // Default 30 days
+            for ($i = 29; $i >= 0; $i--) {
+                $date = Carbon::now()->subDays($i);
+                $chartLabels[] = $date->translatedFormat('d M');
+                
+                $sum = 0;
+                $orders = Pesanan::whereDate('created_at', $date->toDateString())->get();
+                foreach($orders as $o) {
+                    $sum += (int)preg_replace('/[^0-9]/', '', $o->price);
+                }
+                
+                $chartData[] = $sum;
+                $chartTarget[] = 500000;
+            }
         }
 
         return view('laporan.index', compact(
