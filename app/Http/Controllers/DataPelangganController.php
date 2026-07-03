@@ -8,7 +8,7 @@ class DataPelangganController extends Controller
 {
     public function index()
     {
-        $pelanggans = \App\Models\Pelanggan::withCount('pesanan')->get();
+        $pelanggans = \App\Models\Pelanggan::with(['ukuranBaju'])->withCount('pesanan')->get();
         
         $totalPelanggan = $pelanggans->count();
         $pelangganAktif = $pelanggans->where('status', 'Aktif')->count();
@@ -48,6 +48,8 @@ class DataPelangganController extends Controller
                 $badgeText = 'text-gray-500';
             }
             
+            $ukuran = $c->ukuranBaju;
+
             return [
                 'id' => $c->id,
                 'name' => $c->name,
@@ -61,6 +63,19 @@ class DataPelangganController extends Controller
                 'status_color' => $statusColor,
                 'avatar' => null,
                 'initials' => $initials,
+                'ukuran' => [
+                    'l_badan' => $ukuran->l_badan ?? 0,
+                    'l_pinggang' => $ukuran->l_pinggang ?? 0,
+                    'l_punggung' => $ukuran->l_punggung ?? 0,
+                    'p_bahu' => $ukuran->p_bahu ?? 0,
+                    'p_lengan' => $ukuran->p_lengan ?? 0,
+                    'l_lengan' => $ukuran->l_lengan ?? 0,
+                    't_susu' => $ukuran->t_susu ?? 0,
+                    't_pinggang' => $ukuran->t_pinggang ?? 0,
+                    'l_pinggul' => $ukuran->l_pinggul ?? 0,
+                    'p_baju' => $ukuran->p_baju ?? 0,
+                    'p_rok' => $ukuran->p_rok ?? 0,
+                ],
                 'row_bg' => 'bg-white',
             ];
         })->values()->toArray();

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet"
     />
 
@@ -19,28 +19,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4A3A2A',
-                        secondary: '#30251A',
-                        accent: '#e2ddca',
-                        grey: '#555555',
-                        background: '#FCFCFC',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Crimson Pro"', 'serif'],
-                    },
-                },
-            },
-        };
-    </script>
+    <!-- Vite (Tailwind + JS) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="h-full flex items-center justify-center bg-[#F4F1EA] dark:bg-slate-950 p-6 font-sans">
     <!-- Background Pattern/Circles -->

@@ -15,7 +15,6 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/ukuran-baju', [UkuranBajuController::class, 'index']);
 Route::post('/ukuran-baju/simpan', [UkuranBajuController::class, 'store'])->name('ukuran-baju.store');
 Route::delete('/ukuran-baju/{id}', [UkuranBajuController::class, 'destroy'])->name('ukuran-baju.destroy');
 Route::get('/pesanan', [PesananController::class, 'index']);
@@ -25,8 +24,8 @@ Route::put('/data-pelanggan/{id}', [DataPelangganController::class, 'update'])->
 Route::delete('/data-pelanggan/{id}', [DataPelangganController::class, 'destroy'])->name('data-pelanggan.destroy');
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 Route::get('/laporan/pdf', [LaporanController::class, 'pdf'])->name('laporan.pdf');
-Route::get('/arsip-pola', [ArsipPolaController::class, 'index']);
-Route::delete('/arsip-pola/{id}', [ArsipPolaController::class, 'destroy'])->name('arsip-pola.destroy');
+Route::get('/pola-busana', [ArsipPolaController::class, 'index']);
+Route::delete('/pola-busana/{id}', [ArsipPolaController::class, 'destroy'])->name('pola-busana.destroy');
 
 Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan.index');
 Route::post('/pesanan/simpan', [PesananController::class, 'store'])->name('pesanan.store');

@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section ('breadcrumb-parent', 'halaman')
-@section ('breadcrumb-active', 'arsip pola')
+@section ('breadcrumb-active', 'pola busana')
 
 @section ('content')
     <!-- Toast Notification Banner -->
@@ -27,7 +27,7 @@
                 <h1
                     class="font-serif text-3xl font-bold text-primary dark:text-white mb-1 tracking-tight"
                 >
-                    Arsip Pola Busana
+                    Pola Busana
                 </h1>
                 <p class="text-xs text-grey dark:text-slate-400 font-medium">Kelola, lihat kembali, cetak, atau unduh pola-pola potongan busana yang telah dihasilkan sebelumnya.</p>
             </div>
@@ -313,6 +313,25 @@
             let currentScale = 1.0;
             let searchQuery = '';
 
+            // Icon SVG Helper
+            function getClothingIcon(type) {
+                switch(type) {
+                    case 'BAJU':
+                    case 'KEMEJA':
+                        return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>';
+                    case 'CELANA':
+                        return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a2 2 0 0 1 2 2v2a2 2 0 0 1-.5 1.3l-3.5 4.7v9a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-9L4.5 8.3A2 2 0 0 1 4 7V5a2 2 0 0 1 2-2z"/></svg>';
+                    case 'ROK':
+                        return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8l5 16H3z"/></svg>';
+                    case 'GAMIS':
+                        return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4c0 1.5 1.5 3 3 3s3-1.5 3-3M6 4h12l3 6h-3l-2 11H8l-2-11H3z"/></svg>';
+                    case 'JAS':
+                        return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12l4 6h-3v11H5V10H2z"/><path d="M12 4v17"/><path d="M9 4l3 6 3-6"/></svg>';
+                    default:
+                        return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>';
+                }
+            }
+
             // DOM elements
             const tableBody = document.getElementById('patterns-table-body');
             const emptyState = document.getElementById('empty-state');
@@ -335,11 +354,11 @@
                 if (hash === '#list') {
                     document.getElementById('view-list').classList.remove('hidden');
                     if (parentSpan) parentSpan.innerText = 'halaman';
-                    if (activeSpan) activeSpan.innerText = 'arsip pola';
+                    if (activeSpan) activeSpan.innerText = 'pola busana';
                     renderPatterns();
                 } else if (hash.startsWith('#detail-')) {
                     document.getElementById('view-detail').classList.remove('hidden');
-                    if (parentSpan) parentSpan.innerText = 'arsip pola';
+                    if (parentSpan) parentSpan.innerText = 'pola busana';
                     if (activeSpan) activeSpan.innerText = 'detail pola';
                     const id = parseInt(hash.split('-')[1]);
                     loadDetailView(id);
@@ -403,7 +422,7 @@
                     <!-- Pattern Name & Icon -->
                     <td class="px-8 py-5">
                         <div class="flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">${p.type.charAt(0)}</span>
+                            <span class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm">${getClothingIcon(p.type)}</span>
                             <div>
                                 <span class="block text-sm font-bold text-slate-800 dark:text-slate-100">${p.name}</span>
                             </div>
@@ -633,7 +652,7 @@
                 if (!pattern) return;
 
                 if (confirm(`Apakah Anda yakin ingin menghapus arsip pola "${pattern.name}"?`)) {
-                    fetch(`/arsip-pola/${id}`, {
+                    fetch(`/pola-busana/${id}`, {
                         method: 'DELETE',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}'

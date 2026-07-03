@@ -242,6 +242,124 @@
         </div>
     </div>
 
+    <!-- Modal Tambah/Edit Ukuran -->
+    <div id="ukuranModal" class="fixed inset-0 z-50 hidden bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-3xl shadow-2xl border border-gray-100 dark:border-slate-800 overflow-hidden transform transition-all max-h-[90vh] flex flex-col">
+            <div class="px-6 py-4 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between shrink-0">
+                <div>
+                    <h3 id="ukuranModalTitle" class="font-bold text-lg text-slate-800 dark:text-white">Detail Ukuran Baju</h3>
+                    <span id="ukuranModalBadge" class="bg-primary/10 text-primary dark:bg-slate-800 dark:text-accent text-[9px] font-bold tracking-wider px-2.5 py-1 rounded uppercase mt-1 inline-block">NAMA</span>
+                </div>
+                <button type="button" onclick="closeUkuranModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="ukuranForm" onsubmit="saveUkuran(event)" class="p-6 overflow-y-auto flex-1">
+                <input type="hidden" id="ukuranCustomerId" value="">
+                <input type="hidden" id="ukuranCustomerName" value="">
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Lingkar Badan -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Lingkar Badan</label>
+                        <div class="relative">
+                            <input type="number" id="input-l-badan" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Lingkar Pinggang -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Lingkar Pinggang</label>
+                        <div class="relative">
+                            <input type="number" id="input-l-pinggang" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Lebar Punggung -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Lebar Punggung</label>
+                        <div class="relative">
+                            <input type="number" id="input-l-punggung" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Panjang Bahu -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Panjang Bahu</label>
+                        <div class="relative">
+                            <input type="number" id="input-p-bahu" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Panjang Lengan -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Panjang Lengan</label>
+                        <div class="relative">
+                            <input type="number" id="input-p-lengan" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Lingkar Lengan -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Lingkar Lengan</label>
+                        <div class="relative">
+                            <input type="number" id="input-l-lengan" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Turun Susu -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Turun Susu/Tetek</label>
+                        <div class="relative">
+                            <input type="number" id="input-t-susu" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Turun Pinggang -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Turun Pinggang</label>
+                        <div class="relative">
+                            <input type="number" id="input-t-pinggang" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Lingkar Pinggul -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Lingkar Pinggul</label>
+                        <div class="relative">
+                            <input type="number" id="input-l-pinggul" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                    <!-- Panjang Baju -->
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Panjang Baju</label>
+                        <div class="relative">
+                            <input type="number" id="input-p-baju" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required />
+                            <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <label class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1">Panjang Rok</label>
+                    <div class="relative">
+                        <input type="number" id="input-p-rok" class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
+                        <span class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400">CM</span>
+                    </div>
+                </div>
+                
+                <div class="pt-4 flex items-center justify-end gap-3 border-t border-gray-100 dark:border-slate-800 mt-6 shrink-0">
+                    <button type="button" onclick="closeUkuranModal()" class="px-5 py-2.5 text-sm font-bold text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-xl transition">Batal</button>
+                    <button type="submit" id="btnSaveUkuran" class="px-5 py-2.5 text-sm font-bold text-white bg-primary hover:bg-secondary rounded-xl transition shadow-lg shadow-primary/20 flex items-center gap-2">
+                        <i class="fas fa-save"></i> Simpan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         let customersData = @json($customers ?? []);
         let customers = customersData;
@@ -340,6 +458,9 @@
                     
                     <td class="px-6 py-5 align-top">
                         <div class="flex items-center justify-center gap-2 mt-1">
+                            <button onclick="editUkuran(${c.id})" class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center text-gray-400 hover:text-green-600 hover:border-green-300 transition" title="Edit Ukuran Baju">
+                                <i class="fas fa-ruler-combined text-xs"></i>
+                            </button>
                             <button onclick="editCustomer(${c.id})" class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-300 transition" title="Edit Data">
                                 <i class="fas fa-pencil-alt text-xs"></i>
                             </button>
@@ -495,6 +616,87 @@
                     alert('Gagal menghapus data pelanggan.');
                 });
             }
+        }
+
+        const ukuranModal = document.getElementById('ukuranModal');
+        
+        function editUkuran(id) {
+            const customer = customersData.find(c => c.id === id);
+            if (!customer) return;
+            
+            document.getElementById('ukuranModalBadge').innerText = customer.name;
+            document.getElementById('ukuranCustomerId').value = customer.id;
+            document.getElementById('ukuranCustomerName').value = customer.name;
+            
+            const u = customer.ukuran || {};
+            document.getElementById('input-l-badan').value = u.l_badan || 0;
+            document.getElementById('input-l-pinggang').value = u.l_pinggang || 0;
+            document.getElementById('input-l-punggung').value = u.l_punggung || 0;
+            document.getElementById('input-p-bahu').value = u.p_bahu || 0;
+            document.getElementById('input-p-lengan').value = u.p_lengan || 0;
+            document.getElementById('input-l-lengan').value = u.l_lengan || 0;
+            document.getElementById('input-t-susu').value = u.t_susu || 0;
+            document.getElementById('input-t-pinggang').value = u.t_pinggang || 0;
+            document.getElementById('input-l-pinggul').value = u.l_pinggul || 0;
+            document.getElementById('input-p-baju').value = u.p_baju || 0;
+            document.getElementById('input-p-rok').value = u.p_rok || 0;
+            
+            ukuranModal.classList.remove('hidden');
+        }
+
+        function closeUkuranModal() {
+            ukuranModal.classList.add('hidden');
+        }
+
+        function saveUkuran(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('btnSaveUkuran');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyimpan...';
+            btn.disabled = true;
+            
+            const payload = {
+                id: document.getElementById('ukuranCustomerId').value,
+                name: document.getElementById('ukuranCustomerName').value,
+                l_badan: parseInt(document.getElementById('input-l-badan').value) || 0,
+                l_pinggang: parseInt(document.getElementById('input-l-pinggang').value) || 0,
+                l_punggung: parseInt(document.getElementById('input-l-punggung').value) || 0,
+                p_bahu: parseInt(document.getElementById('input-p-bahu').value) || 0,
+                p_lengan: parseInt(document.getElementById('input-p-lengan').value) || 0,
+                l_lengan: parseInt(document.getElementById('input-l-lengan').value) || 0,
+                t_susu: parseInt(document.getElementById('input-t-susu').value) || 0,
+                t_pinggang: parseInt(document.getElementById('input-t-pinggang').value) || 0,
+                l_pinggul: parseInt(document.getElementById('input-l-pinggul').value) || 0,
+                p_baju: parseInt(document.getElementById('input-p-baju').value) || 0,
+                p_rok: parseInt(document.getElementById('input-p-rok').value) || 0
+            };
+            
+            fetch('/ukuran-baju/simpan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success) {
+                    alert('Data ukuran berhasil disimpan!');
+                    window.location.reload();
+                } else {
+                    alert('Gagal menyimpan data ukuran.');
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Terjadi kesalahan.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
         }
     </script>
 

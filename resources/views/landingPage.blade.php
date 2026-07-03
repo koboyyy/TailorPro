@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet"
     />
 
@@ -19,27 +19,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4A3A2A',
-                        secondary: '#30251A',
-                        accent: '#e2ddca',
-                        grey: '#555555',
-                        background: '#FCFCFC',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Crimson Pro"', 'serif'],
-                    },
-                },
-            },
-        };
-    </script>
+    <!-- Vite (Tailwind + JS) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         ::-webkit-scrollbar {
             width: 8px;
@@ -62,30 +43,35 @@
 <body class="font-sans antialiased text-primary bg-background">
     <!-- Navbar -->
     <nav
-        class="absolute w-full z-10 top-0 py-6 px-8 md:px-16 flex justify-between items-center text-accent"
+        class="absolute w-full z-10 top-0 py-6 px-8 md:px-16 grid grid-cols-3 items-center text-accent"
     >
-        <div class="flex items-center gap-2">
-            <i class="fas fa-cut text-2xl text-accent"></i>
-            <span class="font-serif text-2xl font-bold">TailorPro</span>
+        <div class="flex items-center gap-2 justify-self-start">
+            <div class="">
+                <img
+                    src="{{ asset('images/logo_tailorpro.png')}}"
+                    alt="JahitSpace Logo"
+                    class="w-7 h-7 object-contain brightness-0 invert"
+                />
+            </div>
         </div>
-        <div class="hidden md:flex gap-8 text-sm font-medium">
+        <div class="hidden md:flex gap-8 text-sm font-medium justify-self-center">
             <a href="#fitur" class="hover:text-white transition">Fitur</a>
             <a href="#harga" class="hover:text-white transition">Harga</a>
             <a href="#tentang" class="hover:text-white transition">Tentang Kami</a>
         </div>
-        <div class="hidden md:flex gap-4 items-center text-sm font-medium">
+        <div class="hidden md:flex gap-4 items-center text-sm font-medium justify-self-end">
             <a href="/login" class="hover:text-white transition">Login</a>
             <a href="/register" class="hover:text-white transition">Register</a>
         </div>
         <!-- Mobile Menu Icon -->
-        <div class="md:hidden">
+        <div class="md:hidden justify-self-end">
             <i class="fas fa-bars text-xl"></i>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section
-        class="relative bg-primary pt-32 pb-20 md:pt-48 md:pb-32 px-8 md:px-16 overflow-hidden flex flex-col md:flex-row items-center justify-between"
+        class="relative bg-primary pt-18 pb-6 md:pt-24 md:pb-13 px-8 md:px-16 overflow-hidden flex flex-col md:flex-row items-center justify-between"
     >
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">

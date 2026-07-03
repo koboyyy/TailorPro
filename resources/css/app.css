@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @theme {
     --color-primary: var(--base-primary);
@@ -9,7 +7,11 @@
     --color-background: var(--base-bg);
     --color-text: var(--base-text);
     --color-grey: var(--base-grey);
+    --font-sans: "DM Sans", sans-serif;
+    --font-serif: "DM Sans", serif;
 }
+
+@variant dark (&:where(.dark, .dark *));
 
 /* 2. Menentukan nilai variabel CSS berdasarkan tema */
 @layer base {
@@ -20,7 +22,7 @@
         --base-accent: #e2ddca;
         --base-bg: #fcfcfc;
         --base-text: #000000;
-        --base-grey: #333333;
+        --base-grey: #555555;
     }
 
     /* Palet Tema Gelap (Dark Mode) */

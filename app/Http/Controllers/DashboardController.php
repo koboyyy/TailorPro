@@ -62,8 +62,39 @@ class DashboardController extends Controller
         // 7. Aktifitas Hari Ini (Mengambil Riwayat Status Terbaru)
         $aktifitasHariIni = RiwayatStatus::with(['pesanan.pelanggan'])
             ->orderBy('time', 'desc')
-            ->take(5)
+            ->take(3)
             ->get();
+
+        // 8. Sebaran Status Pesanan
+        $sebaranStatus = [
+            'Menunggu' => Pesanan::where('status', 'MENUNGGU')->count(),
+            'Pemotongan' => Pesanan::where('status', 'PEMOTONGAN')->count(),
+            'Penjahitan' => Pesanan::where('status', 'PENJAHITAN')->count(),
+            'Penyelesaian' => Pesanan::where('status', 'PENYELESAIAN')->count(),
+            'Selesai' => Pesanan::where('status', 'SELESAI')->count(),
+        ];
+
+        // 9. Tren Pendapatan Bulanan (6 Bulan)
+        $labelsBulan = [];
+        $dataPendapatan = [];
+        $dataTarget = [30000000, 30000000, 35000000, 35000000, 40000000, 40000000];
+
+        for ($i = 5; $i >= 0; $i--) {
+            $monthDate = Carbon::now()->subMonths($i);
+            $labelsBulan[] = $monthDate->translatedFormat('M');
+            
+            $pesananBulan = Pesanan::whereMonth('created_at', $monthDate->month)
+                                   ->whereYear('created_at', $monthDate->year)
+                                   ->get();
+            $pendapatan = 0;
+            foreach ($pesananBulan as $pesanan) {
+                $cleanedPrice = str_replace('.', '', $pesanan->price);
+                $pendapatan += (int) $cleanedPrice;
+            }
+            
+            // If data is 0, we can use some fallback to match the screenshot layout visually if needed, but real data is better.
+            $dataPendapatan[] = $pendapatan;
+        }
 
         return view('dashboard', compact(
             'pesananAktif',
@@ -73,7 +104,11 @@ class DashboardController extends Controller
             'pelangganBaruBulanIni',
             'labelsMingguan',
             'dataTren',
-            'aktifitasHariIni'
+            'aktifitasHariIni',
+            'sebaranStatus',
+            'labelsBulan',
+            'dataPendapatan',
+            'dataTarget'
         ));
     }
 }

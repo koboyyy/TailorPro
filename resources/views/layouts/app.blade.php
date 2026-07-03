@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet"
     />
 
@@ -21,28 +21,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4A3A2A',
-                        secondary: '#30251A',
-                        accent: '#e2ddca',
-                        grey: '#555555',
-                        background: '#FCFCFC',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Crimson Pro"', 'serif'],
-                    },
-                },
-            },
-        };
-    </script>
+    <!-- Vite (Tailwind + JS) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Theme Detect Script -->
     <script>
@@ -128,7 +108,7 @@
                     href="/dashboard"
                     class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('dashboard') ? $active : $default }}"
                 >
-                    <i class="fas fa-desktop w-5"></i>
+                    <i class="fas fa-chart-line w-5"></i>
                     <span>Beranda</span>
                 </a>
 
@@ -137,44 +117,26 @@
                     href="/pesanan"
                     class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('pesanan*') ? $active : $default }}"
                 >
-                    <i class="fas fa-exchange-alt w-5"></i>
+                    <i class="fas fa-file-invoice w-5"></i>
                     <span>Pesanan</span>
                 </a>
 
-                <!-- Hasilkan Pola link -->
+                <!-- Pola Busana link -->
                 <a
-                    href="/hasilkan-pola"
-                    class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('hasilkan-pola*') ? $active : $default }}"
+                    href="/pola-busana"
+                    class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('pola-busana*') || Request::is('hasilkan-pola*') ? $active : $default }}"
                 >
-                    <i class="fas fa-crop-simple w-5"></i>
-                    <span>Hasilkan Pola</span>
+                    <i class="fas fa-pen-ruler w-5"></i>
+                    <span>Pola Busana</span>
                 </a>
 
-                <!-- Data Pelanggan link -->
+                <!-- Pelanggan link -->
                 <a
                     href="/data-pelanggan"
                     class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('data-pelanggan*') ? $active : $default }}"
                 >
                     <i class="fas fa-user-group w-5"></i>
-                    <span>Data Pelanggan</span>
-                </a>
-
-                <!-- Ukuran Baju link -->
-                <a
-                    href="/ukuran-baju"
-                    class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('ukuran-baju*') ? $active : $default }}"
-                >
-                    <i class="fas fa-ruler-combined w-5"></i>
-                    <span>Ukuran Baju</span>
-                </a>
-
-                <!-- Arsip Pola link -->
-                <a
-                    href="/arsip-pola"
-                    class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('arsip-pola*') ? $active : $default }}"
-                >
-                    <i class="fas fa-box-archive w-5"></i>
-                    <span>Arsip Pola</span>
+                    <span>Pelanggan</span>
                 </a>
 
                 <!-- Laporan link -->
@@ -182,7 +144,7 @@
                     href="/laporan"
                     class="group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition-all {{ Request::is('laporan*') ? $active : $default }}"
                 >
-                    <i class="fas fa-chart-line w-5"></i>
+                    <i class="fas fa-file-alt w-5"></i>
                     <span>Laporan</span>
                 </a>
             </nav>
@@ -246,17 +208,6 @@
                 <form id="logout-form" action="/logout" method="POST" class="hidden">
                     @csrf
                 </form>
-                <a
-                    href="#"
-                    onclick="
-                        event.preventDefault();
-                        document.getElementById('logout-form').submit();
-                    "
-                    class="mt-2 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-xs font-bold text-red-500 transition-all hover:bg-red-50 dark:hover:bg-red-950/20"
-                >
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
             </div>
         </header>
 
@@ -301,10 +252,6 @@
                     <div class="h-8 w-px bg-[#EFECE6]"></div>
 
                     <button onclick="document.getElementById('profile-modal').classList.remove('hidden')" class="flex items-center gap-3 hover:opacity-80 transition-opacity focus:outline-none">
-                        <span class="text-xs font-semibold text-primary">{{ auth()->check() ? auth()->user()->name : 'Admin' }}</span>
-                        <img
-                            src="{{ auth()->check() && auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->check() ? auth()->user()->name : 'Admin') . '&background=E5E7EB&color=374151' }}"
-                    <div class="flex items-center gap-3">
                         <span class="text-xs font-semibold text-primary">
                             @if (auth()->check())
                                 {{ auth()->user()->name }}
@@ -313,7 +260,7 @@
                             @endif
                         </span>
                         <img
-                            src="https://ui-avatars.com/api/?name={{ urlencode(auth()->check() ? auth()->user()->name : 'Admin') }}&background=4A3A2A&color=fff"
+                            src="{{ auth()->check() && auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->check() ? auth()->user()->name : 'Admin') . '&background=4A3A2A&color=fff' }}"
                             alt="Admin Profile"
                             class="w-8 h-8 rounded-full object-cover border border-[#EFECE6]"
                         />
