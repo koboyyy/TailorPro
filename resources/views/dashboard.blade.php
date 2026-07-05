@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
-@section('breadcrumb-parent', 'halaman')
-@section('breadcrumb-active', 'beranda')
+@section ('breadcrumb-parent', 'halaman')
+@section ('breadcrumb-active', 'beranda')
 
 @section ('content')
     <div class="mx-auto space-y-6">
@@ -82,40 +82,78 @@
         <!-- Main Section: Chart & Activity -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
             <!-- Left Panel: Status Alur Kerja -->
-            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800">
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800"
+            >
                 <div class="mb-6">
-                    <h2 class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2">
+                    <h2
+                        class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2"
+                    >
                         <i class="fa-solid fa-route"></i> Status Alur Kerja
                     </h2>
                     <p class="text-xs text-grey mt-1">Sebaran pesanan berdasarkan tahapan produksi saat ini.</p>
                 </div>
-                
+
                 <div class="flex flex-col md:flex-row items-center justify-between gap-8 h-64">
                     <div class="relative h-56 w-56 mx-auto">
                         <canvas id="statusChart"></canvas>
                     </div>
                     <!-- Custom Legend -->
                     <div class="flex flex-col gap-2 mx-auto md:mx-0 w-40">
-                        <div class="flex items-center gap-2 text-xs text-grey"><span class="w-3 h-3 rounded-full" style="background-color: #D4A373"></span> Menunggu</div>
-                        <div class="flex items-center gap-2 text-xs text-grey"><span class="w-3 h-3 rounded-full" style="background-color: #E29578"></span> Pemotongan</div>
-                        <div class="flex items-center gap-2 text-xs text-grey"><span class="w-3 h-3 rounded-full" style="background-color: #8F7E75"></span> Penjahitan</div>
-                        <div class="flex items-center gap-2 text-xs text-grey"><span class="w-3 h-3 rounded-full" style="background-color: #5B7B7A"></span> Penyelesaian</div>
-                        <div class="flex items-center gap-2 text-xs text-grey"><span class="w-3 h-3 rounded-full" style="background-color: #6A8A5C"></span> Selesai</div>
+                        <div class="flex items-center gap-2 text-xs text-grey">
+                            <span
+                                class="w-3 h-3 rounded-full"
+                                style="background-color: #d4a373"
+                            ></span>
+                            Menunggu
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-grey">
+                            <span
+                                class="w-3 h-3 rounded-full"
+                                style="background-color: #e29578"
+                            ></span>
+                            Pemotongan
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-grey">
+                            <span
+                                class="w-3 h-3 rounded-full"
+                                style="background-color: #8f7e75"
+                            ></span>
+                            Penjahitan
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-grey">
+                            <span
+                                class="w-3 h-3 rounded-full"
+                                style="background-color: #5b7b7a"
+                            ></span>
+                            Penyelesaian
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-grey">
+                            <span
+                                class="w-3 h-3 rounded-full"
+                                style="background-color: #6a8a5c"
+                            ></span>
+                            Selesai
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Right Panel: Aktifitas Hari Ini -->
-            <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col">
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 flex flex-col"
+            >
                 <div class="mb-6">
-                    <h2 class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2">
+                    <h2
+                        class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2"
+                    >
                         <i class="fa-solid fa-clock-rotate-left"></i> Aktifitas Hari Ini
                     </h2>
                     <p class="text-xs text-grey mt-1">Riwayat aktifitas hari ini.</p>
                 </div>
 
                 <div class="space-y-6 flex-1 overflow-y-auto max-h-64 pr-2">
-                    @forelse($aktifitasHariIni as $aktifitas)
+                    @forelse ($aktifitasHariIni as $aktifitas)
                         <div class="flex gap-4 relative">
                             <div class="mt-1.5 flex flex-col items-center">
                                 @php
@@ -128,37 +166,58 @@
                                         default => '#D1D5DB'
                                     };
                                 @endphp
-                                <div class="w-2.5 h-2.5 rounded-full" style="background-color: {{ $statusColor }}"></div>
-                                @if(!$loop->last)
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full"
+                                    style="background-color: {{ $statusColor }}"
+                                ></div>
+                                @if (!$loop->last)
                                     <div class="w-px h-10 bg-gray-200 mt-1"></div>
                                 @endif
                             </div>
                             <div class="pb-2">
                                 <p class="text-sm text-secondary dark:text-slate-300 font-medium">
-                                    <span class="font-bold">{{ $aktifitas->pesanan->pelanggan->name ?? 'Pelanggan' }}</span> <span class="text-gray-300 mx-1">—</span> <span class="text-xs">{{ ucwords(strtolower(str_replace('_', ' ', $aktifitas->status))) }}</span>
+                                    <span
+                                        class="font-bold"
+                                        >{{ $aktifitas->pesanan->pelanggan->name ?? 'Pelanggan' }}</span
+                                    >
+                                    <span class="text-gray-300 mx-1">—</span>
+                                    <span
+                                        class="text-xs"
+                                        >{{ ucwords(strtolower(str_replace('_', ' ', $aktifitas->status))) }}</span
+                                    >
                                 </p>
                                 <p class="text-[11px] text-grey mt-0.5">{{ $aktifitas->pesanan->type ?? 'Pakaian' }} <span class="text-gray-300 mx-1">•</span> {{ $aktifitas->time ? $aktifitas->time->diffForHumans() : '' }}</p>
                             </div>
                         </div>
                     @empty
-                        <div class="text-sm text-grey text-center py-4">Belum ada aktifitas hari ini.</div>
+                        <div class="text-sm text-grey text-center py-4">
+                            Belum ada aktifitas hari ini.
+                        </div>
                     @endforelse
                 </div>
             </div>
         </div>
 
         <!-- Bottom Section: Tren Pendapatan -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 mt-6">
+        <div
+            class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-slate-800 mt-6"
+        >
             <div class="mb-6 flex items-center justify-between">
                 <div>
-                    <h2 class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2">
+                    <h2
+                        class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2"
+                    >
                         <i class="fa-solid fa-chart-line"></i> Tren Pendapatan Bulanan
                     </h2>
                     <p class="text-xs text-grey mt-1">Statistik performa selama 6 bulan terakhir</p>
                 </div>
                 <div class="flex gap-4">
-                    <div class="flex items-center gap-2 text-xs text-grey"><span class="w-3 h-3 rounded-full bg-[#4A3A2A]"></span> Pendapatan</div>
-                    <div class="flex items-center gap-2 text-xs text-grey"><span class="w-3 h-3 rounded-full bg-[#D1D5DB]"></span> Target</div>
+                    <div class="flex items-center gap-2 text-xs text-grey">
+                        <span class="w-3 h-3 rounded-full bg-[#4A3A2A]"></span> Pendapatan
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-grey">
+                        <span class="w-3 h-3 rounded-full bg-[#D1D5DB]"></span> Target
+                    </div>
                 </div>
             </div>
 
@@ -176,22 +235,24 @@
             // -- DONUT CHART --
             const statusCtx = document.getElementById('statusChart').getContext('2d');
             const sebaranStatus = {!! json_encode($sebaranStatus) !!};
-            
+
             new Chart(statusCtx, {
                 type: 'doughnut',
                 data: {
                     labels: ['Menunggu', 'Pemotongan', 'Penjahitan', 'Penyelesaian', 'Selesai'],
-                    datasets: [{
-                        data: [
-                            sebaranStatus.Menunggu, 
-                            sebaranStatus.Pemotongan, 
-                            sebaranStatus.Penjahitan, 
-                            sebaranStatus.Penyelesaian, 
-                            sebaranStatus.Selesai
-                        ],
-                        backgroundColor: ['#D4A373', '#E29578', '#8F7E75', '#5B7B7A', '#6A8A5C'],
-                        borderWidth: 0,
-                    }]
+                    datasets: [
+                        {
+                            data: [
+                                sebaranStatus.Menunggu,
+                                sebaranStatus.Pemotongan,
+                                sebaranStatus.Penjahitan,
+                                sebaranStatus.Penyelesaian,
+                                sebaranStatus.Selesai,
+                            ],
+                            backgroundColor: ['#D4A373', '#E29578', '#8F7E75', '#5B7B7A', '#6A8A5C'],
+                            borderWidth: 0,
+                        },
+                    ],
                 },
                 options: {
                     responsive: true,
@@ -199,9 +260,9 @@
                     cutout: '60%',
                     plugins: {
                         legend: { display: false },
-                        tooltip: { enabled: true }
-                    }
-                }
+                        tooltip: { enabled: true },
+                    },
+                },
             });
 
             // -- LINE CHART --
@@ -233,52 +294,57 @@
                             borderDash: [5, 5],
                             tension: 0.4,
                             pointRadius: 0,
-                        }
-                    ]
+                        },
+                    ],
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { 
+                        tooltip: {
                             enabled: true,
                             callbacks: {
-                                label: function(context) {
-                                    return context.dataset.label + ': Rp ' + context.parsed.y.toLocaleString('id-ID');
-                                }
-                            }
-                        }
+                                label: function (context) {
+                                    return (
+                                        context.dataset.label +
+                                        ': Rp ' +
+                                        context.parsed.y.toLocaleString('id-ID')
+                                    );
+                                },
+                            },
+                        },
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
+                            max: 4000000,
                             ticks: {
-                                callback: function(value) {
-                                    return 'Rp ' + (value / 1000000) + 'M';
+                                callback: function (value) {
+                                    return 'Rp ' + value / 1000000 + 'JT';
                                 },
-                                stepSize: 10000000,
+                                stepSize: 1000000,
                                 font: { size: 10 },
-                                color: '#9CA3AF'
+                                color: '#9CA3AF',
                             },
                             grid: {
                                 color: '#F3F4F6',
                                 drawBorder: false,
                             },
-                            border: { display: false }
+                            border: { display: false },
                         },
                         x: {
                             ticks: {
                                 font: { size: 10 },
-                                color: '#9CA3AF'
+                                color: '#9CA3AF',
                             },
                             grid: {
-                                display: false
+                                display: false,
                             },
-                            border: { display: true, color: '#E5E7EB' }
-                        }
-                    }
-                }
+                            border: { display: true, color: '#E5E7EB' },
+                        },
+                    },
+                },
             });
         });
     </script>

@@ -16,9 +16,9 @@
                         class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
                     >
                         <i class="fa-regular fa-calendar text-gray-400"></i>
-                        @if($filter == '7')
+                        @if ($filter == '7')
                             7 Hari Terakhir
-                        @elseif($filter == '365')
+                        @elseif ($filter == '365')
                             1 Tahun Terakhir
                         @else
                             30 Hari Terakhir
@@ -26,10 +26,24 @@
                         <i class="fa-solid fa-chevron-down text-gray-400 text-xs ml-1"></i>
                     </button>
                     <!-- Dropdown Menu -->
-                    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden">
-                        <a href="{{ route('laporan.index', ['filter' => 7]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '7' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">7 Hari Terakhir</a>
-                        <a href="{{ route('laporan.index', ['filter' => 30]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '30' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">30 Hari Terakhir</a>
-                        <a href="{{ route('laporan.index', ['filter' => 365]) }}" class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '365' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}">1 Tahun Terakhir</a>
+                    <div
+                        class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden"
+                    >
+                        <a
+                            href="{{ route('laporan.index', ['filter' => 7]) }}"
+                            class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '7' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}"
+                            >7 Hari Terakhir</a
+                        >
+                        <a
+                            href="{{ route('laporan.index', ['filter' => 30]) }}"
+                            class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '30' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}"
+                            >30 Hari Terakhir</a
+                        >
+                        <a
+                            href="{{ route('laporan.index', ['filter' => 365]) }}"
+                            class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '365' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}"
+                            >1 Tahun Terakhir</a
+                        >
                     </div>
                 </div>
                 <a
@@ -58,7 +72,10 @@
                     <span
                         class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pendapatanGrowth >= 0 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50' : 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50' }}"
                     >
-                        <i class="fa-solid {{ $pendapatanGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"></i> {{ $pendapatanGrowth >= 0 ? '+' : '' }}{{ number_format($pendapatanGrowth, 1) }}%
+                        <i
+                            class="fa-solid {{ $pendapatanGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"
+                        ></i>
+                        {{ $pendapatanGrowth >= 0 ? '+' : '' }}{{ number_format($pendapatanGrowth, 1) }}%
                     </span>
                 </div>
                 <!-- Decorative background -->
@@ -84,7 +101,10 @@
                     <span
                         class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pesananGrowth >= 0 ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50' : 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50' }}"
                     >
-                        <i class="fa-solid {{ $pesananGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"></i> {{ $pesananGrowth >= 0 ? '+' : '' }}{{ number_format($pesananGrowth, 1) }}%
+                        <i
+                            class="fa-solid {{ $pesananGrowth >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }}"
+                        ></i>
+                        {{ $pesananGrowth >= 0 ? '+' : '' }}{{ number_format($pesananGrowth, 1) }}%
                     </span>
                 </div>
                 <!-- Decorative background -->
@@ -110,7 +130,8 @@
                     <span
                         class="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg {{ $pelangganGrowth >= 0 ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50' : 'text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700' }}"
                     >
-                        <i class="fa-solid fa-user-plus"></i> {{ $pelangganGrowth >= 0 ? '+' : '' }}{{ $pelangganGrowth }}
+                        <i class="fa-solid fa-user-plus"></i>
+                        {{ $pelangganGrowth >= 0 ? '+' : '' }}{{ $pelangganGrowth }}
                     </span>
                 </div>
                 <!-- Decorative background -->
@@ -130,18 +151,18 @@
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="font-serif text-lg font-bold text-slate-800 dark:text-white">
-                        @if($filter == '7')
+                        @if ($filter == '7')
                             Tren Pendapatan Harian
-                        @elseif($filter == '365')
+                        @elseif ($filter == '365')
                             Tren Pendapatan Bulanan
                         @else
                             Tren Pendapatan Harian
                         @endif
                     </h2>
                     <p class="text-xs text-gray-400 dark:text-slate-400 mt-1">
-                        @if($filter == '7')
+                        @if ($filter == '7')
                             Statistik performa selama 7 hari terakhir
-                        @elseif($filter == '365')
+                        @elseif ($filter == '365')
                             Statistik performa selama 1 tahun terakhir
                         @else
                             Statistik performa selama 30 hari terakhir
@@ -219,35 +240,36 @@
                         </tr>
                     </thead>
                     <tbody class="text-sm">
-                        @forelse($transaksiTerakhir as $t)
-                        <tr
-                            class="border-b border-gray-50 dark:border-slate-800/50 hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors"
-                        >
-                            <td class="py-4 px-2 font-bold text-gray-600 dark:text-slate-300">
-                                #TX-{{ str_pad($t->id, 4, '0', STR_PAD_LEFT) }}
-                            </td>
-                            <td class="py-4 px-2">
-                                <div class="flex items-center gap-3">
-                                    <img
-                                        src="https://ui-avatars.com/api/?name={{ urlencode($t->pelanggan->name ?? 'Unknown') }}&background=E5E7EB&color=374151"
-                                        class="w-8 h-8 rounded-full object-cover"
-                                    />
-                                    <span class="font-bold text-slate-800 dark:text-white"
-                                        >{{ $t->pelanggan->name ?? 'Unknown' }}</span
-                                    >
-                                </div>
-                            </td>
-                            <td class="py-4 px-2 text-gray-500 dark:text-slate-400">
-                                {{ $t->type }}
-                            </td>
-                            <td class="py-4 px-2 text-gray-400 dark:text-slate-500 font-medium">
-                                {{ \Carbon\Carbon::parse($t->created_at)->format('d M Y') }}
-                            </td>
-                            <td class="py-4 px-2 font-bold text-slate-800 dark:text-white">
-                                Rp {{ number_format((int)preg_replace('/[^0-9]/', '', $t->price), 0, ',', '.') }}
-                            </td>
-                            <td class="py-4 px-2">
-                                @php
+                        @forelse ($transaksiTerakhir as $t)
+                            <tr
+                                class="border-b border-gray-50 dark:border-slate-800/50 hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors"
+                            >
+                                <td class="py-4 px-2 font-bold text-gray-600 dark:text-slate-300">
+                                    #TX-{{ str_pad($t->id, 4, '0', STR_PAD_LEFT) }}
+                                </td>
+                                <td class="py-4 px-2">
+                                    <div class="flex items-center gap-3">
+                                        <img
+                                            src="https://ui-avatars.com/api/?name={{ urlencode($t->pelanggan->name ?? 'Unknown') }}&background=E5E7EB&color=374151"
+                                            class="w-8 h-8 rounded-full object-cover"
+                                        />
+                                        <span
+                                            class="font-bold text-slate-800 dark:text-white"
+                                            >{{ $t->pelanggan->name ?? 'Unknown' }}</span
+                                        >
+                                    </div>
+                                </td>
+                                <td class="py-4 px-2 text-gray-500 dark:text-slate-400">
+                                    {{ $t->type }}
+                                </td>
+                                <td class="py-4 px-2 text-gray-400 dark:text-slate-500 font-medium">
+                                    {{ \Carbon\Carbon::parse($t->created_at)->format('d M Y') }}
+                                </td>
+                                <td class="py-4 px-2 font-bold text-slate-800 dark:text-white">
+                                    Rp {{ number_format((int)preg_replace('/[^0-9]/', '', $t->price), 0, ',', '.') }}
+                                </td>
+                                <td class="py-4 px-2">
+                                    @php
                                     $statusColor = 'bg-gray-50 text-gray-600 border-gray-100 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700';
                                     if(in_array(strtoupper($t->status), ['SELESAI', 'DIAMBIL'])) {
                                         $statusColor = 'bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-950/30 dark:text-emerald-400 dark:border-emerald-900/50';
@@ -257,16 +279,18 @@
                                         $statusColor = 'bg-orange-50 text-orange-600 border-orange-100 dark:bg-orange-950/30 dark:text-orange-400 dark:border-orange-900/50';
                                     }
                                 @endphp
-                                <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider {{ $statusColor }}"
-                                    >{{ strtoupper($t->status) }}</span
-                                >
-                            </td>
-                        </tr>
+                                    <span
+                                        class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider {{ $statusColor }}"
+                                        >{{ strtoupper($t->status) }}</span
+                                    >
+                                </td>
+                            </tr>
                         @empty
-                        <tr>
-                            <td colspan="6" class="py-8 text-center text-gray-500">Belum ada transaksi</td>
-                        </tr>
+                            <tr>
+                                <td colspan="6" class="py-8 text-center text-gray-500">
+                                    Belum ada transaksi
+                                </td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>
@@ -287,9 +311,9 @@
             const gridColor = isDarkMode ? '#1e293b' : '#F3F4F6';
             const tickColor = isDarkMode ? '#94a3b8' : '#9CA3AF';
 
-            const chartLabels = @json($chartLabels);
-            const chartDataValues = @json($chartData);
-            const chartTargetValues = @json($chartTarget);
+            const chartLabels = @json ($chartLabels);
+            const chartDataValues = @json ($chartData);
+            const chartTargetValues = @json ($chartTarget);
 
             const data = {
                 labels: chartLabels,
@@ -348,9 +372,9 @@
                                     if (context.parsed.y !== null) {
                                         let val = context.parsed.y;
                                         if (val >= 1000000) {
-                                            label += 'Rp ' + (val / 1000000) + ' Juta';
+                                            label += 'Rp ' + val / 1000000 + ' Juta';
                                         } else if (val > 0) {
-                                            label += 'Rp ' + (val / 1000) + ' Ribu';
+                                            label += 'Rp ' + val / 1000 + ' Ribu';
                                         } else {
                                             label += 'Rp 0';
                                         }
@@ -364,7 +388,7 @@
                         y: {
                             beginAtZero: true,
                             min: 0,
-                            afterBuildTicks: function(axis) {
+                            afterBuildTicks: function (axis) {
                                 const filter = '{{ $filter }}';
                                 let maxVal = axis.max || 0;
                                 let customTicks = [];
@@ -380,13 +404,15 @@
                                         customTicks.push(customTicks[customTicks.length - 1] + 2000000);
                                     }
                                 } else {
-                                    customTicks = [0, 1000000, 3000000, 5000000, 10000000, 15000000, 20000000];
+                                    customTicks = [
+                                        0, 1000000, 3000000, 5000000, 10000000, 15000000, 20000000,
+                                    ];
                                     while (customTicks[customTicks.length - 1] < maxVal) {
                                         customTicks.push(customTicks[customTicks.length - 1] + 5000000);
                                     }
                                 }
-                                
-                                axis.ticks = customTicks.map(v => ({ value: v }));
+
+                                axis.ticks = customTicks.map((v) => ({ value: v }));
                             },
                             ticks: {
                                 color: tickColor,
@@ -397,9 +423,9 @@
                                 callback: function (value, index, values) {
                                     if (value === 0) return 'Rp 0';
                                     if (value >= 1000000) {
-                                        return 'Rp ' + (value / 1000000) + 'jt';
+                                        return 'Rp ' + value / 1000000 + 'jt';
                                     } else {
-                                        return 'Rp ' + (value / 1000) + 'rb';
+                                        return 'Rp ' + value / 1000 + 'rb';
                                     }
                                 },
                             },
@@ -457,9 +483,7 @@
                         myChart.options.scales.y.ticks.color = newTick;
                         myChart.options.scales.x.ticks.color = newTick;
 
-                        myChart.options.plugins.tooltip.backgroundColor = isDark
-                            ? '#ffffff'
-                            : '#1F2937';
+                        myChart.options.plugins.tooltip.backgroundColor = isDark ? '#ffffff' : '#1F2937';
                         myChart.options.plugins.tooltip.titleColor = isDark ? '#0f172a' : '#ffffff';
                         myChart.options.plugins.tooltip.bodyColor = isDark ? '#0f172a' : '#ffffff';
 

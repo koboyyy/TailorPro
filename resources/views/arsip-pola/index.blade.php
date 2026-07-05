@@ -315,7 +315,7 @@
 
             // Icon SVG Helper
             function getClothingIcon(type) {
-                switch(type) {
+                switch (type) {
                     case 'BAJU':
                     case 'KEMEJA':
                         return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>';
@@ -345,9 +345,7 @@
                 document.getElementById('view-detail').classList.add('hidden');
 
                 // Find layout breadcrumbs to edit
-                const breadcrumbSpans = document.querySelectorAll(
-                    'header.pb-6 .text-xs.text-grey span'
-                );
+                const breadcrumbSpans = document.querySelectorAll('header.pb-6 .text-xs.text-grey span');
                 let parentSpan = breadcrumbSpans.length > 0 ? breadcrumbSpans[0] : null;
                 let activeSpan = breadcrumbSpans.length > 2 ? breadcrumbSpans[2] : null;
 
@@ -488,14 +486,11 @@
                 document.getElementById('detail-title').innerText = activePattern.name;
 
                 // Customer Card info
-                document.getElementById('detail-customer-avatar').innerText =
-                    activePattern.initials;
+                document.getElementById('detail-customer-avatar').innerText = activePattern.initials;
                 document.getElementById('detail-customer-avatar').className =
                     `w-10 h-10 rounded-full font-bold text-sm flex items-center justify-center ${activePattern.avatarBg}`;
-                document.getElementById('detail-customer-name').innerText =
-                    activePattern.customerName;
-                document.getElementById('detail-customer-id').innerText =
-                    activePattern.customerCode;
+                document.getElementById('detail-customer-name').innerText = activePattern.customerName;
+                document.getElementById('detail-customer-id').innerText = activePattern.customerCode;
 
                 // Metric list
                 const metrics = [
@@ -538,16 +533,14 @@
             window.zoomIn = function () {
                 if (currentScale < 1.6) {
                     currentScale += 0.15;
-                    document.getElementById('svg-wrapper').style.transform =
-                        `scale(${currentScale})`;
+                    document.getElementById('svg-wrapper').style.transform = `scale(${currentScale})`;
                 }
             };
 
             window.zoomOut = function () {
                 if (currentScale > 0.6) {
                     currentScale -= 0.15;
-                    document.getElementById('svg-wrapper').style.transform =
-                        `scale(${currentScale})`;
+                    document.getElementById('svg-wrapper').style.transform = `scale(${currentScale})`;
                 }
             };
 
@@ -587,37 +580,37 @@
             // Download SVG
             window.downloadSVG = function () {
                 if (!activePattern) return;
-                
+
                 const svgs = document.getElementById('svg-wrapper').querySelectorAll('svg');
                 let totalHeight = 0;
                 let maxWidth = 0;
                 let combinedInner = '';
-                
-                svgs.forEach(svg => {
+
+                svgs.forEach((svg) => {
                     const viewBox = svg.getAttribute('viewBox');
                     let width = 1000;
                     let height = 1000;
-                    
+
                     if (viewBox) {
                         const parts = viewBox.split(' ');
                         width = parseFloat(parts[2]);
                         height = parseFloat(parts[3]);
                     }
-                    
+
                     if (width > maxWidth) maxWidth = width;
-                    
+
                     let outerHTML = svg.outerHTML;
                     outerHTML = outerHTML.replace('<svg ', `<svg x="0" y="${totalHeight}" `);
-                    
+
                     combinedInner += outerHTML;
-                    totalHeight += height + 50; 
+                    totalHeight += height + 50;
                 });
-                
+
                 const finalSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxWidth} ${totalHeight}" width="${maxWidth}" height="${totalHeight}">
                     <rect width="100%" height="100%" fill="#ffffff"/>
                     ${combinedInner}
                 </svg>`;
-                
+
                 const blob = new Blob([finalSVG], { type: 'image/svg+xml;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
                 const link = document.createElement('a');
@@ -655,23 +648,29 @@
                     fetch(`/pola-busana/${id}`, {
                         method: 'DELETE',
                         headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        }
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        },
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            patternsData.splice(patternsData.findIndex(p => p.id === id), 1);
-                            showNotification(`Arsip "${pattern.name}" berhasil dihapus`, 'fa-trash-can');
-                            renderPatterns();
-                        } else {
-                            alert('Gagal menghapus pola');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Terjadi kesalahan saat menghapus');
-                    });
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (data.success) {
+                                patternsData.splice(
+                                    patternsData.findIndex((p) => p.id === id),
+                                    1
+                                );
+                                showNotification(
+                                    `Arsip "${pattern.name}" berhasil dihapus`,
+                                    'fa-trash-can'
+                                );
+                                renderPatterns();
+                            } else {
+                                alert('Gagal menghapus pola');
+                            }
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            alert('Terjadi kesalahan saat menghapus');
+                        });
                 }
             };
 
@@ -692,7 +691,9 @@
                     function gambarPolaBajuKemeja() {
                         const PB = parseInt(selectedCustomer.p_baju) || 70;
                         const LB = parseInt(selectedCustomer.l_badan || selectedCustomer.l_dada) || 100;
-                        const LBa = parseInt(selectedCustomer.l_punggung) ? parseInt(selectedCustomer.l_punggung) / 2 : (parseInt(selectedCustomer.l_bahu) / 2 || 24);
+                        const LBa = parseInt(selectedCustomer.l_punggung)
+                            ? parseInt(selectedCustomer.l_punggung) / 2
+                            : parseInt(selectedCustomer.l_bahu) / 2 || 24;
 
                         const skala = 10;
                         const padX = 80;
@@ -721,14 +722,30 @@
                         svg += `<path d="M ${pt(F.x, F.y).x} ${pt(F.x, F.y).y} C ${pt(F.x + 3.5, F.y).x} ${pt(F.x + 3.5, F.y).y}, ${pt(E.x, E.y + 1.5).x} ${pt(E.x, E.y + 1.5).y}, ${pt(E.x, E.y).x} ${pt(E.x, E.y).y} L ${pt(G.x, G.y).x} ${pt(G.x, G.y).y} C ${pt(G.x, G.y + (C1_belakang.y - G.y) * 0.5).x} ${pt(G.x, G.y + (C1_belakang.y - G.y) * 0.5).y}, ${pt(C1_belakang.x - 5, C1_belakang.y).x} ${pt(C1_belakang.x - 5, C1_belakang.y).y}, ${pt(C1_belakang.x, C1_belakang.y).x} ${pt(C1_belakang.x, C1_belakang.y).y} L ${pt(D1_belakang.x, D1_belakang.y).x} ${pt(D1_belakang.x, D1_belakang.y).y} L ${pt(D.x, D.y).x} ${pt(D.x, D.y).y} Z" fill="#fecaca" fill-opacity="0.5" stroke="#ef4444" stroke-width="2" />`;
                         svg += `<path d="M ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y} C ${pt(A1.x + 3.5, A1.y).x} ${pt(A1.x + 3.5, A1.y).y}, ${pt(A2.x, A2.y + 3.5).x} ${pt(A2.x, A2.y + 3.5).y}, ${pt(A2.x, A2.y).x} ${pt(A2.x, A2.y).y} L ${pt(B.x, B.y).x} ${pt(B.x, B.y).y} C ${pt(B.x, B.y + (C1_depan.y - B.y) * 0.5).x} ${pt(B.x, B.y + (C1_depan.y - B.y) * 0.5).y}, ${pt(C1_depan.x - 7, C1_depan.y).x} ${pt(C1_depan.x - 7, C1_depan.y).y}, ${pt(C1_depan.x, C1_depan.y).x} ${pt(C1_depan.x, C1_depan.y).y} L ${pt(D1_depan.x, D1_depan.y).x} ${pt(D1_depan.x, D1_depan.y).y} L ${pt(D.x, D.y).x} ${pt(D.x, D.y).y} Z" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5" />`;
 
-                        const garisBantu = [{ from: F, to: D }, { from: A, to: A2 }, { from: A1, to: B }, { from: C, to: C1_depan }, { from: A2, to: E }, { from: B, to: G }];
-                        garisBantu.forEach((g) => { svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}" x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}" stroke="#6b7280" stroke-dasharray="5,5" />`; });
+                        const garisBantu = [
+                            { from: F, to: D },
+                            { from: A, to: A2 },
+                            { from: A1, to: B },
+                            { from: C, to: C1_depan },
+                            { from: A2, to: E },
+                            { from: B, to: G },
+                        ];
+                        garisBantu.forEach((g) => {
+                            svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}" x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}" stroke="#6b7280" stroke-dasharray="5,5" />`;
+                        });
 
                         const labelTitik = [
-                            { id: 'A', pt: A, offsetX: -20, offsetY: 5 }, { id: 'F', pt: F, offsetX: -20, offsetY: 5 }, { id: 'A1', pt: A1, offsetX: -25, offsetY: 5 },
-                            { id: 'A2', pt: A2, offsetX: 10, offsetY: 15 }, { id: 'E', pt: E, offsetX: -5, offsetY: -15 }, { id: 'B', pt: B, offsetX: -15, offsetY: -5 },
-                            { id: 'G', pt: G, offsetX: 10, offsetY: -5 }, { id: 'C', pt: C, offsetX: -20, offsetY: 5 }, { id: 'C1', pt: C1_depan, offsetX: 15, offsetY: 5 },
-                            { id: 'D', pt: D, offsetX: -20, offsetY: 5 }, { id: 'D1', pt: D1_depan, offsetX: 15, offsetY: 5 },
+                            { id: 'A', pt: A, offsetX: -20, offsetY: 5 },
+                            { id: 'F', pt: F, offsetX: -20, offsetY: 5 },
+                            { id: 'A1', pt: A1, offsetX: -25, offsetY: 5 },
+                            { id: 'A2', pt: A2, offsetX: 10, offsetY: 15 },
+                            { id: 'E', pt: E, offsetX: -5, offsetY: -15 },
+                            { id: 'B', pt: B, offsetX: -15, offsetY: -5 },
+                            { id: 'G', pt: G, offsetX: 10, offsetY: -5 },
+                            { id: 'C', pt: C, offsetX: -20, offsetY: 5 },
+                            { id: 'C1', pt: C1_depan, offsetX: 15, offsetY: 5 },
+                            { id: 'D', pt: D, offsetX: -20, offsetY: 5 },
+                            { id: 'D1', pt: D1_depan, offsetX: 15, offsetY: 5 },
                         ];
                         labelTitik.forEach((l) => {
                             const p = pt(l.pt.x, l.pt.y);
@@ -739,8 +756,16 @@
                         svg += buatTeksUkuran('6cm', pt(A.x + 1, A.y + 3).x, pt(A.x + 1, A.y + 3).y);
                         svg += buatTeksUkuran('6cm', pt(A2.x + 1, E.y + 3).x, pt(A2.x + 1, E.y + 3).y);
                         svg += buatTeksUkuran('6cm', pt(B.x - 1.5, G.y + 3).x, pt(B.x - 1.5, G.y + 3).y);
-                        svg += buatTeksUkuran('2cm', pt(C1_belakang.x + 1, C.y - 1).x, pt(C1_belakang.x + 1, C.y - 1).y);
-                        svg += buatTeksUkuran('1cm', pt(B.x + 2, B.y + (C1_belakang.y - B.y) / 2).x, pt(B.x + 2, B.y + (C1_belakang.y - B.y) / 2).y);
+                        svg += buatTeksUkuran(
+                            '2cm',
+                            pt(C1_belakang.x + 1, C.y - 1).x,
+                            pt(C1_belakang.x + 1, C.y - 1).y
+                        );
+                        svg += buatTeksUkuran(
+                            '1cm',
+                            pt(B.x + 2, B.y + (C1_belakang.y - B.y) / 2).x,
+                            pt(B.x + 2, B.y + (C1_belakang.y - B.y) / 2).y
+                        );
 
                         svg += `</svg>`;
                         svgHTML = svg;
@@ -781,8 +806,15 @@
                             ${buatTeksUkuran('20 cm', (B.x + D.x) / 2, B.y + 20, 0)}
                         `;
 
-                        const buatLabel = (huruf, x, y, geserX, geserY) => `<circle cx="${x}" cy="${y}" r="5" fill="#111827" /><text x="${x + geserX}" y="${y + geserY}" font-family="sans-serif" font-size="18" font-weight="bold" fill="#111827">${huruf}</text>`;
-                        svgUtuh += buatLabel('A', A.x, A.y, -25, 5) + buatLabel('C', C.x, C.y, -25, 5) + buatLabel('B', B.x, B.y, -25, 5) + buatLabel('E', E.x, E.y, 15, 5) + buatLabel('D', D.x, D.y, 15, 5) + `</svg>`;
+                        const buatLabel = (huruf, x, y, geserX, geserY) =>
+                            `<circle cx="${x}" cy="${y}" r="5" fill="#111827" /><text x="${x + geserX}" y="${y + geserY}" font-family="sans-serif" font-size="18" font-weight="bold" fill="#111827">${huruf}</text>`;
+                        svgUtuh +=
+                            buatLabel('A', A.x, A.y, -25, 5) +
+                            buatLabel('C', C.x, C.y, -25, 5) +
+                            buatLabel('B', B.x, B.y, -25, 5) +
+                            buatLabel('E', E.x, E.y, 15, 5) +
+                            buatLabel('D', D.x, D.y, 15, 5) +
+                            `</svg>`;
                         svgHTML += svgUtuh;
                     }
 
@@ -813,29 +845,47 @@
                         svg += `<path d="M ${pt(D1.x, D1.y).x} ${pt(D1.x, D1.y).y} C ${pt(LK2 * 0.3, 1.5).x} ${pt(LK2 * 0.3, 1.5).y}, ${pt(LK2 * 0.7, C1.y).x} ${pt(LK2 * 0.7, C1.y).y}, ${pt(C1.x, C1.y).x} ${pt(C1.x, C1.y).y} L ${pt(B1.x, B1.y).x} ${pt(B1.x, B1.y).y} L ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y} L ${pt(D1.x, D1.y).x} ${pt(D1.x, D1.y).y} Z" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5" />`;
                         svg += `<path d="M ${pt(D.x, D.y).x} ${pt(D.x, D.y).y} C ${pt(2 + LK2 * 0.3, D.y + 0.5).x} ${pt(2 + LK2 * 0.3, D.y + 0.5).y}, ${pt(LK2 * 0.7, C.y + 0.5).x} ${pt(LK2 * 0.7, C.y + 0.5).y}, ${pt(C.x, C.y).x} ${pt(C.x, C.y).y} L ${pt(B.x, B.y).x} ${pt(B.x, B.y).y} C ${pt(LK2 * 0.5, B.y).x} ${pt(LK2 * 0.5, B.y).y}, ${pt(3, B.y).x} ${pt(3, B.y).y}, ${pt(A.x, A.y).x} ${pt(A.x, A.y).y} C ${pt(0, gapY + 0.5).x} ${pt(0, gapY + 0.5).y}, ${pt(1, D.y).x} ${pt(1, D.y).y}, ${pt(D.x, D.y).x} ${pt(D.x, D.y).y} Z" fill="#fecaca" fill-opacity="0.6" stroke="#ef4444" stroke-width="2" />`;
 
-                        const garisBantu = [{ from: { x: 0, y: -2 }, to: { x: 0, y: B.y + 2 } }, { from: { x: 2, y: D1.y }, to: { x: 2, y: B.y + 2 } }, { from: { x: LK2, y: -2 }, to: { x: LK2, y: B.y + 2 } }];
-                        garisBantu.forEach((g) => { svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}" x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}" stroke="#6b7280" stroke-dasharray="5,5" />`; });
+                        const garisBantu = [
+                            { from: { x: 0, y: -2 }, to: { x: 0, y: B.y + 2 } },
+                            { from: { x: 2, y: D1.y }, to: { x: 2, y: B.y + 2 } },
+                            { from: { x: LK2, y: -2 }, to: { x: LK2, y: B.y + 2 } },
+                        ];
+                        garisBantu.forEach((g) => {
+                            svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}" x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}" stroke="#6b7280" stroke-dasharray="5,5" />`;
+                        });
 
                         const labelTitik = [
-                            { id: 'D1', pt: D1, offsetX: -25, offsetY: 0 }, { id: 'A1', pt: A1, offsetX: 10, offsetY: 15 }, { id: 'C1', pt: C1, offsetX: 15, offsetY: -5 }, { id: 'B1', pt: B1, offsetX: 15, offsetY: 10 },
-                            { id: 'A', pt: A, offsetX: -20, offsetY: 5 }, { id: 'D', pt: D, offsetX: 10, offsetY: -10 }, { id: 'C', pt: C, offsetX: 15, offsetY: -5 }, { id: 'B', pt: B, offsetX: 15, offsetY: 5 },
+                            { id: 'D1', pt: D1, offsetX: -25, offsetY: 0 },
+                            { id: 'A1', pt: A1, offsetX: 10, offsetY: 15 },
+                            { id: 'C1', pt: C1, offsetX: 15, offsetY: -5 },
+                            { id: 'B1', pt: B1, offsetX: 15, offsetY: 10 },
+                            { id: 'A', pt: A, offsetX: -20, offsetY: 5 },
+                            { id: 'D', pt: D, offsetX: 10, offsetY: -10 },
+                            { id: 'C', pt: C, offsetX: 15, offsetY: -5 },
+                            { id: 'B', pt: B, offsetX: 15, offsetY: 5 },
                         ];
-                        labelTitik.forEach((l) => { const p = pt(l.pt.x, l.pt.y); svg += `<circle cx="${p.x}" cy="${p.y}" r="3" fill="#1f2937" /><text x="${p.x + l.offsetX}" y="${p.y + l.offsetY}" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111827">${l.id}</text>`; });
+                        labelTitik.forEach((l) => {
+                            const p = pt(l.pt.x, l.pt.y);
+                            svg += `<circle cx="${p.x}" cy="${p.y}" r="3" fill="#1f2937" /><text x="${p.x + l.offsetX}" y="${p.y + l.offsetY}" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111827">${l.id}</text>`;
+                        });
 
                         svg += buatTeksUkuran('7 cm', pt(0, A1.y / 2).x - 20, pt(0, A1.y / 2).y, -90);
                         svg += buatTeksUkuran('2 cm', pt(1, A1.y).x, pt(1, A1.y).y + 25);
                         svg += buatTeksUkuran('4 cm', pt(C1.x, C1.y + 2).x + 25, pt(C1.x, C1.y + 2).y, -90);
-                        svg += buatTeksUkuran('3.5 cm', pt(C.x, C.y + 1.75).x + 30, pt(C.x, C.y + 1.75).y, -90);
+                        svg += buatTeksUkuran(
+                            '3.5 cm',
+                            pt(C.x, C.y + 1.75).x + 30,
+                            pt(C.x, C.y + 1.75).y,
+                            -90
+                        );
 
                         svg += `</svg>`;
                         svgHTML += svg;
                     }
-                    
-                    gambarPolaKerahKemeja();
 
+                    gambarPolaKerahKemeja();
                 } else if (activePattern.type === 'CELANA') {
-                    const pinggang =
-                        activePattern.l_pinggang !== '-' ? activePattern.l_pinggang : 80;
+                    const pinggang = activePattern.l_pinggang !== '-' ? activePattern.l_pinggang : 80;
                     const panjang = activePattern.p_celana !== '-' ? activePattern.p_celana : 95;
 
                     svgHTML = `
@@ -845,7 +895,7 @@
                     <path d="M 300,80 L 300,140 L 290,150" />
                     <path d="M 230,100 L 250,130" />
                     <path d="M 370,100 L 350,130" />
-                    
+
                     <!-- Dimension Pinggang -->
                     <line x1="230" y1="50" x2="370" y2="50" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
                     <circle cx="230" cy="50" r="3.5" fill="${leaderColor}" />
@@ -864,8 +914,7 @@
                 </svg>
             `;
                 } else if (activePattern.type === 'ROK') {
-                    const pinggang =
-                        activePattern.l_pinggang !== '-' ? activePattern.l_pinggang : 68;
+                    const pinggang = activePattern.l_pinggang !== '-' ? activePattern.l_pinggang : 68;
                     const panjang = activePattern.p_rok !== '-' ? activePattern.p_rok : 65;
 
                     svgHTML = `
@@ -874,7 +923,7 @@
                     <line x1="250" y1="95" x2="350" y2="95" stroke-dasharray="3,3" />
                     <line x1="280" y1="95" x2="280" y2="120" />
                     <line x1="320" y1="95" x2="320" y2="120" />
-                    
+
                     <!-- Dimension Pinggang -->
                     <line x1="250" y1="60" x2="350" y2="60" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
                     <circle cx="250" cy="60" r="3.5" fill="${leaderColor}" />
@@ -901,7 +950,7 @@
                     <path d="M 240,50 L 360,50 L 340,70 L 450,110 L 415,160 L 360,140 L 400,410 L 200,410 L 240,140 L 185,160 L 150,110 L 260,70 Z" />
                     <path d="M 270,70 C 270,95 330,95 330,70" />
                     <path d="M 255,160 C 270,170 330,170 345,160" stroke-dasharray="3,3" />
-                    
+
                     <!-- Dimension Dada -->
                     <line x1="240" y1="130" x2="360" y2="130" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
                     <circle cx="240" cy="130" r="3.5" fill="${leaderColor}" />

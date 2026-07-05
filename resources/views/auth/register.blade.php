@@ -20,7 +20,7 @@
     />
 
     <!-- Vite (Tailwind + JS) -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite (['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="h-full flex items-center justify-center bg-[#F4F1EA] dark:bg-slate-950 p-6 font-sans">
     <!-- Background Pattern/Circles -->

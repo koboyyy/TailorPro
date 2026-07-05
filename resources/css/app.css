@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
     --color-primary: var(--base-primary);
@@ -7,8 +7,8 @@
     --color-background: var(--base-bg);
     --color-text: var(--base-text);
     --color-grey: var(--base-grey);
-    --font-sans: "DM Sans", sans-serif;
-    --font-serif: "DM Sans", serif;
+    --font-sans: 'DM Sans', sans-serif;
+    --font-serif: 'DM Sans', serif;
 }
 
 @variant dark (&:where(.dark, .dark *));

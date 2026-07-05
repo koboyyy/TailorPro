@@ -1262,7 +1262,7 @@
             let customerSizes = @json ($customers);
 
             // Seed timelines from controller
-            let orderTimeline = @json($orderTimeline);
+            let orderTimeline = @json ($orderTimeline);
 
             let currentFilter = 'Semua';
             let searchQuery = '';
@@ -1809,48 +1809,58 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         },
                         body: JSON.stringify({
                             status: statusVal,
-                            progress: progressVal
-                        })
+                            progress: progressVal,
+                        }),
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            orders[orderIndex].status = statusVal;
-                            orders[orderIndex].progress = progressVal;
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (data.success) {
+                                orders[orderIndex].status = statusVal;
+                                orders[orderIndex].progress = progressVal;
 
-                            const now = new Date();
-                            const monthsList = [
-                                'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-                                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember',
-                            ];
-                            const formattedTime = `${now.getDate()} ${monthsList[now.getMonth()]} ${now.getFullYear()}, ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+                                const now = new Date();
+                                const monthsList = [
+                                    'Januari',
+                                    'Februari',
+                                    'Maret',
+                                    'April',
+                                    'Mei',
+                                    'Juni',
+                                    'Juli',
+                                    'Agustus',
+                                    'September',
+                                    'Oktober',
+                                    'November',
+                                    'Desember',
+                                ];
+                                const formattedTime = `${now.getDate()} ${monthsList[now.getMonth()]} ${now.getFullYear()}, ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
-                            if (!orderTimeline[activeOrderId]) {
-                                orderTimeline[activeOrderId] = [];
+                                if (!orderTimeline[activeOrderId]) {
+                                    orderTimeline[activeOrderId] = [];
+                                }
+
+                                orderTimeline[activeOrderId].unshift({
+                                    status: statusVal,
+                                    time: formattedTime,
+                                    author: 'Admin',
+                                    location: 'Workshop',
+                                });
+
+                                showNotification('Status pengerjaan berhasil diperbarui!');
+                                loadDetailView(activeOrderId);
+                                updateCounts();
+                            } else {
+                                alert('Gagal memperbarui status');
                             }
-
-                            orderTimeline[activeOrderId].unshift({
-                                status: statusVal,
-                                time: formattedTime,
-                                author: 'Admin',
-                                location: 'Workshop',
-                            });
-
-                            showNotification('Status pengerjaan berhasil diperbarui!');
-                            loadDetailView(activeOrderId);
-                            updateCounts();
-                        } else {
-                            alert('Gagal memperbarui status');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Terjadi kesalahan');
-                    });
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            alert('Terjadi kesalahan');
+                        });
                 }
             };
 
@@ -1882,24 +1892,27 @@
                     fetch(`/pesanan/${id}`, {
                         method: 'DELETE',
                         headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        }
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        },
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            orders = orders.filter((o) => o.id !== id);
-                            showNotification(`Pesanan "${order.customer}" berhasil dihapus`, 'fa-trash-can');
-                            updateCounts();
-                            renderOrders();
-                        } else {
-                            alert('Gagal menghapus pesanan');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Terjadi kesalahan');
-                    });
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (data.success) {
+                                orders = orders.filter((o) => o.id !== id);
+                                showNotification(
+                                    `Pesanan "${order.customer}" berhasil dihapus`,
+                                    'fa-trash-can'
+                                );
+                                updateCounts();
+                                renderOrders();
+                            } else {
+                                alert('Gagal menghapus pesanan');
+                            }
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            alert('Terjadi kesalahan');
+                        });
                 }
             };
 

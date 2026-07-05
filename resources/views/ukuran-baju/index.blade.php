@@ -310,9 +310,7 @@
                 if (!customer) return;
 
                 if (
-                    confirm(
-                        `Apakah Anda yakin ingin menghapus data ukuran pelanggan "${customer.name}"?`
-                    )
+                    confirm(`Apakah Anda yakin ingin menghapus data ukuran pelanggan "${customer.name}"?`)
                 ) {
                     btnSubmit.innerText = 'Menghapus...';
                     btnSubmit.disabled = true;
@@ -321,28 +319,31 @@
                         method: 'DELETE',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Accept': 'application/json'
-                        }
+                            Accept: 'application/json',
+                        },
                     })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.success) {
-                            showNotification(`Data ukuran "${customer.name}" berhasil dihapus`, 'fa-trash-can');
-                            setTimeout(() => {
-                                window.location.reload();
-                            }, 500);
-                        } else {
-                            alert('Gagal menghapus data.');
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (data.success) {
+                                showNotification(
+                                    `Data ukuran "${customer.name}" berhasil dihapus`,
+                                    'fa-trash-can'
+                                );
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 500);
+                            } else {
+                                alert('Gagal menghapus data.');
+                                btnSubmit.innerText = 'Simpan Perubahan';
+                                btnSubmit.disabled = false;
+                            }
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                            alert('Terjadi kesalahan jaringan');
                             btnSubmit.innerText = 'Simpan Perubahan';
                             btnSubmit.disabled = false;
-                        }
-                    })
-                    .catch(err => {
-                        console.error(err);
-                        alert('Terjadi kesalahan jaringan');
-                        btnSubmit.innerText = 'Simpan Perubahan';
-                        btnSubmit.disabled = false;
-                    });
+                        });
                 }
             };
 
@@ -362,7 +363,11 @@
 
                 const payload = {
                     id: isCreatingMode ? null : inputId.value,
-                    name: isCreatingMode ? name : customerNameGroup.classList.contains('hidden') ? inputName.value : name,
+                    name: isCreatingMode
+                        ? name
+                        : customerNameGroup.classList.contains('hidden')
+                          ? inputName.value
+                          : name,
                     l_badan: parseInt(inputLBadan.value) || 0,
                     l_pinggang: parseInt(inputLPinggang.value) || 0,
                     l_punggung: parseInt(inputLPunggung.value) || 0,
@@ -373,7 +378,7 @@
                     t_pinggang: parseInt(inputTPinggang.value) || 0,
                     l_pinggul: parseInt(inputLPinggul.value) || 0,
                     p_baju: parseInt(inputPBaju.value) || 0,
-                    p_rok: parseInt(inputPRok.value) || 0
+                    p_rok: parseInt(inputPRok.value) || 0,
                 };
 
                 fetch('{{ route("ukuran-baju.store") }}', {
@@ -381,29 +386,33 @@
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
+                        Accept: 'application/json',
                     },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify(payload),
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        showNotification(isCreatingMode ? `Data ukuran "${name}" berhasil ditambahkan!` : `Data ukuran "${name}" berhasil diperbarui!`);
-                        setTimeout(() => {
-                            window.location.reload();
-                        }, 500);
-                    } else {
-                        alert('Gagal menyimpan data.');
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.success) {
+                            showNotification(
+                                isCreatingMode
+                                    ? `Data ukuran "${name}" berhasil ditambahkan!`
+                                    : `Data ukuran "${name}" berhasil diperbarui!`
+                            );
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 500);
+                        } else {
+                            alert('Gagal menyimpan data.');
+                            btnSubmit.innerText = isCreatingMode ? 'Simpan Data Baru' : 'Simpan Perubahan';
+                            btnSubmit.disabled = false;
+                        }
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        alert('Terjadi kesalahan jaringan');
                         btnSubmit.innerText = isCreatingMode ? 'Simpan Data Baru' : 'Simpan Perubahan';
                         btnSubmit.disabled = false;
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert('Terjadi kesalahan jaringan');
-                    btnSubmit.innerText = isCreatingMode ? 'Simpan Data Baru' : 'Simpan Perubahan';
-                    btnSubmit.disabled = false;
-                });
+                    });
             });
 
             // Filter button toggle sorting / custom action
