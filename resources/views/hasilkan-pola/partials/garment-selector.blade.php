@@ -37,14 +37,14 @@
             <span class="text-xs font-bold text-gray-500 dark:text-slate-400">Rok</span>
         </button>
 
-        <!-- Gamis Button -->
+        <!-- Wanita Button -->
         <button
             type="button"
-            data-type="GAMIS"
+            data-type="WANITA"
             class="garment-type-card border border-[#EFECE6] dark:border-slate-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition hover:bg-gray-50 dark:hover:bg-slate-800 active:scale-95"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-1 text-gray-400"><path d="M9 4c0 1.5 1.5 3 3 3s3-1.5 3-3M6 4h12l3 6h-3l-2 11H8l-2-11H3z" /></svg>
-            <span class="text-xs font-bold text-gray-500 dark:text-slate-400">Gamis</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-1 text-gray-400"><path d="M12 2a2 2 0 0 1 2 2v2c0 1.1-.9 2-2 2s-2-.9-2-2V4a2 2 0 0 1 2-2zM8 10h8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm-1 8h10l-1 4H8l-1-4z"/></svg>
+            <span class="text-xs font-bold text-gray-500 dark:text-slate-400">Wanita</span>
         </button>
     </div>
 </div>
