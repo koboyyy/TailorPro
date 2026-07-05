@@ -746,62 +746,327 @@
                     // Render pola pertama kali
                     gambarPolaKerahKemeja();
                 } else if (activeType === 'CELANA') {
-                    const pinggang = selectedCustomer.l_pinggang !== '-' ? selectedCustomer.l_pinggang : 80;
-                    const panjang = selectedCustomer.p_celana !== '-' ? selectedCustomer.p_celana : 95;
+                    function gambarPolaCelana() {
+                        const panjang = parseInt(selectedCustomer.p_celana) || 95;
+                        const pinggang = parseInt(selectedCustomer.l_pinggang) || 72;
+                        const pesak = parseInt(selectedCustomer.l_pesak) || 66;
+                        const paha = parseInt(selectedCustomer.l_paha) || 62;
+                        const lutut = parseInt(selectedCustomer.l_lutut) || 52;
+                        const kaki = parseInt(selectedCustomer.l_kaki) || 40;
 
-                    svgHTML = `
-                                                                        <svg width="100%" height="100%" viewBox="0 0 600 450" fill="none" stroke="${strokeColor}" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M 230,60 L 370,60 L 380,130 L 340,410 L 295,410 L 300,180 L 290,180 L 255,410 L 210,410 L 220,130 Z" />
-                                                                            <line x1="230" y1="80" x2="370" y2="80" stroke-dasharray="3,3" />
-                                                                            <path d="M 300,80 L 300,140 L 290,150" />
-                                                                            <path d="M 230,100 L 250,130" />
-                                                                            <path d="M 370,100 L 350,130" />
+                        const skala = 11; // Skala gambar
+                        const padX = 250;
+                        const padY = 80;
+                        const pt = (x, y) => ({ x: padX + x * skala, y: padY + y * skala });
 
-                                                                            <!-- Dimension Pinggang -->
-                                                                            <line x1="230" y1="50" x2="370" y2="50" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
-                                                                            <circle cx="230" cy="50" r="3.5" fill="${leaderColor}" />
-                                                                            <circle cx="370" cy="50" r="3.5" fill="${leaderColor}" />
-                                                                            <foreignObject x="272" y="35" width="56" height="30">
-                                                                                <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${pinggang} cm</div>
-                                                                            </foreignObject>
+                        // 1. Hitung Titik Utama (Sumbu Y)
+                        const A = { x: 0, y: 0 };
+                        const B = { x: 0, y: panjang - 3 };
+                        const A1 = { x: 0, y: (pesak / 2) - 6 }; // Garis Pesak
+                        const A2 = { x: 0, y: A1.y + (B.y - A1.y) / 2 - 3 }; // Garis Lutut
 
-                                                                            <!-- Dimension Panjang Celana -->
-                                                                            <line x1="180" y1="60" x2="180" y2="410" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
-                                                                            <circle cx="180" cy="60" r="3.5" fill="${leaderColor}" />
-                                                                            <circle cx="180" cy="410" r="3.5" fill="${leaderColor}" />
-                                                                            <foreignObject x="152" y="220" width="56" height="30">
-                                                                                <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${panjang} cm</div>
-                                                                            </foreignObject>
-                                                                        </svg>
-                                                                    `;
+                        // 2. Pola Depan (Merah)
+                        const E1_x = (pinggang / 4) / 3;
+                        const E_x = E1_x - (pinggang / 4);
+                        const C_w = (paha / 2) - 4;
+                        const C_x = -C_w / 2;
+                        const C1_x = C_w / 2;
+                        const C2_x = C1_x - 3.5;
+                        const C3 = { x: C2_x, y: A1.y - 6 };
+                        const F_w = (lutut / 2) - 2.5;
+                        const F_x = -F_w / 2;
+                        const F1_x = F_w / 2;
+                        const D_w = (kaki / 2) - 2;
+                        const D_x = -D_w / 2;
+                        const D1_x = D_w / 2;
+
+                        const E = { x: E_x, y: 0 };
+                        const E1 = { x: E1_x, y: 0 };
+                        const C = { x: C_x, y: A1.y };
+                        const C1 = { x: C1_x, y: A1.y };
+                        const C2 = { x: C2_x, y: A1.y };
+                        const F = { x: F_x, y: A2.y };
+                        const F1 = { x: F1_x, y: A2.y };
+                        const D = { x: D_x, y: B.y };
+                        const D1 = { x: D1_x, y: B.y };
+
+                        // 3. Pola Belakang (Biru)
+                        const H2 = { x: E1.x - 2, y: 0 };
+                        const H1 = { x: H2.x, y: -2.5 };
+                        const dist_H = (pinggang / 4) + 3;
+                        // Pythagoras: H.x = H1.x - sqrt(dist^2 - dy^2)
+                        const dy = Math.abs(H1.y);
+                        const H_x = H1.x - Math.sqrt(dist_H*dist_H - dy*dy);
+                        const H = { x: H_x, y: 0 };
+
+                        const C4 = { x: C.x - 3, y: A1.y };
+                        const C5 = { x: C1.x + 5, y: A1.y };
+                        const F3 = { x: F.x - 2.5, y: A2.y };
+                        const F2 = { x: F1.x + 2.5, y: A2.y };
+                        const D3 = { x: D.x - 2, y: B.y };
+                        const D2 = { x: D1.x + 2, y: B.y };
+
+                        const maxLebar = pt(C5.x, 0).x + 100;
+                        const maxTinggi = pt(0, B.y).y + 60;
+
+                        let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[60%] lg:w-[45%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
+
+                        // Garis Sumbu dan Garis Bantu
+                        const axes = [
+                            { from: {x: H.x - 10, y: 0}, to: {x: E1.x + 15, y: 0}, dash: '5,5' }, // Garis g (pinggang)
+                            { from: A, to: B, dash: '5,5' }, // Sumbu tengah vertikal
+                            { from: {x: C4.x - 10, y: A1.y}, to: {x: C5.x + 10, y: A1.y}, dash: '5,5' }, // Garis pesak
+                            { from: {x: F3.x - 10, y: A2.y}, to: {x: F1.x + 10, y: A2.y}, dash: '5,5' }, // Garis lutut
+                            { from: {x: D3.x - 10, y: B.y}, to: {x: D2.x + 10, y: B.y}, dash: '5,5' }, // Garis kaki
+                            { from: C2, to: C3, dash: '3,3' } // Garis golbi
+                        ];
+                        axes.forEach(g => {
+                            svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
+                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                                          stroke="#6b7280" stroke-dasharray="${g.dash}" stroke-width="1.2" />`;
+                        });
+
+                        // Pola Belakang (Biru)
+                        svg += `
+                            <path d="M ${pt(H.x, H.y).x} ${pt(H.x, H.y).y}
+                                     L ${pt(H1.x, H1.y).x} ${pt(H1.x, H1.y).y}
+                                     Q ${pt(H1.x, C5.y - 12).x} ${pt(H1.x, C5.y - 12).y}, ${pt(C5.x, C5.y).x} ${pt(C5.x, C5.y).y}
+                                     L ${pt(F2.x, F2.y).x} ${pt(F2.x, F2.y).y}
+                                     L ${pt(D2.x, D2.y).x} ${pt(D2.x, D2.y).y}
+                                     L ${pt(D3.x, D3.y).x} ${pt(D3.x, D3.y).y}
+                                     L ${pt(F3.x, F3.y).x} ${pt(F3.x, F3.y).y}
+                                     L ${pt(C4.x, C4.y).x} ${pt(C4.x, C4.y).y}
+                                     Q ${pt(H.x, C4.y - 15).x} ${pt(H.x, C4.y - 15).y}, ${pt(H.x, H.y).x} ${pt(H.x, H.y).y} Z"
+                                  fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="1.5" />
+                        `;
+
+                        // Pola Depan (Merah)
+                        svg += `
+                            <path d="M ${pt(E.x, E.y).x} ${pt(E.x, E.y).y}
+                                     L ${pt(E1.x, E1.y).x} ${pt(E1.x, E1.y).y}
+                                     L ${pt(C3.x, C3.y).x} ${pt(C3.x, C3.y).y}
+                                     Q ${pt(C3.x, C1.y).x} ${pt(C3.x, C1.y).y}, ${pt(C1.x, C1.y).x} ${pt(C1.x, C1.y).y}
+                                     L ${pt(F1.x, F1.y).x} ${pt(F1.x, F1.y).y}
+                                     L ${pt(D1.x, D1.y).x} ${pt(D1.x, D1.y).y}
+                                     L ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
+                                     L ${pt(F.x, F.y).x} ${pt(F.x, F.y).y}
+                                     L ${pt(C.x, C.y).x} ${pt(C.x, C.y).y}
+                                     Q ${pt(E.x, C.y - 15).x} ${pt(E.x, C.y - 15).y}, ${pt(E.x, E.y).x} ${pt(E.x, E.y).y} Z"
+                                  fill="#fecaca" fill-opacity="0.5" stroke="#dc2626" stroke-width="1.5" />
+                        `;
+
+                        // Titik & Label Sesuai Gambar
+                        const labels = [
+                            { id: 'A', pt: A, ox: -15, oy: 15 },
+                            { id: 'B', pt: B, ox: -10, oy: 20 },
+                            { id: 'A1', pt: A1, ox: -20, oy: 15 },
+                            { id: 'A2', pt: A2, ox: -20, oy: 15 },
+                            { id: 'E', pt: E, ox: -18, oy: 15 },
+                            { id: 'E1', pt: E1, ox: 8, oy: -10 },
+                            { id: 'C', pt: C, ox: 8, oy: -10 },
+                            { id: 'C1', pt: C1, ox: -15, oy: 20 },
+                            { id: 'C2', pt: C2, ox: -22, oy: 15 },
+                            { id: 'C3', pt: C3, ox: -20, oy: 5 },
+                            { id: 'C4', pt: C4, ox: -25, oy: 5 },
+                            { id: 'C5', pt: C5, ox: 15, oy: 5 },
+                            { id: 'F', pt: F, ox: 8, oy: -10 },
+                            { id: 'F1', pt: F1, ox: 15, oy: 5 },
+                            { id: 'F2', pt: F2, ox: -18, oy: -5 },
+                            { id: 'F3', pt: F3, ox: -25, oy: 5 },
+                            { id: 'D', pt: D, ox: 8, oy: 20 },
+                            { id: 'D1', pt: D1, ox: -18, oy: 20 },
+                            { id: 'D2', pt: D2, ox: 15, oy: 20 },
+                            { id: 'D3', pt: D3, ox: -25, oy: 20 },
+                            { id: 'H', pt: H, ox: -15, oy: -10 },
+                            { id: 'H1', pt: H1, ox: 8, oy: -10 },
+                            { id: 'H2', pt: H2, ox: -18, oy: 18 },
+                            { id: 'g', pt: {x: E1.x + 10, y: 0}, ox: 15, oy: 5 }
+                        ];
+
+                        labels.forEach(l => {
+                            const p = pt(l.pt.x, l.pt.y);
+                            if (l.id !== 'g' && l.id !== 'C2' && l.id !== 'H2') {
+                                svg += `<circle cx="${p.x}" cy="${p.y}" r="4" fill="#1f2937" />`;
+                            }
+                            svg += `<text x="${p.x + l.ox}" y="${p.y + l.oy}" font-family="sans-serif" font-size="14" font-weight="bold" fill="#111827">${l.id}</text>`;
+                        });
+
+                        svg += `</svg>`;
+                        svgHTML = svg;
+                    }
+                    gambarPolaCelana();
                 } else if (activeType === 'ROK') {
-                    const pinggang = selectedCustomer.l_pinggang !== '-' ? selectedCustomer.l_pinggang : 68;
-                    const panjang = selectedCustomer.p_rok !== '-' ? selectedCustomer.p_rok : 65;
+                    function gambarPolaRok() {
+                        const pinggang = parseInt(selectedCustomer.l_pinggang) || 68;
+                        const pinggul = parseInt(selectedCustomer.l_pinggul) || 90;
+                        const tinggiPinggul = 18; // Default tinggi pinggul
+                        const panjang = parseInt(selectedCustomer.p_rok) || 65;
 
-                    svgHTML = `
-                                                                        <svg width="100%" height="100%" viewBox="0 0 600 450" fill="none" stroke="${strokeColor}" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M 250,70 L 350,70 L 390,390 L 210,390 Z" />
-                                                                            <line x1="250" y1="95" x2="350" y2="95" stroke-dasharray="3,3" />
-                                                                            <line x1="280" y1="95" x2="280" y2="120" />
-                                                                            <line x1="320" y1="95" x2="320" y2="120" />
+                        const skala = 10;
+                        const padX = 100;
+                        const padY = 80;
+                        const pt = (x, y) => ({ x: padX + x * skala, y: padY + y * skala });
 
-                                                                            <!-- Dimension Pinggang -->
-                                                                            <line x1="250" y1="60" x2="350" y2="60" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
-                                                                            <circle cx="250" cy="60" r="3.5" fill="${leaderColor}" />
-                                                                            <circle cx="350" cy="60" r="3.5" fill="${leaderColor}" />
-                                                                            <foreignObject x="272" y="45" width="56" height="30">
-                                                                                <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${pinggang} cm</div>
-                                                                            </foreignObject>
+                        // 1. Koordinat Pola Belakang (Biru) - Kiri
+                        const backA = { x: 0, y: 0 };
+                        const backA_prime = { x: 0, y: 1.5 }; // Turun 1.5cm
+                        const backC = { x: 0, y: tinggiPinggul };
+                        const backB = { x: 0, y: panjang };
+                        const widthBack = (pinggul / 4) - 1;
+                        const backE = { x: widthBack, y: tinggiPinggul };
+                        const backF = { x: widthBack, y: panjang };
+                        const waistBack = (pinggang / 4) - 1 + 3; // +3 untuk kupnat
+                        const backD = { x: waistBack, y: 0 };
+                        const backD_prime = { x: waistBack, y: -1.5 }; // Naik 1.5cm di sisi
 
-                                                                            <!-- Dimension Panjang Rok -->
-                                                                            <line x1="180" y1="70" x2="180" y2="390" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
-                                                                            <circle cx="180" cy="70" r="3.5" fill="${leaderColor}" />
-                                                                            <circle cx="180" cy="390" r="3.5" fill="${leaderColor}" />
-                                                                            <foreignObject x="152" y="210" width="56" height="30">
-                                                                                <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${panjang} cm</div>
-                                                                            </foreignObject>
-                                                                        </svg>
-                                                                    `;
+                        // Kupnat Belakang
+                        const backDart_x = (pinggang / 10);
+                        const backDart_y = 8;
+                        const backDart_center = { x: backDart_x + 0.5, y: backDart_y }; // Geser 0.5
+                        const backG = { x: backDart_x - 1.5, y: 0 };
+                        const backG_prime = { x: backDart_x + 1.5, y: 0 };
+
+                        // 2. Koordinat Pola Depan (Merah) - Kanan
+                        const gap = 15;
+                        const startXFront = widthBack + gap;
+                        const widthFront = (pinggul / 4) + 1;
+                        const frontA = { x: startXFront + widthFront, y: 0 }; // Center front (kanan)
+                        const frontC = { x: frontA.x, y: tinggiPinggul };
+                        const frontG_bot = { x: frontA.x, y: panjang };
+                        const frontE = { x: startXFront, y: tinggiPinggul }; // Side front (kiri)
+                        const frontF = { x: startXFront, y: panjang };
+                        const waistFront = (pinggang / 4) + 1 + 3; // +3 untuk kupnat
+                        const frontD = { x: frontA.x - waistFront, y: 0 };
+                        const frontD_prime = { x: frontD.x, y: -1.5 };
+
+                        // Kupnat Depan
+                        const frontDart_x = frontA.x - (pinggang / 10);
+                        const frontDart_y = 8;
+                        const frontDart_center = { x: frontDart_x - 0.5, y: frontDart_y }; // Geser 0.5
+                        const frontG_right = { x: frontDart_x + 1.5, y: 0 };
+                        const frontG_left = { x: frontDart_x - 1.5, y: 0 };
+
+                        const maxLebar = pt(frontA.x, 0).x + 80;
+                        const maxTinggi = pt(0, panjang).y + 60;
+
+                        let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[70%] lg:w-[60%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
+
+                        // Pola Belakang (Biru)
+                        svg += `
+                            <path d="M ${pt(backA_prime.x, backA_prime.y).x} ${pt(backA_prime.x, backA_prime.y).y}
+                                     L ${pt(backC.x, backC.y).x} ${pt(backC.x, backC.y).y}
+                                     L ${pt(backB.x, backB.y).x} ${pt(backB.x, backB.y).y}
+                                     L ${pt(backF.x, backF.y).x} ${pt(backF.x, backF.y).y}
+                                     L ${pt(backE.x, backE.y).x} ${pt(backE.x, backE.y).y}
+                                     Q ${pt(backE.x, backC.y - 10).x} ${pt(backE.x, backC.y - 10).y}, ${pt(backD_prime.x, backD_prime.y).x} ${pt(backD_prime.x, backD_prime.y).y}
+                                     Q ${pt(backA_prime.x + widthBack/2, backD_prime.y + 1).x} ${pt(backA_prime.x + widthBack/2, backD_prime.y + 1).y}, ${pt(backA_prime.x, backA_prime.y).x} ${pt(backA_prime.x, backA_prime.y).y} Z"
+                                  fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="1.5" />
+                        `;
+
+                        // Kupnat Belakang
+                        svg += `
+                            <path d="M ${pt(backG.x, backG.y).x} ${pt(backG.x, backG.y).y}
+                                     L ${pt(backDart_center.x, backDart_center.y).x} ${pt(backDart_center.x, backDart_center.y).y}
+                                     L ${pt(backG_prime.x, backG_prime.y).x} ${pt(backG_prime.x, backG_prime.y).y}"
+                                  fill="none" stroke="#2563eb" stroke-width="1.5" />
+                        `;
+
+                        // Garis putus-putus Belakang
+                        const dashBack = [
+                            { from: backA, to: backD },
+                            { from: backA, to: backA_prime },
+                            { from: backD, to: backD_prime },
+                            { from: backC, to: backE },
+                            { from: {x: backDart_x, y: 0}, to: backDart_center },
+                            { from: backD_prime, to: backE } // Garis lurus sisi sbg panduan kurva
+                        ];
+                        dashBack.forEach(g => {
+                            svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
+                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                                          stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
+                        });
+
+                        // Pola Depan (Merah)
+                        svg += `
+                            <path d="M ${pt(frontA.x, frontA.y).x} ${pt(frontA.x, frontA.y).y}
+                                     L ${pt(frontC.x, frontC.y).x} ${pt(frontC.x, frontC.y).y}
+                                     L ${pt(frontG_bot.x, frontG_bot.y).x} ${pt(frontG_bot.x, frontG_bot.y).y}
+                                     L ${pt(frontF.x, frontF.y).x} ${pt(frontF.x, frontF.y).y}
+                                     L ${pt(frontE.x, frontE.y).x} ${pt(frontE.x, frontE.y).y}
+                                     Q ${pt(frontE.x, frontC.y - 10).x} ${pt(frontE.x, frontC.y - 10).y}, ${pt(frontD_prime.x, frontD_prime.y).x} ${pt(frontD_prime.x, frontD_prime.y).y}
+                                     Q ${pt(frontA.x - widthFront/2, frontD_prime.y + 0.5).x} ${pt(frontA.x - widthFront/2, frontD_prime.y + 0.5).y}, ${pt(frontA.x, frontA.y).x} ${pt(frontA.x, frontA.y).y} Z"
+                                  fill="#fecaca" fill-opacity="0.5" stroke="#dc2626" stroke-width="1.5" />
+                        `;
+
+                        // Kupnat Depan
+                        svg += `
+                            <path d="M ${pt(frontG_left.x, frontG_left.y).x} ${pt(frontG_left.x, frontG_left.y).y}
+                                     L ${pt(frontDart_center.x, frontDart_center.y).x} ${pt(frontDart_center.x, frontDart_center.y).y}
+                                     L ${pt(frontG_right.x, frontG_right.y).x} ${pt(frontG_right.x, frontG_right.y).y}"
+                                  fill="none" stroke="#dc2626" stroke-width="1.5" />
+                        `;
+
+                        // Garis putus-putus Depan
+                        const dashFront = [
+                            { from: frontA, to: frontD },
+                            { from: frontD, to: frontD_prime },
+                            { from: frontC, to: frontE },
+                            { from: {x: frontDart_x, y: 0}, to: frontDart_center },
+                            { from: frontD_prime, to: frontE }
+                        ];
+                        dashFront.forEach(g => {
+                            svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
+                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                                          stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
+                        });
+
+                        // Titik & Label Sesuai Gambar
+                        const labels = [
+                            // Belakang
+                            { id: 'A', pt: backA, ox: -15, oy: -5 },
+                            { id: 'A\'', pt: backA_prime, ox: -20, oy: 5 },
+                            { id: 'C', pt: backC, ox: -15, oy: 5 },
+                            { id: 'B', pt: backB, ox: -15, oy: 5 },
+                            { id: 'F', pt: backF, ox: 10, oy: 5 },
+                            { id: 'E', pt: backE, ox: 10, oy: 5 },
+                            { id: 'D', pt: backD, ox: 15, oy: 5 },
+                            { id: 'D\'', pt: backD_prime, ox: -5, oy: -15 },
+                            { id: 'G', pt: backG, ox: -15, oy: -5 },
+                            { id: 'G\'', pt: backG_prime, ox: 10, oy: -5 },
+                            // Depan
+                            { id: 'a', pt: frontA, ox: 15, oy: 0 },
+                            { id: 'c', pt: frontC, ox: 15, oy: 5 },
+                            { id: 'g', pt: frontG_bot, ox: 15, oy: 5 },
+                            { id: 'f', pt: frontF, ox: -15, oy: 5 },
+                            { id: 'e', pt: frontE, ox: -15, oy: 5 },
+                            { id: 'd', pt: frontD, ox: -15, oy: 5 },
+                            { id: 'd\'', pt: frontD_prime, ox: 0, oy: -15 },
+                            { id: 'g', pt: frontG_left, ox: -15, oy: -5 }, // Label dart kiri
+                            { id: 'g', pt: frontG_right, ox: 10, oy: -5 }  // Label dart kanan
+                        ];
+
+                        labels.forEach(l => {
+                            const p = pt(l.pt.x, l.pt.y);
+                            svg += `<circle cx="${p.x}" cy="${p.y}" r="3" fill="#1f2937" />`;
+                            svg += `<text x="${p.x + l.ox}" y="${p.y + l.oy}" font-family="sans-serif" font-size="14" font-weight="bold" fill="#111827">${l.id}</text>`;
+                        });
+
+                        // Teks Ukuran Kupnat
+                        const textSizes = [
+                            { text: '0,5', pt: backDart_center, ox: -20, oy: 0 },
+                            { text: '8', pt: {x: backDart_x, y: backDart_y/2}, ox: 10, oy: 5 },
+                            { text: '0,5', pt: frontDart_center, ox: -20, oy: 0 },
+                            { text: '8', pt: {x: frontDart_x, y: frontDart_y/2}, ox: 10, oy: 5 }
+                        ];
+                        textSizes.forEach(t => {
+                            const p = pt(t.pt.x, t.pt.y);
+                            svg += `<text x="${p.x + t.ox}" y="${p.y + t.oy}" font-family="sans-serif" font-size="12" fill="#111827">${t.text}</text>`;
+                        });
+
+                        svg += `</svg>`;
+                        svgHTML = svg;
+                    }
+                    gambarPolaRok();
                 } else if (activeType === 'GAMIS') {
                     const dada = selectedCustomer.l_dada;
                     const panjang = 135; // Default robe length
@@ -829,6 +1094,166 @@
                                                                             </foreignObject>
                                                                         </svg>
                                                                     `;
+                } else if (activeType === 'WANITA') {
+                    function gambarPolaWanita() {
+                        const LB = parseInt(selectedCustomer.l_badan) || 90;
+                        const LPg = parseInt(selectedCustomer.l_pinggang) || 72;
+                        const LPa = parseInt(selectedCustomer.l_pinggul) || 94;
+                        const lebarBahu = parseInt(selectedCustomer.l_bahu) || 38;
+                        const lebarDada = parseInt(selectedCustomer.l_dada) || 32;
+                        const pBaju = parseInt(selectedCustomer.p_baju) || 135;
+                        const turunPinggang = 40; // Standar
+                        const lingkarLengan = parseInt(selectedCustomer.l_lengan) || 44;
+                        const lebarLingkarLengan = lingkarLengan / 2; // A2 - A3
+
+                        const skala = 6;
+                        const padX = 150;
+                        const padY = 50;
+                        const pt = (x, y) => ({ x: padX + x * skala, y: padY + y * skala });
+
+                        // Koordinat Vertikal (Y)
+                        const Y_A = 0;
+                        const Y_A2 = 3;
+                        const Y_Leher = 8;
+                        const Y_H_top = Y_A2 + lebarLingkarLengan; // Garis badan (H)
+                        const Y_A3 = Y_A2 + (lebarLingkarLengan / 2); // Garis dada (tengah-tengah A2 dan H)
+                        const Y_H_bot = Y_A + turunPinggang; // Garis pinggang
+                        const Y_E = Y_H_bot + 20; // Garis pinggul
+                        const Y_B = pBaju; // Garis bawah
+
+                        // Koordinat Horizontal (X)
+                        const X_Center = 0;
+                        const X_A1 = 8;
+                        const X_C2 = lebarBahu / 2;
+                        const Y_C2 = 4; // Kemiringan bahu
+                        
+                        const X_F2 = lebarDada / 2;
+                        const X_F = (LB / 4) + 2;
+                        const X_I = (LPg / 4) + 3 + 2;
+                        const X_D = (LPa / 4) + 2;
+                        const X_B1 = X_D; // Sesuai permintaan: B-B1 = E-D
+
+                        // Titik-titik utama
+                        const A = { x: X_Center, y: Y_A };
+                        const A1 = { x: X_A1, y: Y_A };
+                        const A2 = { x: X_Center, y: Y_A2 };
+                        const Leher_Bawah = { x: X_Center, y: Y_Leher };
+                        const C2 = { x: X_C2, y: Y_C2 };
+                        const A3 = { x: X_Center, y: Y_A3 };
+                        const F2 = { x: X_F2, y: Y_A3 };
+                        const H_top = { x: X_Center, y: Y_H_top };
+                        const F = { x: X_F, y: Y_H_top };
+                        const H_bot = { x: X_Center, y: Y_H_bot };
+                        const I = { x: X_I, y: Y_H_bot };
+                        const E = { x: X_Center, y: Y_E };
+                        const D = { x: X_D, y: Y_E };
+                        const B = { x: X_Center, y: Y_B };
+                        const B1 = { x: X_B1, y: Y_B };
+
+                        // Titik bantu
+                        const a1 = { x: X_A1, y: Y_H_bot }; // Proyeksi A1 ke pinggang
+                        const b = { x: X_I - 5, y: Y_E }; // Titik b di pinggul
+                        const a2 = { x: b.x, y: Y_H_bot }; // Titik a2 di atas b
+
+                        // Kupnat
+                        const dart_x = X_A1 + 2;
+                        const dart_y_center = Y_H_bot;
+                        const dart_top = { x: dart_x, y: dart_y_center - 12 };
+                        const dart_bot = { x: dart_x, y: dart_y_center + 12 };
+                        const dart_left = { x: dart_x - 1.5, y: dart_y_center };
+                        const dart_right = { x: dart_x + 1.5, y: dart_y_center };
+
+                        const maxLebar = pt(X_B1, 0).x + 50;
+                        const maxTinggi = pt(0, Y_B).y + 50;
+
+                        let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[60%] lg:w-[45%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
+
+                        // Garis Bantu (Putus-putus)
+                        const dashLines = [
+                            { from: A, to: A1 },
+                            { from: A, to: A2 },
+                            { from: A1, to: a1 }, // A1 ke a1
+                            { from: a2, to: b }, // a2 ke b (20cm)
+                            { from: A3, to: F2 }, // A3 ke F2
+                            { from: H_top, to: F }, // Garis badan
+                            { from: H_bot, to: I }, // Garis pinggang
+                            { from: E, to: D } // Garis pinggul
+                        ];
+                        dashLines.forEach(g => {
+                            svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
+                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                                          stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
+                        });
+
+                        // Garis Pola Utama (Merah tebal)
+                        svg += `
+                            <path d="M ${pt(Leher_Bawah.x, Leher_Bawah.y).x} ${pt(Leher_Bawah.x, Leher_Bawah.y).y}
+                                     Q ${pt(A2.x + 3, Leher_Bawah.y).x} ${pt(A2.x + 3, Leher_Bawah.y).y}, ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y}
+                                     L ${pt(C2.x, C2.y).x} ${pt(C2.x, C2.y).y}
+                                     Q ${pt(F2.x, F2.y + 5).x} ${pt(F2.x, F2.y + 5).y}, ${pt(F.x, F.y).x} ${pt(F.x, F.y).y}
+                                     L ${pt(I.x, I.y).x} ${pt(I.x, I.y).y}
+                                     Q ${pt(I.x + (D.x - I.x)/2, I.y + 10).x} ${pt(I.x + (D.x - I.x)/2, I.y + 10).y}, ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
+                                     L ${pt(B1.x, B1.y).x} ${pt(B1.x, B1.y).y}
+                                     L ${pt(B.x, B.y).x} ${pt(B.x, B.y).y}
+                                     L ${pt(Leher_Bawah.x, Leher_Bawah.y).x} ${pt(Leher_Bawah.x, Leher_Bawah.y).y} Z"
+                                  fill="#fecaca" fill-opacity="0.3" stroke="#ff0000" stroke-width="2.5" />
+                        `;
+
+                        // Garis Leher Belakang (Opsional, merah)
+                        svg += `<path d="M ${pt(A2.x, A2.y).x} ${pt(A2.x, A2.y).y} Q ${pt(A2.x + 4, A2.y).x} ${pt(A2.x + 4, A2.y).y}, ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y}" fill="none" stroke="#ff0000" stroke-width="2.5" />`;
+                        svg += `<line x1="${pt(A2.x, A2.y).x}" y1="${pt(A2.x, A2.y).y}" x2="${pt(Leher_Bawah.x, Leher_Bawah.y).x}" y2="${pt(Leher_Bawah.x, Leher_Bawah.y).y}" stroke="#ff0000" stroke-width="2.5" />`;
+
+                        // Kupnat
+                        svg += `
+                            <path d="M ${pt(dart_top.x, dart_top.y).x} ${pt(dart_top.x, dart_top.y).y}
+                                     L ${pt(dart_right.x, dart_right.y).x} ${pt(dart_right.x, dart_right.y).y}
+                                     L ${pt(dart_bot.x, dart_bot.y).x} ${pt(dart_bot.x, dart_bot.y).y}
+                                     L ${pt(dart_left.x, dart_left.y).x} ${pt(dart_left.x, dart_left.y).y} Z"
+                                  fill="none" stroke="#111827" stroke-dasharray="3,3" stroke-width="1.2" />
+                        `;
+                        svg += `<line x1="${pt(dart_top.x, dart_top.y).x}" y1="${pt(dart_top.x, dart_top.y).y}" x2="${pt(dart_bot.x, dart_bot.y).x}" y2="${pt(dart_bot.x, dart_bot.y).y}" stroke="#111827" stroke-dasharray="3,3" stroke-width="1.2" />`;
+
+                        // Titik & Label Sesuai Gambar
+                        const labels = [
+                            { id: 'A', pt: A, ox: -15, oy: -5 },
+                            { id: 'A1', pt: A1, ox: 0, oy: -10 },
+                            { id: 'A2', pt: A2, ox: -20, oy: 5 },
+                            { id: 'C2', pt: C2, ox: 10, oy: -5 },
+                            { id: 'A3', pt: A3, ox: -20, oy: 5 },
+                            { id: 'F2', pt: F2, ox: 10, oy: 5 },
+                            { id: 'H', pt: H_top, ox: -15, oy: 5 },
+                            { id: 'F', pt: F, ox: 10, oy: 5 },
+                            { id: 'H', pt: H_bot, ox: -15, oy: 5 },
+                            { id: 'I', pt: I, ox: 15, oy: 5 },
+                            { id: 'a1', pt: a1, ox: -15, oy: -5 },
+                            { id: 'a2', pt: a2, ox: -5, oy: -10 },
+                            { id: 'b', pt: b, ox: -5, oy: 15 },
+                            { id: 'E', pt: E, ox: -15, oy: 5 },
+                            { id: 'D', pt: D, ox: 15, oy: 5 },
+                            { id: 'B', pt: B, ox: -15, oy: 15 },
+                            { id: 'B1', pt: B1, ox: 15, oy: 15 }
+                        ];
+
+                        labels.forEach(l => {
+                            const p = pt(l.pt.x, l.pt.y);
+                            svg += `<text x="${p.x + l.ox}" y="${p.y + l.oy}" font-family="sans-serif" font-size="12" fill="#111827">${l.id}</text>`;
+                        });
+
+                        // Teks Ukuran
+                        const textSizes = [
+                            { text: '8', pt: {x: 0, y: (Y_A2 + Y_Leher)/2}, ox: 10, oy: 5 },
+                            { text: '1,5', pt: dart_left, ox: -5, oy: -5 },
+                            { text: '1,5', pt: dart_right, ox: 5, oy: -5 }
+                        ];
+                        textSizes.forEach(t => {
+                            const p = pt(t.pt.x, t.pt.y);
+                            svg += `<text x="${p.x + t.ox}" y="${p.y + t.oy}" font-size="9" fill="#111827">${t.text}</text>`;
+                        });
+
+                        svg += `</svg>`;
+                        svgHTML = svg;
+                    }
+                    gambarPolaWanita();
                 }
 
                 wrapper.innerHTML = svgHTML;
@@ -890,45 +1315,91 @@
                                                                                     </div>`;
                     } else if (activeType === 'CELANA' && selectedCustomer) {
                         // CELANA
-                        const pinggang =
-                            selectedCustomer.l_pinggang !== '-' ? selectedCustomer.l_pinggang : 80;
-                        const panjang = selectedCustomer.p_celana !== '-' ? selectedCustomer.p_celana : 95;
+                        const panjang = parseInt(selectedCustomer.p_celana) || 95;
+                        const pinggang = parseInt(selectedCustomer.l_pinggang) || 72;
+                        const pesak = parseInt(selectedCustomer.l_pesak) || 66;
+                        const paha = parseInt(selectedCustomer.l_paha) || 62;
+                        const lutut = parseInt(selectedCustomer.l_lutut) || 52;
+                        const kaki = parseInt(selectedCustomer.l_kaki) || 40;
+                        const tinggiDuduk = (pesak / 2) - 6;
+
                         html += `<div>
-                                                                                        <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
-                                                                                            Pola Celana:
-                                                                                        </div>
-                                                                                        <ul class="ml-3 list-disc space-y-0.5">
-                                                                                            <li>Panjang Celana = ${panjang} cm</li>
-                                                                                            <li>Lingkar Pinggang = ${pinggang} cm</li>
-                                                                                        </ul>
-                                                                                    </div>`;
+                                    <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
+                                        Pola Celana Panjang Bagian Depan:
+                                    </div>
+                                    <ul class="ml-3 list-disc space-y-0.5 mb-3">
+                                        <li>Buat garis sumbu: A - B tegak lurus g</li>
+                                        <li>A &ndash; B (Panjang celana - ban pinggang 3 cm) = ${panjang - 3} cm</li>
+                                        <li>A &ndash; A1 (Tinggi duduk = ½ Lingkar pesak - 6 cm) = ${tinggiDuduk} cm</li>
+                                        <li>A1 &ndash; A2 (½ (A1 - B) dikurangi 3 cm) = ${((panjang - 3 - tinggiDuduk) / 2 - 3).toFixed(1)} cm</li>
+                                        <li>A &ndash; E1 (1/3 dari ¼ lingkar pinggang) = ${((pinggang / 4) / 3).toFixed(1)} cm</li>
+                                        <li>E1 &ndash; E (¼ lingkar pinggang) = ${pinggang / 4} cm</li>
+                                        <li>C &ndash; C1 (½ lingkar paha - 4 cm) = ${paha / 2 - 4} cm</li>
+                                        <li>F &ndash; F1 (½ lingkar lutut - 2.5 cm) = ${lutut / 2 - 2.5} cm</li>
+                                        <li>D &ndash; D1 (½ lingkar kaki - 2 cm) = ${kaki / 2 - 2} cm</li>
+                                        <li>C1 &ndash; C2 = 3.5 cm</li>
+                                        <li>C2 &ndash; C3 = 6 cm</li>
+                                        <li>Lebar golbi = 3.5 cm</li>
+                                    </ul>
+                                    <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
+                                        Pola Celana Panjang Bagian Belakang:
+                                    </div>
+                                    <ul class="ml-3 list-disc space-y-0.5">
+                                        <li>E1 &ndash; H2 = 2 cm</li>
+                                        <li>H2 &ndash; H1 = 2.5 cm</li>
+                                        <li>H1 &ndash; H (¼ lingkar pinggang + 3 cm) = ${pinggang / 4 + 3} cm</li>
+                                        <li class="italic text-gray-500 mt-1">*Catatan: Titik H menyentuh garis g.</li>
+                                    </ul>
+                                </div>`;
                     } else if (activeType === 'ROK' && selectedCustomer) {
-                        // ROK
-                        const pinggang =
-                            selectedCustomer.l_pinggang !== '-' ? selectedCustomer.l_pinggang : 68;
-                        const panjang = selectedCustomer.p_rok !== '-' ? selectedCustomer.p_rok : 65;
+                        const pinggang = parseInt(selectedCustomer.l_pinggang) || 68;
+                        const pinggul = parseInt(selectedCustomer.l_pinggul) || 90;
+                        const panjang = parseInt(selectedCustomer.p_rok) || 65;
+                        const tinggiPinggul = 18;
+
                         html += `<div>
-                                                                                        <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
-                                                                                            Pola Rok:
-                                                                                        </div>
-                                                                                        <ul class="ml-3 list-disc space-y-0.5">
-                                                                                            <li>Panjang Rok = ${panjang} cm</li>
-                                                                                            <li>Lingkar Pinggang = ${pinggang} cm</li>
-                                                                                        </ul>
-                                                                                    </div>`;
-                    } else if (activeType === 'GAMIS' && selectedCustomer) {
-                        // GAMIS (Use l_dada and default panjang as in SVG)
-                        const dada = selectedCustomer.l_dada || '-';
-                        const panjang = selectedCustomer.p_baju || 135;
+                                    <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
+                                        Pola Rok:
+                                    </div>
+                                    <ul class="ml-3 list-disc space-y-0.5">
+                                        <li>Panjang Rok (A &ndash; B / a &ndash; g) = ${panjang} cm</li>
+                                        <li>Tinggi Pinggul (A &ndash; C / a &ndash; c) = ${tinggiPinggul} cm</li>
+                                        <li>Lebar Pinggul Depan (c &ndash; e) = ${(pinggul / 4 + 1).toFixed(1)} cm</li>
+                                        <li>Lebar Pinggul Belakang (C &ndash; E) = ${(pinggul / 4 - 1).toFixed(1)} cm</li>
+                                        <li>Lebar Pinggang Depan (a &ndash; d) = ${(pinggang / 4 + 1 + 3).toFixed(1)} cm</li>
+                                        <li>Lebar Pinggang Belakang (A &ndash; D) = ${(pinggang / 4 - 1 + 3).toFixed(1)} cm</li>
+                                        <li>Lebar Kupnat Depan/Belakang = 3 cm</li>
+                                        <li>Kedalaman Kupnat Depan/Belakang = 8 cm</li>
+                                    </ul>
+                                </div>`;
+                    } else if (activeType === 'WANITA' && selectedCustomer) {
+                        const LB = parseInt(selectedCustomer.l_badan) || 90;
+                        const LPg = parseInt(selectedCustomer.l_pinggang) || 72;
+                        const LPa = parseInt(selectedCustomer.l_pinggul) || 94;
+                        const lebarBahu = parseInt(selectedCustomer.l_bahu) || 38;
+                        const lebarDada = parseInt(selectedCustomer.l_dada) || 32;
+                        const pBaju = parseInt(selectedCustomer.p_baju) || 135;
+                        const lebarLingkarLengan = (parseInt(selectedCustomer.l_lengan) || 44) / 2;
+
                         html += `<div>
-                                                                                        <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
-                                                                                            Pola Gamis:
-                                                                                        </div>
-                                                                                        <ul class="ml-3 list-disc space-y-0.5">
-                                                                                            <li>Lingkar Dada = ${dada} cm</li>
-                                                                                            <li>Panjang Gamis = ${panjang} cm</li>
-                                                                                        </ul>
-                                                                                    </div>`;
+                                    <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
+                                        Pola Wanita:
+                                    </div>
+                                    <ul class="ml-3 list-disc space-y-0.5">
+                                        <li>A &ndash; A1 (Leher Horizontal) = 8 cm</li>
+                                        <li>A &ndash; A2 (Leher Belakang) = 3 cm</li>
+                                        <li>A2 &ndash; C1 (Lebar Bahu) = ${lebarBahu} cm</li>
+                                        <li>A2 &ndash; A3 (Lebar Lingkar Lengan) = ${lebarLingkarLengan} cm</li>
+                                        <li>A3 &ndash; F2 (Lebar Dada) = ${(lebarDada / 2).toFixed(1)} cm</li>
+                                        <li>H &ndash; F (Lingkar Badan / 4 + 2cm) = ${(LB / 4 + 2).toFixed(1)} cm</li>
+                                        <li>H &ndash; I (Lingkar Pinggang / 4 + 3cm + 2cm) = ${(LPg / 4 + 5).toFixed(1)} cm</li>
+                                        <li>E &ndash; D (Lingkar Pinggul / 4 + 2cm) = ${(LPa / 4 + 2).toFixed(1)} cm</li>
+                                        <li>A1 &ndash; a1 (Turun Pinggang) = 40 cm (Standar)</li>
+                                        <li>a2 &ndash; b (Jarak Pinggang ke Pinggul) = 20 cm</li>
+                                        <li>A &ndash; B (Panjang Baju) = ${pBaju} cm</li>
+                                        <li>B &ndash; B1 (Lebar Bawah) = E &ndash; D = ${(LPa / 4 + 2).toFixed(1)} cm</li>
+                                    </ul>
+                                </div>`;
                     } else {
                         html = `<div class="text-gray-500 text-sm">Pilih pelanggan dan tipe pola untuk melihat detail titik ukuran.</div>`;
                     }
