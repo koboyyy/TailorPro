@@ -333,33 +333,35 @@
                 if (!selectedCustomer) return;
 
                 const svgs = document.getElementById('svg-wrapper').querySelectorAll('svg');
-                let totalHeight = 0;
-                let maxWidth = 0;
+                let totalWidth = 0;
+                let maxHeight = 0;
                 let combinedInner = '';
 
                 svgs.forEach((svg) => {
-                    const viewBox = svg.getAttribute('viewBox');
                     let width = 1000;
                     let height = 1000;
 
+                    const viewBox = svg.getAttribute('viewBox');
                     if (viewBox) {
-                        const parts = viewBox.split(' ');
-                        width = parseFloat(parts[2]);
-                        height = parseFloat(parts[3]);
+                        const matches = viewBox.match(/[\d\.]+/g);
+                        if (matches && matches.length >= 4) {
+                            width = parseFloat(matches[2]);
+                            height = parseFloat(matches[3]);
+                        }
                     }
 
-                    if (width > maxWidth) maxWidth = width;
+                    if (height > maxHeight) maxHeight = height;
 
-                    let outerHTML = svg.outerHTML;
-                    // Menambahkan properti x dan y ke dalam elemen svg secara langsung
-                    outerHTML = outerHTML.replace('<svg ', `<svg x="0" y="${totalHeight}" `);
-
-                    combinedInner += outerHTML;
-                    totalHeight += height + 50; // Beri jarak 50px antar pola
+                    let inner = svg.innerHTML;
+                    // Gunakan tag <g> dan susun menyamping (horizontal) dengan translate X
+                    combinedInner += `<g transform="translate(${totalWidth}, 0)">${inner}</g>`;
+                    totalWidth += width + 50; // Beri jarak 50px antar pola secara horizontal
                 });
 
-                const finalSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxWidth} ${totalHeight}" width="${maxWidth}" height="${totalHeight}">
-                    <rect width="100%" height="100%" fill="#ffffff"/>
+                totalWidth += 100;
+                maxHeight += 100;
+
+                const finalSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${totalWidth} ${maxHeight}" width="${totalWidth}" height="${maxHeight}" style="background-color: #ffffff;">
                     ${combinedInner}
                 </svg>`;
 
@@ -1450,7 +1452,7 @@
                             );
 
                             setTimeout(() => {
-                                window.location.href = '/arsip-pola';
+                                window.location.href = '/pola-busana';
                             }, 1200);
                         } else {
                             alert('Gagal menyimpan pola.');
