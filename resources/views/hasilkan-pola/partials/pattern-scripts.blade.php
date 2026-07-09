@@ -89,11 +89,11 @@
                         customerSearchResults.innerHTML = matched
                             .map(
                                 (c) => `
-                                                                            <button type="button" class="w-full text-left px-4 py-2 text-xs text-slate-800 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 flex items-center gap-2" onclick="selectCustomer(${c.id})">
-                                                                                <span class="w-5 h-5 rounded-full ${c.avatar_bg} font-bold text-[9px] flex items-center justify-center">${c.inisial}</span>
-                                                                                <span>${c.nama_pelanggan}</span>
-                                                                            </button>
-                                                                        `
+                                    <button type="button" class="w-full text-left px-4 py-2 text-xs text-slate-800 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 flex items-center gap-2" onclick="selectCustomer(${c.id})">
+                                        <span class="w-5 h-5 rounded-full ${c.avatar_bg} font-bold text-[9px] flex items-center justify-center">${c.inisial}</span>
+                                        <span>${c.nama_pelanggan}</span>
+                                    </button>
+                                `
                             )
                             .join('');
                     }

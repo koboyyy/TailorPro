@@ -61,6 +61,7 @@ class DashboardController extends Controller
 
         // 7. Aktifitas Hari Ini (Mengambil Riwayat Status Terbaru)
         $aktifitasHariIni = RiwayatStatus::with(['pesanan.pelanggan'])
+            ->whereDate('time', $now->toDateString())
             ->orderBy('time', 'desc')
             ->take(3)
             ->get();
