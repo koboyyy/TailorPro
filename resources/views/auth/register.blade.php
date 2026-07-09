@@ -59,8 +59,9 @@
                 <label
                     for="name"
                     class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                    >Nama Lengkap</label
                 >
+                    Nama Lengkap
+                </label>
                 <div class="relative">
                     <span
                         class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs"
@@ -79,7 +80,8 @@
                 </div>
                 @error ('name')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
-                        <i class="fas fa-exclamation-circle"></i> {{ $message }}
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ $message }}
                     </p>
                 @enderror
             </div>
@@ -89,8 +91,9 @@
                 <label
                     for="email"
                     class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                    >Alamat Email</label
                 >
+                    Alamat Email
+                </label>
                 <div class="relative">
                     <span
                         class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs"
@@ -109,7 +112,8 @@
                 </div>
                 @error ('email')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
-                        <i class="fas fa-exclamation-circle"></i> {{ $message }}
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ $message }}
                     </p>
                 @enderror
             </div>
@@ -119,8 +123,9 @@
                 <label
                     for="password"
                     class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                    >Kata Sandi (Min. 6 Karakter)</label
                 >
+                    Kata Sandi (Min. 6 Karakter)
+                </label>
                 <div class="relative">
                     <span
                         class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs"
@@ -138,7 +143,8 @@
                 </div>
                 @error ('password')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
-                        <i class="fas fa-exclamation-circle"></i> {{ $message }}
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ $message }}
                     </p>
                 @enderror
             </div>
@@ -148,8 +154,9 @@
                 <label
                     for="password_confirmation"
                     class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                    >Konfirmasi Kata Sandi</label
                 >
+                    Konfirmasi Kata Sandi
+                </label>
                 <div class="relative">
                     <span
                         class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs"
@@ -178,15 +185,16 @@
                 <label
                     for="terms"
                     class="ml-2 text-[10px] font-medium text-grey dark:text-slate-400 cursor-pointer select-none"
-                    >Saya menyetujui seluruh
-                    <a href="#" class="font-bold text-primary dark:text-accent hover:underline"
-                        >Ketentuan Layanan</a
-                    >
-                    &
-                    <a href="#" class="font-bold text-primary dark:text-accent hover:underline"
-                        >Kebijakan Privasi</a
-                    ></label
                 >
+                    Saya menyetujui seluruh
+                    <a href="#" class="font-bold text-primary dark:text-accent hover:underline">
+                        Ketentuan Layanan
+                    </a>
+                    &
+                    <a href="#" class="font-bold text-primary dark:text-accent hover:underline">
+                        Kebijakan Privasi
+                    </a>
+                </label>
             </div>
 
             <!-- Submit Button -->
@@ -206,8 +214,9 @@
             </div>
             <span
                 class="relative px-3 bg-white dark:bg-slate-900 text-[10px] font-bold text-gray-400 uppercase"
-                >atau</span
             >
+                atau
+            </span>
         </div>
 
         <!-- Login Link -->
@@ -217,8 +226,9 @@
                 <a
                     href="/login"
                     class="font-bold text-primary hover:text-secondary dark:text-accent dark:hover:text-accent/80 transition ml-0.5"
-                    >Masuk di Sini</a
                 >
+                    Masuk di Sini
+                </a>
             </p>
         </div>
     </div>

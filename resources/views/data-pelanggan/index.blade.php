@@ -29,11 +29,11 @@
     </div>
 
     @include ('data-pelanggan.partials.stats')
-    
+
     @include ('data-pelanggan.partials.list')
 
     @include ('data-pelanggan.partials.modal-customer')
-    
+
     @include ('data-pelanggan.partials.modal-ukuran')
 
 @endsection

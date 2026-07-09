@@ -59,8 +59,9 @@
                 <label
                     for="email"
                     class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                    >Alamat Email</label
                 >
+                    Alamat Email
+                </label>
                 <div class="relative">
                     <span
                         class="absolute inset-y-0 left-4 flex items-center text-gray-400 pointer-events-none text-xs"
@@ -79,7 +80,8 @@
                 </div>
                 @error ('email')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
-                        <i class="fas fa-exclamation-circle"></i> {{ $message }}
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ $message }}
                     </p>
                 @enderror
             </div>
@@ -90,13 +92,15 @@
                     <label
                         for="password"
                         class="block text-[10px] font-bold uppercase tracking-wider text-gray-400"
-                        >Kata Sandi</label
                     >
+                        Kata Sandi
+                    </label>
                     <a
                         href="#"
                         class="text-[10px] font-bold text-primary hover:text-secondary dark:text-accent dark:hover:text-accent/80 transition"
-                        >Lupa Sandi?</a
                     >
+                        Lupa Sandi?
+                    </a>
                 </div>
                 <div class="relative">
                     <span
@@ -122,7 +126,8 @@
                 </div>
                 @error ('password')
                     <p class="text-[10px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
-                        <i class="fas fa-exclamation-circle"></i> {{ $message }}
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ $message }}
                     </p>
                 @enderror
             </div>
@@ -138,8 +143,9 @@
                 <label
                     for="remember"
                     class="ml-2 text-[11px] font-medium text-grey dark:text-slate-400 cursor-pointer select-none"
-                    >Ingat saya di perangkat ini</label
                 >
+                    Ingat saya di perangkat ini
+                </label>
             </div>
 
             <!-- Submit Button -->
@@ -159,8 +165,9 @@
             </div>
             <span
                 class="relative px-3 bg-white dark:bg-slate-900 text-[10px] font-bold text-gray-400 uppercase"
-                >atau</span
             >
+                atau
+            </span>
         </div>
 
         <!-- Register Link -->
@@ -170,8 +177,9 @@
                 <a
                     href="/register"
                     class="font-bold text-primary hover:text-secondary dark:text-accent dark:hover:text-accent/80 transition ml-0.5"
-                    >Daftar Baru</a
                 >
+                    Daftar Baru
+                </a>
             </p>
         </div>
     </div>

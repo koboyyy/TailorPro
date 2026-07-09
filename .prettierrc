@@ -2,16 +2,19 @@
     "semi": true,
     "singleQuote": true,
     "tabWidth": 4,
+    "useTabs": false,
     "trailingComma": "es5",
     "printWidth": 100,
     "arrowParens": "always",
     "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "ignore",
     "plugins": ["prettier-plugin-blade"],
     "overrides": [
         {
             "files": ["*.blade.php"],
             "options": {
-                "parser": "blade"
+                "parser": "blade",
+                "tabWidth": 4
             }
         }
     ]

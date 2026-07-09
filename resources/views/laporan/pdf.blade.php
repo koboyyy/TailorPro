@@ -105,12 +105,16 @@
 
     <div class="summary">
         <div class="summary-item">
-            <p><strong>Periode Laporan</strong> : {{ $filter == '7' ? '7 Hari Terakhir' : ($filter == '365' ? '1 Tahun Terakhir' : '30 Hari Terakhir') }}</p>
-            <p><strong>Tanggal Dicetak</strong> : {{ \Carbon\Carbon::now()->format('d F Y H:i') }}</p>
+            <p><strong>Periode Laporan</strong>
+            : {{ $filter == '7' ? '7 Hari Terakhir' : ($filter == '365' ? '1 Tahun Terakhir' : '30 Hari Terakhir') }}</p>
+            <p><strong>Tanggal Dicetak</strong>
+            : {{ \Carbon\Carbon::now()->format('d F Y H:i') }}</p>
         </div>
         <div class="summary-item" style="text-align: right">
-            <p><strong>Total Transaksi</strong> : {{ $transaksi->count() }}</p>
-            <p><strong>Total Pendapatan</strong> : Rp {{ number_format($totalPendapatanFilter, 0, ',', '.') }}</p>
+            <p><strong>Total Transaksi</strong>
+            : {{ $transaksi->count() }}</p>
+            <p><strong>Total Pendapatan</strong>
+            : Rp {{ number_format($totalPendapatanFilter, 0, ',', '.') }}</p>
         </div>
     </div>
 
@@ -163,7 +167,9 @@
 
     <div class="footer">
         <p>Mengetahui,</p>
-        <br /><br /><br />
+        <br />
+        <br />
+        <br />
         <p><strong>Admin Tailor Pro</strong></p>
     </div>
 </body>

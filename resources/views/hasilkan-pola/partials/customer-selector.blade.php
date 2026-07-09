@@ -46,11 +46,12 @@
                     <span
                         id="selected-customer-name"
                         class="block text-sm font-bold text-slate-800 dark:text-slate-100"
-                        >Ahmad Subagja</span
                     >
-                    <span id="selected-customer-id" class="block text-[9px] text-gray-400 mt-0.5"
-                        >ID #T-2204</span
-                    >
+                        Ahmad Subagja
+                    </span>
+                    <span id="selected-customer-id" class="block text-[9px] text-gray-400 mt-0.5">
+                        ID #T-2204
+                    </span>
                 </div>
             </div>
             <div
@@ -63,9 +64,9 @@
         <!-- Detail Ukuran Mini Summary -->
         <div class="pt-3 border-t border-[#EFECE6]/80 dark:border-slate-800/80 mt-auto">
             <div class="flex justify-between items-center mb-3">
-                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider"
-                    >Detail Ukuran</span
-                >
+                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                    Detail Ukuran
+                </span>
                 <button
                     type="button"
                     onclick="showFullSizesModal()"
@@ -79,27 +80,30 @@
             >
                 <div class="flex justify-between">
                     <span class="text-gray-400">Lingkar Dada</span>
-                    <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-dada"
-                        >96 cm</span
-                    >
+                    <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-dada">
+                        96 cm
+                    </span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-400">Panjang Baju</span>
-                    <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-panjang"
-                        >72 cm</span
+                    <span
+                        class="font-bold text-slate-800 dark:text-slate-200"
+                        id="mini-val-panjang"
                     >
+                        72 cm
+                    </span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-400">Lebar Bahu</span>
-                    <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-bahu"
-                        >44 cm</span
-                    >
+                    <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-bahu">
+                        44 cm
+                    </span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-400">P. Lengan</span>
-                    <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-lengan"
-                        >24 cm</span
-                    >
+                    <span class="font-bold text-slate-800 dark:text-slate-200" id="mini-val-lengan">
+                        24 cm
+                    </span>
                 </div>
             </div>
         </div>

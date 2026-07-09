@@ -6,8 +6,9 @@
         <div class="flex items-center gap-2">
             <span
                 class="w-8 h-8 rounded-lg bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-primary dark:text-accent font-bold font-serif text-sm"
-                >A</span
             >
+                A
+            </span>
             <div>
                 <h3 class="text-sm font-bold tracking-tight text-slate-800 dark:text-white">
                     Preview Pola Teknis
@@ -73,12 +74,13 @@
     <!-- Format Indicator + Detail Jarak Pola -->
 
     <div class="flex items-center justify-between mt-3 text-[10px] font-medium text-gray-400">
-        <span class="flex items-center gap-1.5"
-            ><span class="w-2 h-2 rounded-full bg-blue-500"></span> FORMAT: SVG</span
-        >
-        <span class="italic"
-            >Klik 'Hasilkan' untuk memperbarui pola berdasarkan ukuran terbaru.</span
-        >
+        <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            FORMAT: SVG
+        </span>
+        <span class="italic">
+            Klik 'Hasilkan' untuk memperbarui pola berdasarkan ukuran terbaru.
+        </span>
     </div>
 
     <!-- Detail Jarak Titik Pola -->

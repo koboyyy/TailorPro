@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <script>
 // RENDER SVG TEMPLATES DYNAMICALLY
             window.PatternRenderer = { generateSVG: function(activeType, selectedCustomer) {
@@ -63,31 +64,31 @@
                         // Kurva F-E menggunakan tarikan mendatar dari F
                         // Kurva G-C1 menggunakan kelengkungan landai
                         svg += `
-                                                                        <path
-                                                                            d="M ${pt(F.x, F.y).x} ${pt(F.x, F.y).y}
-                                                                               C ${pt(F.x + 3.5, F.y).x} ${pt(F.x + 3.5, F.y).y}, ${pt(E.x, E.y + 1.5).x} ${pt(E.x, E.y + 1.5).y}, ${pt(E.x, E.y).x} ${pt(E.x, E.y).y}
-                                                                               L ${pt(G.x, G.y).x} ${pt(G.x, G.y).y}
-                                                                               C ${pt(G.x, G.y + (C1_belakang.y - G.y) * 0.5).x} ${pt(G.x, G.y + (C1_belakang.y - G.y) * 0.5).y}, ${pt(C1_belakang.x - 5, C1_belakang.y).x} ${pt(C1_belakang.x - 5, C1_belakang.y).y}, ${pt(C1_belakang.x, C1_belakang.y).x} ${pt(C1_belakang.x, C1_belakang.y).y}
-                                                                               L ${pt(D1_belakang.x, D1_belakang.y).x} ${pt(D1_belakang.x, D1_belakang.y).y}
-                                                                               L ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
-                                                                               Z"
-                                                                            fill="#fecaca" fill-opacity="0.5" stroke="#ef4444" stroke-width="2"
-                                                                        />`;
+                            <path
+                                d="M ${pt(F.x, F.y).x} ${pt(F.x, F.y).y}
+                                   C ${pt(F.x + 3.5, F.y).x} ${pt(F.x + 3.5, F.y).y}, ${pt(E.x, E.y + 1.5).x} ${pt(E.x, E.y + 1.5).y}, ${pt(E.x, E.y).x} ${pt(E.x, E.y).y}
+                                   L ${pt(G.x, G.y).x} ${pt(G.x, G.y).y}
+                                   C ${pt(G.x, G.y + (C1_belakang.y - G.y) * 0.5).x} ${pt(G.x, G.y + (C1_belakang.y - G.y) * 0.5).y}, ${pt(C1_belakang.x - 5, C1_belakang.y).x} ${pt(C1_belakang.x - 5, C1_belakang.y).y}, ${pt(C1_belakang.x, C1_belakang.y).x} ${pt(C1_belakang.x, C1_belakang.y).y}
+                                   L ${pt(D1_belakang.x, D1_belakang.y).x} ${pt(D1_belakang.x, D1_belakang.y).y}
+                                   L ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
+                                   Z"
+                                fill="#fecaca" fill-opacity="0.5" stroke="#ef4444" stroke-width="2"
+                            />`;
 
                         // --- POLA DEPAN (BIRU) ---
                         // Kurva A1-A2 menggunakan tarikan mendatar dari A1
                         // Kurva B-C1 menggunakan lekukan dalam bentuk L-halus (French Curve)
                         svg += `
-                                                                        <path
-                                                                            d="M ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y}
-                                                                               C ${pt(A1.x + 3.5, A1.y).x} ${pt(A1.x + 3.5, A1.y).y}, ${pt(A2.x, A2.y + 3.5).x} ${pt(A2.x, A2.y + 3.5).y}, ${pt(A2.x, A2.y).x} ${pt(A2.x, A2.y).y}
-                                                                               L ${pt(B.x, B.y).x} ${pt(B.x, B.y).y}
-                                                                               C ${pt(B.x, B.y + (C1_depan.y - B.y) * 0.5).x} ${pt(B.x, B.y + (C1_depan.y - B.y) * 0.5).y}, ${pt(C1_depan.x - 7, C1_depan.y).x} ${pt(C1_depan.x - 7, C1_depan.y).y}, ${pt(C1_depan.x, C1_depan.y).x} ${pt(C1_depan.x, C1_depan.y).y}
-                                                                               L ${pt(D1_depan.x, D1_depan.y).x} ${pt(D1_depan.x, D1_depan.y).y}
-                                                                               L ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
-                                                                               Z"
-                                                                            fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5"
-                                                                        />`;
+                            <path
+                                d="M ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y}
+                                   C ${pt(A1.x + 3.5, A1.y).x} ${pt(A1.x + 3.5, A1.y).y}, ${pt(A2.x, A2.y + 3.5).x} ${pt(A2.x, A2.y + 3.5).y}, ${pt(A2.x, A2.y).x} ${pt(A2.x, A2.y).y}
+                                   L ${pt(B.x, B.y).x} ${pt(B.x, B.y).y}
+                                   C ${pt(B.x, B.y + (C1_depan.y - B.y) * 0.5).x} ${pt(B.x, B.y + (C1_depan.y - B.y) * 0.5).y}, ${pt(C1_depan.x - 7, C1_depan.y).x} ${pt(C1_depan.x - 7, C1_depan.y).y}, ${pt(C1_depan.x, C1_depan.y).x} ${pt(C1_depan.x, C1_depan.y).y}
+                                   L ${pt(D1_depan.x, D1_depan.y).x} ${pt(D1_depan.x, D1_depan.y).y}
+                                   L ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
+                                   Z"
+                                fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5"
+                            />`;
 
                         // --- GARIS BANTU (PUTUS-PUTUS) ---
                         const garisBantu = [
@@ -101,8 +102,8 @@
 
                         garisBantu.forEach((g) => {
                             svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
-                                                                                      x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
-                                                                                      stroke="#6b7280" stroke-dasharray="5,5" />`;
+                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                                          stroke="#6b7280" stroke-dasharray="5,5" />`;
                         });
 
                         // --- LABEL TITIK DAN HURUF ---
@@ -185,32 +186,32 @@
 
                         // Generate seluruh elemen SVG
                         const svgUtuh = `
-                                                                        <svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">
+                            <svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">
 
-                                                                            <path
-                                                                                d="M ${A.x} ${A.y}
-                                                                                   C ${cp1.x} ${cp1.y}, ${cp2.x} ${cp2.y}, ${E.x} ${E.y}
-                                                                                   L ${D.x} ${D.y}
-                                                                                   L ${B.x} ${B.y}
-                                                                                   Z"
-                                                                                fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5"
-                                                                            />
+                                <path
+                                    d="M ${A.x} ${A.y}
+                                       C ${cp1.x} ${cp1.y}, ${cp2.x} ${cp2.y}, ${E.x} ${E.y}
+                                       L ${D.x} ${D.y}
+                                       L ${B.x} ${B.y}
+                                       Z"
+                                    fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5"
+                                />
 
-                                                                            <line x1="${A.x}" y1="${A.y}" x2="${C.x}" y2="${C.y}" stroke="#6b7280" stroke-dasharray="5,5" />
-                                                                            <line x1="${C.x}" y1="${C.y}" x2="${E.x}" y2="${E.y}" stroke="#6b7280" stroke-dasharray="5,5" />
+                                <line x1="${A.x}" y1="${A.y}" x2="${C.x}" y2="${C.y}" stroke="#6b7280" stroke-dasharray="5,5" />
+                                <line x1="${C.x}" y1="${C.y}" x2="${E.x}" y2="${E.y}" stroke="#6b7280" stroke-dasharray="5,5" />
 
-                                                                            ${buatTeksUkuran('10 cm', A.x - 15, (A.y + C.y) / 2, -90)}
-                                                                            ${buatTeksUkuran(panjangLengan + ' cm', A.x - 45, (A.y + B.y) / 2, -90)}
-                                                                            ${buatTeksUkuran(jarakCE + ' cm', (C.x + E.x) / 2, C.y + 15, 0)}
-                                                                            ${buatTeksUkuran('20 cm', (B.x + D.x) / 2, B.y + 20, 0)}
+                                ${buatTeksUkuran('10 cm', A.x - 15, (A.y + C.y) / 2, -90)}
+                                ${buatTeksUkuran(panjangLengan + ' cm', A.x - 45, (A.y + B.y) / 2, -90)}
+                                ${buatTeksUkuran(jarakCE + ' cm', (C.x + E.x) / 2, C.y + 15, 0)}
+                                ${buatTeksUkuran('20 cm', (B.x + D.x) / 2, B.y + 20, 0)}
 
-                                                                            ${buatLabel('A', A.x, A.y, -25, 5)}
-                                                                            ${buatLabel('C', C.x, C.y, -25, 5)}
-                                                                            ${buatLabel('B', B.x, B.y, -25, 5)}
-                                                                            ${buatLabel('E', E.x, E.y, 15, 5)}
-                                                                            ${buatLabel('D', D.x, D.y, 15, 5)}
-                                                                        </svg>
-                                                                    `;
+                                ${buatLabel('A', A.x, A.y, -25, 5)}
+                                ${buatLabel('C', C.x, C.y, -25, 5)}
+                                ${buatLabel('B', B.x, B.y, -25, 5)}
+                                ${buatLabel('E', E.x, E.y, 15, 5)}
+                                ${buatLabel('D', D.x, D.y, 15, 5)}
+                            </svg>
+                        `;
 
                         svgHTML += svgUtuh;
                     }
@@ -218,22 +219,22 @@
                     // Fungsi membuat titik merah dan label huruf
                     function buatLabel(huruf, x, y, geserX, geserY) {
                         return `
-                                                                        <circle cx="${x}" cy="${y}" r="5" fill="#111827" />
-                                                                        <text x="${x + geserX}" y="${y + geserY}" font-family="sans-serif" font-size="18" font-weight="bold" fill="#111827">${huruf}</text>
-                                                                    `;
+                            <circle cx="${x}" cy="${y}" r="5" fill="#111827" />
+                            <text x="${x + geserX}" y="${y + geserY}" font-family="sans-serif" font-size="18" font-weight="bold" fill="#111827">${huruf}</text>
+                        `;
                     }
 
                     // Fungsi baru untuk merender angka ukuran (bisa diputar/rotate)
                     function buatTeksUkuran(teks, x, y, rotasi = 0) {
                         return `
-                                                                        <text x="${x}" y="${y}"
-                                                                              font-family="sans-serif" font-size="14" font-weight="600"
-                                                                              fill="#2563eb"
-                                                                              text-anchor="middle" dominant-baseline="middle"
-                                                                              transform="rotate(${rotasi}, ${x}, ${y})">
-                                                                            ${teks}
-                                                                        </text>
-                                                                    `;
+                            <text x="${x}" y="${y}"
+                                  font-family="sans-serif" font-size="14" font-weight="600"
+                                  fill="#2563eb"
+                                  text-anchor="middle" dominant-baseline="middle"
+                                  transform="rotate(${rotasi}, ${x}, ${y})">
+                                ${teks}
+                            </text>
+                        `;
                     }
 
                     gambarPolaLenganKemeja();
@@ -279,27 +280,27 @@
 
                         // --- DAUN KERAH (Biru) ---
                         svg += `
-                                                                        <path
-                                                                            d="M ${pt(D1.x, D1.y).x} ${pt(D1.x, D1.y).y}
-                                                                               C ${pt(LK2 * 0.3, 1.5).x} ${pt(LK2 * 0.3, 1.5).y}, ${pt(LK2 * 0.7, C1.y).x} ${pt(LK2 * 0.7, C1.y).y}, ${pt(C1.x, C1.y).x} ${pt(C1.x, C1.y).y}
-                                                                               L ${pt(B1.x, B1.y).x} ${pt(B1.x, B1.y).y}
-                                                                               L ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y}
-                                                                               L ${pt(D1.x, D1.y).x} ${pt(D1.x, D1.y).y}
-                                                                               Z"
-                                                                            fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5"
-                                                                        />`;
+                            <path
+                                d="M ${pt(D1.x, D1.y).x} ${pt(D1.x, D1.y).y}
+                                   C ${pt(LK2 * 0.3, 1.5).x} ${pt(LK2 * 0.3, 1.5).y}, ${pt(LK2 * 0.7, C1.y).x} ${pt(LK2 * 0.7, C1.y).y}, ${pt(C1.x, C1.y).x} ${pt(C1.x, C1.y).y}
+                                   L ${pt(B1.x, B1.y).x} ${pt(B1.x, B1.y).y}
+                                   L ${pt(A1.x, A1.y).x} ${pt(A1.x, A1.y).y}
+                                   L ${pt(D1.x, D1.y).x} ${pt(D1.x, D1.y).y}
+                                   Z"
+                                fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb" stroke-width="2.5"
+                            />`;
 
                         // --- KAKI KERAH (Merah) ---
                         svg += `
-                                                                        <path
-                                                                            d="M ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
-                                                                               C ${pt(2 + LK2 * 0.3, D.y + 0.5).x} ${pt(2 + LK2 * 0.3, D.y + 0.5).y}, ${pt(LK2 * 0.7, C.y + 0.5).x} ${pt(LK2 * 0.7, C.y + 0.5).y}, ${pt(C.x, C.y).x} ${pt(C.x, C.y).y}
-                                                                               L ${pt(B.x, B.y).x} ${pt(B.x, B.y).y}
-                                                                               C ${pt(LK2 * 0.5, B.y).x} ${pt(LK2 * 0.5, B.y).y}, ${pt(3, B.y).x} ${pt(3, B.y).y}, ${pt(A.x, A.y).x} ${pt(A.x, A.y).y}
-                                                                               C ${pt(0, gapY + 0.5).x} ${pt(0, gapY + 0.5).y}, ${pt(1, D.y).x} ${pt(1, D.y).y}, ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
-                                                                               Z"
-                                                                            fill="#fecaca" fill-opacity="0.6" stroke="#ef4444" stroke-width="2"
-                                                                        />`;
+                            <path
+                                d="M ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
+                                   C ${pt(2 + LK2 * 0.3, D.y + 0.5).x} ${pt(2 + LK2 * 0.3, D.y + 0.5).y}, ${pt(LK2 * 0.7, C.y + 0.5).x} ${pt(LK2 * 0.7, C.y + 0.5).y}, ${pt(C.x, C.y).x} ${pt(C.x, C.y).y}
+                                   L ${pt(B.x, B.y).x} ${pt(B.x, B.y).y}
+                                   C ${pt(LK2 * 0.5, B.y).x} ${pt(LK2 * 0.5, B.y).y}, ${pt(3, B.y).x} ${pt(3, B.y).y}, ${pt(A.x, A.y).x} ${pt(A.x, A.y).y}
+                                   C ${pt(0, gapY + 0.5).x} ${pt(0, gapY + 0.5).y}, ${pt(1, D.y).x} ${pt(1, D.y).y}, ${pt(D.x, D.y).x} ${pt(D.x, D.y).y}
+                                   Z"
+                                fill="#fecaca" fill-opacity="0.6" stroke="#ef4444" stroke-width="2"
+                            />`;
 
                         // --- GARIS BANTU (PUTUS-PUTUS) ---
                         const garisBantu = [
@@ -310,8 +311,8 @@
 
                         garisBantu.forEach((g) => {
                             svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
-                                                                                      x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
-                                                                                      stroke="#6b7280" stroke-dasharray="5,5" />`;
+                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                                          stroke="#6b7280" stroke-dasharray="5,5" />`;
                         });
 
                         // --- LABEL TITIK ---
@@ -351,14 +352,14 @@
                     // Fungsi Helper untuk teks keterangan ukuran
                     function buatTeksUkuran(teks, x, y, rotasi = 0) {
                         return `
-                                                                        <text x="${x}" y="${y}"
-                                                                              font-family="sans-serif" font-size="14" font-weight="600"
-                                                                              fill="#4b5563"
-                                                                              text-anchor="middle" dominant-baseline="middle"
-                                                                              transform="rotate(${rotasi}, ${x}, ${y})">
-                                                                            ${teks}
-                                                                        </text>
-                                                                    `;
+                            <text x="${x}" y="${y}"
+                                  font-family="sans-serif" font-size="14" font-weight="600"
+                                  fill="#4b5563"
+                                  text-anchor="middle" dominant-baseline="middle"
+                                  transform="rotate(${rotasi}, ${x}, ${y})">
+                                ${teks}
+                            </text>
+                        `;
                     }
 
                     // Event Listener
@@ -443,8 +444,8 @@
                         ];
                         axes.forEach(g => {
                             svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
-                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
-                                          stroke="#6b7280" stroke-dasharray="${g.dash}" stroke-width="1.2" />`;
+                x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                stroke="#6b7280" stroke-dasharray="${g.dash}" stroke-width="1.2" />`;
                         });
 
                         // Pola Belakang (Biru)
@@ -603,8 +604,8 @@
                         ];
                         dashBack.forEach(g => {
                             svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
-                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
-                                          stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
+                x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
                         });
 
                         // Pola Depan (Merah)
@@ -637,8 +638,8 @@
                         ];
                         dashFront.forEach(g => {
                             svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
-                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
-                                          stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
+                x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
                         });
 
                         // Titik & Label Sesuai Gambar
@@ -693,28 +694,28 @@
                     const panjang = 135; // Default robe length
 
                     svgHTML = `
-                                                                        <svg width="100%" height="100%" viewBox="0 0 600 450" fill="none" stroke="${strokeColor}" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M 240,50 L 360,50 L 340,70 L 450,110 L 415,160 L 360,140 L 400,410 L 200,410 L 240,140 L 185,160 L 150,110 L 260,70 Z" />
-                                                                            <path d="M 270,70 C 270,95 330,95 330,70" />
-                                                                            <path d="M 255,160 C 270,170 330,170 345,160" stroke-dasharray="3,3" />
+                            <svg width="100%" height="100%" viewBox="0 0 600 450" fill="none" stroke="${strokeColor}" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 240,50 L 360,50 L 340,70 L 450,110 L 415,160 L 360,140 L 400,410 L 200,410 L 240,140 L 185,160 L 150,110 L 260,70 Z" />
+                                <path d="M 270,70 C 270,95 330,95 330,70" />
+                                <path d="M 255,160 C 270,170 330,170 345,160" stroke-dasharray="3,3" />
 
-                                                                            <!-- Dimension Dada -->
-                                                                            <line x1="240" y1="130" x2="360" y2="130" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
-                                                                            <circle cx="240" cy="130" r="3.5" fill="${leaderColor}" />
-                                                                            <circle cx="360" cy="130" r="3.5" fill="${leaderColor}" />
-                                                                            <foreignObject x="272" y="115" width="56" height="30">
-                                                                                <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${dada} cm</div>
-                                                                            </foreignObject>
+                                <!-- Dimension Dada -->
+                                <line x1="240" y1="130" x2="360" y2="130" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
+                                <circle cx="240" cy="130" r="3.5" fill="${leaderColor}" />
+                                <circle cx="360" cy="130" r="3.5" fill="${leaderColor}" />
+                                <foreignObject x="272" y="115" width="56" height="30">
+                                    <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${dada} cm</div>
+                                </foreignObject>
 
-                                                                            <!-- Dimension Panjang Robe -->
-                                                                            <line x1="120" y1="50" x2="120" y2="410" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
-                                                                            <circle cx="120" cy="50" r="3.5" fill="${leaderColor}" />
-                                                                            <circle cx="120" cy="410" r="3.5" fill="${leaderColor}" />
-                                                                            <foreignObject x="92" y="210" width="56" height="30">
-                                                                                <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${panjang} cm</div>
-                                                                            </foreignObject>
-                                                                        </svg>
-                                                                    `;
+                                <!-- Dimension Panjang Robe -->
+                                <line x1="120" y1="50" x2="120" y2="410" stroke="${leaderColor}" stroke-width="1.2" stroke-dasharray="3,3" />
+                                <circle cx="120" cy="50" r="3.5" fill="${leaderColor}" />
+                                <circle cx="120" cy="410" r="3.5" fill="${leaderColor}" />
+                                <foreignObject x="92" y="210" width="56" height="30">
+                                    <div style="background: white; border: 1px solid #EFECE6; border-radius: 4px; padding: 2px 4px; font-size: 10px; font-weight: bold; color: #334155; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">${panjang} cm</div>
+                                </foreignObject>
+                            </svg>
+                        `;
                 } else if (activeType === 'WANITA') {
                     function gambarPolaWanita() {
                         const LB = parseInt(selectedCustomer.l_badan) || 90;
@@ -802,8 +803,8 @@
                         ];
                         dashLines.forEach(g => {
                             svg += `<line x1="${pt(g.from.x, g.from.y).x}" y1="${pt(g.from.x, g.from.y).y}"
-                                          x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
-                                          stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
+                x2="${pt(g.to.x, g.to.y).x}" y2="${pt(g.to.x, g.to.y).y}"
+                stroke="#111827" stroke-dasharray="4,4" stroke-width="1.2" />`;
                         });
 
                         // Garis Pola Utama (Merah tebal)

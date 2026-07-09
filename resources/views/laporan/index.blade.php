@@ -32,18 +32,21 @@
                         <a
                             href="{{ route('laporan.index', ['filter' => 7]) }}"
                             class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '7' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}"
-                            >7 Hari Terakhir</a
                         >
+                            7 Hari Terakhir
+                        </a>
                         <a
                             href="{{ route('laporan.index', ['filter' => 30]) }}"
                             class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '30' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}"
-                            >30 Hari Terakhir</a
                         >
+                            30 Hari Terakhir
+                        </a>
                         <a
                             href="{{ route('laporan.index', ['filter' => 365]) }}"
                             class="block px-4 py-3 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 {{ $filter == '365' ? 'bg-gray-50 dark:bg-slate-700 font-bold' : '' }}"
-                            >1 Tahun Terakhir</a
                         >
+                            1 Tahun Terakhir
+                        </a>
                     </div>
                 </div>
                 <a
@@ -56,12 +59,12 @@
             </div>
         </div>
 
-            @include ('laporan.partials.stats')
+        @include ('laporan.partials.stats')
 
-    @include ('laporan.partials.chart')
+        @include ('laporan.partials.chart')
 
-    @include ('laporan.partials.table')
-</div>
+        @include ('laporan.partials.table')
+    </div>
 @endsection
 
 @section ('scripts')

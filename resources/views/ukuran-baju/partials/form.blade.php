@@ -24,8 +24,9 @@
             <label
                 for="input-name"
                 class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                >Nama Lengkap Pelanggan</label
             >
+                Nama Lengkap Pelanggan
+            </label>
             <input
                 type="text"
                 id="input-name"
@@ -41,8 +42,9 @@
                 <label
                     for="input-l-badan"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Lingkar Badan</label
                 >
+                    Lingkar Badan
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -52,8 +54,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -62,8 +65,9 @@
                 <label
                     for="input-l-pinggang"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Lingkar Pinggang</label
                 >
+                    Lingkar Pinggang
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -73,8 +77,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -83,8 +88,9 @@
                 <label
                     for="input-l-punggung"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Lebar Punggung</label
                 >
+                    Lebar Punggung
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -94,8 +100,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -104,8 +111,9 @@
                 <label
                     for="input-p-bahu"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Panjang Bahu</label
                 >
+                    Panjang Bahu
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -115,8 +123,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -125,8 +134,9 @@
                 <label
                     for="input-p-lengan"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Panjang Lengan</label
                 >
+                    Panjang Lengan
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -136,8 +146,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -146,8 +157,9 @@
                 <label
                     for="input-l-lengan"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Lingkar Lengan</label
                 >
+                    Lingkar Lengan
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -157,8 +169,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -167,8 +180,9 @@
                 <label
                     for="input-t-susu"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Turun Susu/Tetek</label
                 >
+                    Turun Susu/Tetek
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -178,8 +192,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -188,8 +203,9 @@
                 <label
                     for="input-t-pinggang"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Turun Pinggang</label
                 >
+                    Turun Pinggang
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -199,8 +215,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -209,8 +226,9 @@
                 <label
                     for="input-l-pinggul"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Lingkar Pinggul</label
                 >
+                    Lingkar Pinggul
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -220,8 +238,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
 
@@ -230,8 +249,9 @@
                 <label
                     for="input-p-baju"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                    >Panjang Baju</label
                 >
+                    Panjang Baju
+                </label>
                 <div class="relative">
                     <input
                         type="number"
@@ -241,8 +261,9 @@
                     />
                     <span
                         class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                        >CM</span
                     >
+                        CM
+                    </span>
                 </div>
             </div>
         </div>
@@ -252,8 +273,9 @@
             <label
                 for="input-p-rok"
                 class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                >Panjang Rok</label
             >
+                Panjang Rok
+            </label>
             <div class="relative">
                 <input
                     type="text"
@@ -263,8 +285,9 @@
                 />
                 <span
                     class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                    >CM</span
                 >
+                    CM
+                </span>
             </div>
         </div>
 

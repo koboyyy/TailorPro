@@ -385,7 +385,6 @@
                 wrapper.innerHTML = window.PatternRenderer.generateSVG(activeType, selectedCustomer);
 
                 function renderDetailTitikUkuran() {
-
                     let html = '';
 
                     if (activeType === 'KEMEJA' && selectedCustomer) {
@@ -448,7 +447,7 @@
                         const paha = parseInt(selectedCustomer.l_paha) || 62;
                         const lutut = parseInt(selectedCustomer.l_lutut) || 52;
                         const kaki = parseInt(selectedCustomer.l_kaki) || 40;
-                        const tinggiDuduk = (pesak / 2) - 6;
+                        const tinggiDuduk = pesak / 2 - 6;
 
                         html += `<div>
                                     <div class="font-bold text-[11px] text-primary dark:text-accent mb-1">
@@ -459,7 +458,7 @@
                                         <li>A &ndash; B (Panjang celana - ban pinggang 3 cm) = ${panjang - 3} cm</li>
                                         <li>A &ndash; A1 (Tinggi duduk = ½ Lingkar pesak - 6 cm) = ${tinggiDuduk} cm</li>
                                         <li>A1 &ndash; A2 (½ (A1 - B) dikurangi 3 cm) = ${((panjang - 3 - tinggiDuduk) / 2 - 3).toFixed(1)} cm</li>
-                                        <li>A &ndash; E1 (1/3 dari ¼ lingkar pinggang) = ${((pinggang / 4) / 3).toFixed(1)} cm</li>
+                                        <li>A &ndash; E1 (1/3 dari ¼ lingkar pinggang) = ${(pinggang / 4 / 3).toFixed(1)} cm</li>
                                         <li>E1 &ndash; E (¼ lingkar pinggang) = ${pinggang / 4} cm</li>
                                         <li>C &ndash; C1 (½ lingkar paha - 4 cm) = ${paha / 2 - 4} cm</li>
                                         <li>F &ndash; F1 (½ lingkar lutut - 2.5 cm) = ${lutut / 2 - 2.5} cm</li>
@@ -537,8 +536,6 @@
                 // Jalankan saat renderSVG dipanggil
                 renderDetailTitikUkuran();
             }
-
-
 
             // Save to LocalStorage Actions
             const btnSaveDraft = document.getElementById('btn-save-draft');

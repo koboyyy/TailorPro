@@ -258,20 +258,24 @@
                 <div class="flex-grow">
                     <ul class="space-y-4 text-primary/80 text-sm">
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Pencatatan ukuran
-                            baju
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Pencatatan ukuran baju
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Referensi desain baju
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Referensi desain baju
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Simpan data aman
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Simpan data aman
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Multi devices
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Multi devices
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> 100 data pelanggan
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            100 data pelanggan
                         </li>
                     </ul>
                 </div>
@@ -309,30 +313,36 @@
                 <div class="flex-grow">
                     <ul class="space-y-4 text-primary/80 text-sm">
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Pencatatan ukuran
-                            baju
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Pencatatan ukuran baju
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Hasilkan pola
-                            otomatis
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Hasilkan pola otomatis
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Referensi desain baju
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Referensi desain baju
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Jadwal pengerjaan
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Jadwal pengerjaan
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Data pelanggan
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Data pelanggan
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Tracking pengerjaan
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Tracking pengerjaan
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Simpan data aman
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Simpan data aman
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-secondary"></i> Multi devices
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            Multi devices
                         </li>
                     </ul>
                 </div>
@@ -373,19 +383,22 @@
                 <h4 class="text-accent font-semibold text-lg mb-6">Media Sosial</h4>
                 <ul class="space-y-3 text-accent/60 text-sm">
                     <li>
-                        <a href="#" class="hover:text-accent transition flex items-center gap-2"
-                            ><i class="fab fa-instagram w-4"></i> Instagram</a
-                        >
+                        <a href="#" class="hover:text-accent transition flex items-center gap-2">
+                            <i class="fab fa-instagram w-4"></i>
+                            Instagram
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-accent transition flex items-center gap-2"
-                            ><i class="fab fa-tiktok w-4"></i> Tiktok</a
-                        >
+                        <a href="#" class="hover:text-accent transition flex items-center gap-2">
+                            <i class="fab fa-tiktok w-4"></i>
+                            Tiktok
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-accent transition flex items-center gap-2"
-                            ><i class="fab fa-facebook-f w-4"></i> Facebook</a
-                        >
+                        <a href="#" class="hover:text-accent transition flex items-center gap-2">
+                            <i class="fab fa-facebook-f w-4"></i>
+                            Facebook
+                        </a>
                     </li>
                 </ul>
             </div>

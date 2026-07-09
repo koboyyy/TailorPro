@@ -52,8 +52,9 @@
             <div>
                 <span
                     class="font-serif text-lg font-bold tracking-wide text-slate-800 dark:text-white"
-                    >JAHITSPACE</span
                 >
+                    JAHITSPACE
+                </span>
             </div>
         </div>
         <button
@@ -403,8 +404,9 @@
                         <div>
                             <label
                                 class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1"
-                                >Nama Lengkap</label
                             >
+                                Nama Lengkap
+                            </label>
                             <input
                                 type="text"
                                 name="name"
@@ -416,8 +418,9 @@
                         <div>
                             <label
                                 class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1"
-                                >Email</label
                             >
+                                Email
+                            </label>
                             <input
                                 type="email"
                                 name="email"
@@ -430,8 +433,9 @@
                         <div>
                             <label
                                 class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1"
-                                >Password Saat Ini (kosongkan jika tidak diubah)</label
                             >
+                                Password Saat Ini (kosongkan jika tidak diubah)
+                            </label>
                             <input
                                 type="password"
                                 name="current_password"
@@ -441,8 +445,9 @@
                         <div>
                             <label
                                 class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1"
-                                >Password Baru</label
                             >
+                                Password Baru
+                            </label>
                             <input
                                 type="password"
                                 name="new_password"
@@ -452,8 +457,9 @@
                         <div>
                             <label
                                 class="block text-xs font-semibold text-gray-600 dark:text-slate-400 mb-1"
-                                >Konfirmasi Password Baru</label
                             >
+                                Konfirmasi Password Baru
+                            </label>
                             <input
                                 type="password"
                                 name="new_password_confirmation"
@@ -479,7 +485,8 @@
                     "
                     class="w-full py-2.5 bg-red-50 hover:bg-red-100 text-red-600 dark:bg-red-900/20 dark:hover:bg-red-900/40 text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
                 >
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
                 </button>
             </div>
         </div>

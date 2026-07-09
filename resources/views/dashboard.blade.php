@@ -89,7 +89,8 @@
                     <h2
                         class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2"
                     >
-                        <i class="fa-solid fa-route"></i> Status Alur Kerja
+                        <i class="fa-solid fa-route"></i>
+                        Status Alur Kerja
                     </h2>
                     <p class="text-xs text-grey mt-1">Sebaran pesanan berdasarkan tahapan produksi saat ini.</p>
                 </div>
@@ -147,7 +148,8 @@
                     <h2
                         class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2"
                     >
-                        <i class="fa-solid fa-clock-rotate-left"></i> Aktifitas Hari Ini
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        Aktifitas Hari Ini
                     </h2>
                     <p class="text-xs text-grey mt-1">Riwayat aktifitas hari ini.</p>
                 </div>
@@ -176,17 +178,17 @@
                             </div>
                             <div class="pb-2">
                                 <p class="text-sm text-secondary dark:text-slate-300 font-medium">
-                                    <span
-                                        class="font-bold"
-                                        >{{ $aktifitas->pesanan->pelanggan->name ?? 'Pelanggan' }}</span
-                                    >
+                                    <span class="font-bold">
+                                        {{ $aktifitas->pesanan->pelanggan->name ?? 'Pelanggan' }}
+                                    </span>
                                     <span class="text-gray-300 mx-1">—</span>
-                                    <span
-                                        class="text-xs"
-                                        >{{ ucwords(strtolower(str_replace('_', ' ', $aktifitas->status))) }}</span
-                                    >
+                                    <span class="text-xs">
+                                        {{ ucwords(strtolower(str_replace('_', ' ', $aktifitas->status))) }}
+                                    </span>
                                 </p>
-                                <p class="text-[11px] text-grey mt-0.5">{{ $aktifitas->pesanan->type ?? 'Pakaian' }} <span class="text-gray-300 mx-1">•</span> {{ $aktifitas->time ? $aktifitas->time->diffForHumans() : '' }}</p>
+                                <p class="text-[11px] text-grey mt-0.5">{{ $aktifitas->pesanan->type ?? 'Pakaian' }}
+                                <span class="text-gray-300 mx-1">•</span>
+                                {{ $aktifitas->time ? $aktifitas->time->diffForHumans() : '' }}</p>
                             </div>
                         </div>
                     @empty
@@ -207,16 +209,19 @@
                     <h2
                         class="font-serif text-lg font-bold text-primary dark:text-white flex items-center gap-2"
                     >
-                        <i class="fa-solid fa-chart-line"></i> Tren Pendapatan Bulanan
+                        <i class="fa-solid fa-chart-line"></i>
+                        Tren Pendapatan Bulanan
                     </h2>
                     <p class="text-xs text-grey mt-1">Statistik performa selama 6 bulan terakhir</p>
                 </div>
                 <div class="flex gap-4">
                     <div class="flex items-center gap-2 text-xs text-grey">
-                        <span class="w-3 h-3 rounded-full bg-[#4A3A2A]"></span> Pendapatan
+                        <span class="w-3 h-3 rounded-full bg-[#4A3A2A]"></span>
+                        Pendapatan
                     </div>
                     <div class="flex items-center gap-2 text-xs text-grey">
-                        <span class="w-3 h-3 rounded-full bg-[#D1D5DB]"></span> Target
+                        <span class="w-3 h-3 rounded-full bg-[#D1D5DB]"></span>
+                        Target
                     </div>
                 </div>
             </div>
