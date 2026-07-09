@@ -45,9 +45,9 @@ class DatabaseSeeder extends Seeder
                 'member_since' => '2026-01-10',
                 'avatar_url' => 'bg-[#2D6A4F] text-white',
                 'sizes' => [
-                    'l_badan' => 88, 'l_pinggang' => 76, 'l_punggung' => 40, 'p_bahu' => 12,
-                    'p_lengan' => 24, 'l_lengan' => 32, 't_susu' => 25, 't_pinggang' => 38,
-                    'l_pinggul' => 94, 'p_baju' => 70, 'p_rok' => 0
+                    'l_badan' => 92, 'l_pinggang' => 74, 'l_punggung' => 36, 'p_bahu' => 12,
+                    'p_lengan' => 55, 'l_lengan' => 32, 'l_dada' => 34, 't_susu' => 25, 
+                    't_pinggang' => 38, 'l_pinggul' => 98, 'p_baju' => 135, 'l_ketiak' => 46, 'p_rok' => 95
                 ]
             ],
             [
@@ -58,9 +58,9 @@ class DatabaseSeeder extends Seeder
                 'member_since' => '2026-02-15',
                 'avatar_url' => 'bg-[#8C6D58] text-white',
                 'sizes' => [
-                    'l_badan' => 92, 'l_pinggang' => 80, 'l_punggung' => 42, 'p_bahu' => 13,
-                    'p_lengan' => 25, 'l_lengan' => 34, 't_susu' => 26, 't_pinggang' => 39,
-                    'l_pinggul' => 96, 'p_baju' => 72, 'p_rok' => 0
+                    'l_badan' => 104, 'l_pinggang' => 88, 'l_punggung' => 44, 'p_bahu' => 16,
+                    'p_lengan' => 26, 'l_lengan' => 38, 'l_dada' => 42, 't_susu' => 0, 
+                    't_pinggang' => 42, 'l_pinggul' => 102, 'p_baju' => 72, 'l_ketiak' => 52, 'p_rok' => 100
                 ]
             ],
             [
@@ -71,9 +71,9 @@ class DatabaseSeeder extends Seeder
                 'member_since' => '2026-03-20',
                 'avatar_url' => 'bg-[#2F3E46] text-white',
                 'sizes' => [
-                    'l_badan' => 84, 'l_pinggang' => 68, 'l_punggung' => 38, 'p_bahu' => 11,
-                    'p_lengan' => 23, 'l_lengan' => 30, 't_susu' => 24, 't_pinggang' => 37,
-                    'l_pinggul' => 90, 'p_baju' => 65, 'p_rok' => 0
+                    'l_badan' => 88, 'l_pinggang' => 70, 'l_punggung' => 35, 'p_bahu' => 11,
+                    'p_lengan' => 53, 'l_lengan' => 30, 'l_dada' => 33, 't_susu' => 24, 
+                    't_pinggang' => 36, 'l_pinggul' => 92, 'p_baju' => 65, 'l_ketiak' => 44, 'p_rok' => 92
                 ]
             ],
             [
@@ -84,9 +84,9 @@ class DatabaseSeeder extends Seeder
                 'member_since' => '2026-04-05',
                 'avatar_url' => 'bg-[#457B9D] text-white',
                 'sizes' => [
-                    'l_badan' => 96, 'l_pinggang' => 84, 'l_punggung' => 44, 'p_bahu' => 14,
-                    'p_lengan' => 26, 'l_lengan' => 36, 't_susu' => 27, 't_pinggang' => 40,
-                    'l_pinggul' => 100, 'p_baju' => 75, 'p_rok' => 0
+                    'l_badan' => 96, 'l_pinggang' => 80, 'l_punggung' => 38, 'p_bahu' => 13,
+                    'p_lengan' => 24, 'l_lengan' => 34, 'l_dada' => 36, 't_susu' => 26, 
+                    't_pinggang' => 40, 'l_pinggul' => 100, 'p_baju' => 105, 'l_ketiak' => 48, 'p_rok' => 95
                 ]
             ],
             [
@@ -97,9 +97,9 @@ class DatabaseSeeder extends Seeder
                 'member_since' => '2026-05-12',
                 'avatar_url' => 'bg-[#2563EB] text-white',
                 'sizes' => [
-                    'l_badan' => 96, 'l_pinggang' => 80, 'l_punggung' => 44, 'p_bahu' => 14,
-                    'p_lengan' => 24, 'l_lengan' => 34, 't_susu' => 26, 't_pinggang' => 39,
-                    'l_pinggul' => 98, 'p_baju' => 72, 'p_rok' => 0
+                    'l_badan' => 110, 'l_pinggang' => 94, 'l_punggung' => 46, 'p_bahu' => 17,
+                    'p_lengan' => 62, 'l_lengan' => 40, 'l_dada' => 44, 't_susu' => 0, 
+                    't_pinggang' => 44, 'l_pinggul' => 108, 'p_baju' => 76, 'l_ketiak' => 54, 'p_rok' => 105
                 ]
             ],
         ];
@@ -136,29 +136,29 @@ class DatabaseSeeder extends Seeder
                 'status' => 'PENJAHITAN',
                 'progress' => 65,
                 'notes' => 'Tidak ada catatan tambahan',
-                'l_badan' => 88, 'l_pinggang' => 76, 'l_punggung' => 40, 'p_bahu' => 12,
-                'p_lengan' => 24, 'l_lengan' => 32, 't_susu' => 25, 't_pinggang' => 38,
-                'l_pinggul' => 94, 'p_baju' => 70, 'p_rok' => 0
+                'l_badan' => 92, 'l_pinggang' => 74, 'l_punggung' => 36, 'p_bahu' => 12,
+                'p_lengan' => 55, 'l_lengan' => 32, 'l_dada' => 34, 't_susu' => 25, 
+                't_pinggang' => 38, 'l_pinggul' => 98, 'p_baju' => 135, 'l_ketiak' => 46, 'p_rok' => 95
             ]);
 
             RiwayatStatus::create([
                 'pesanan_id' => $pesanan1->id,
                 'status' => 'PENJAHITAN',
-                'time' => '2026-08-20 14:20:00',
+                'time' => now()->subMinutes(30),
                 'author' => 'Admin',
                 'location' => 'Workshop'
             ]);
             RiwayatStatus::create([
                 'pesanan_id' => $pesanan1->id,
                 'status' => 'PEMOTONGAN',
-                'time' => '2026-08-18 09:15:00',
+                'time' => now()->subHours(2),
                 'author' => 'Admin',
                 'location' => 'Workshop'
             ]);
             RiwayatStatus::create([
                 'pesanan_id' => $pesanan1->id,
                 'status' => 'MENUNGGU',
-                'time' => '2026-08-17 10:00:00',
+                'time' => now()->subHours(5),
                 'author' => 'Admin',
                 'location' => 'Workshop'
             ]);
@@ -176,9 +176,9 @@ class DatabaseSeeder extends Seeder
                 'status' => 'PEMOTONGAN',
                 'progress' => 30,
                 'notes' => 'Kerah tegak, kancing dalam.',
-                'l_badan' => 92, 'l_pinggang' => 80, 'l_punggung' => 42, 'p_bahu' => 13,
-                'p_lengan' => 25, 'l_lengan' => 34, 't_susu' => 26, 't_pinggang' => 39,
-                'l_pinggul' => 96, 'p_baju' => 72, 'p_rok' => 0
+                'l_badan' => 104, 'l_pinggang' => 88, 'l_punggung' => 44, 'p_bahu' => 16,
+                'p_lengan' => 26, 'l_lengan' => 38, 'l_dada' => 42, 't_susu' => 0, 
+                't_pinggang' => 42, 'l_pinggul' => 102, 'p_baju' => 72, 'l_ketiak' => 52, 'p_rok' => 100
             ]);
 
             RiwayatStatus::create([
@@ -209,9 +209,9 @@ class DatabaseSeeder extends Seeder
                 'status' => 'PENYELESAIAN',
                 'progress' => 90,
                 'notes' => 'Bahan brokat dengan furing satin.',
-                'l_badan' => 84, 'l_pinggang' => 68, 'l_punggung' => 38, 'p_bahu' => 11,
-                'p_lengan' => 23, 'l_lengan' => 30, 't_susu' => 24, 't_pinggang' => 37,
-                'l_pinggul' => 90, 'p_baju' => 65, 'p_rok' => 0
+                'l_badan' => 88, 'l_pinggang' => 70, 'l_punggung' => 35, 'p_bahu' => 11,
+                'p_lengan' => 53, 'l_lengan' => 30, 'l_dada' => 33, 't_susu' => 24, 
+                't_pinggang' => 36, 'l_pinggul' => 92, 'p_baju' => 65, 'l_ketiak' => 44, 'p_rok' => 92
             ]);
 
             RiwayatStatus::create([
@@ -256,9 +256,9 @@ class DatabaseSeeder extends Seeder
                 'status' => 'MENUNGGU',
                 'progress' => 5,
                 'notes' => 'Model loose dress casual.',
-                'l_badan' => 96, 'l_pinggang' => 84, 'l_punggung' => 44, 'p_bahu' => 14,
-                'p_lengan' => 26, 'l_lengan' => 36, 't_susu' => 27, 't_pinggang' => 40,
-                'l_pinggul' => 100, 'p_baju' => 75, 'p_rok' => 0
+                'l_badan' => 96, 'l_pinggang' => 80, 'l_punggung' => 38, 'p_bahu' => 13,
+                'p_lengan' => 24, 'l_lengan' => 34, 'l_dada' => 36, 't_susu' => 26, 
+                't_pinggang' => 40, 'l_pinggul' => 100, 'p_baju' => 105, 'l_ketiak' => 48, 'p_rok' => 95
             ]);
 
             RiwayatStatus::create([
@@ -279,14 +279,14 @@ class DatabaseSeeder extends Seeder
                 'type' => 'BAJU',
                 'date_created' => '2026-06-10',
                 'status' => 'Aktif',
-                'l_dada' => 96,
-                'p_baju' => 72,
-                'l_bahu' => 44,
-                'p_lengan' => 24,
-                'l_pinggang' => 80,
-                'l_pinggul' => 98,
-                'p_celana' => 95,
-                'p_rok' => 0
+                'l_dada' => 44,
+                'p_baju' => 76,
+                'l_bahu' => 17,
+                'p_lengan' => 62,
+                'l_pinggang' => 94,
+                'l_pinggul' => 108,
+                'p_celana' => 105,
+                'p_rok' => 105
             ]);
         }
         if ($siti) {
@@ -296,14 +296,14 @@ class DatabaseSeeder extends Seeder
                 'type' => 'CELANA',
                 'date_created' => '2026-06-12',
                 'status' => 'Draf',
-                'l_dada' => 88,
-                'p_baju' => 70,
-                'l_bahu' => 40,
-                'p_lengan' => 24,
-                'l_pinggang' => 76,
-                'l_pinggul' => 94,
-                'p_celana' => 90,
-                'p_rok' => 0
+                'l_dada' => 34,
+                'p_baju' => 135,
+                'l_bahu' => 12,
+                'p_lengan' => 55,
+                'l_pinggang' => 74,
+                'l_pinggul' => 98,
+                'p_celana' => 95,
+                'p_rok' => 95
             ]);
         }
     }

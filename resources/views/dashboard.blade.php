@@ -188,7 +188,7 @@
                                 </p>
                                 <p class="text-[11px] text-grey mt-0.5">{{ $aktifitas->pesanan->type ?? 'Pakaian' }}
                                 <span class="text-gray-300 mx-1">•</span>
-                                {{ $aktifitas->time ? $aktifitas->time->diffForHumans() : '' }}</p>
+                                {{ $aktifitas->time ? \Carbon\Carbon::parse($aktifitas->time)->locale('id')->diffForHumans() : '' }}</p>
                             </div>
                         </div>
                     @empty
