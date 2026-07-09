@@ -312,47 +312,65 @@
                 averages[field] = values.length > 0 ? Math.round(sum / values.length) : 0;
             });
 
-            const newId =
-                customerSizes.length > 0 ? Math.max(...customerSizes.map((c) => c.id)) + 1 : 1;
-            const initials =
-                name
-                    .split(' ')
-                    .map((n) => n[0])
-                    .join('')
-                    .substring(0, 2)
-                    .toUpperCase() || 'P';
-            const colorPool = [
-                'bg-[#2D6A4F] text-white',
-                'bg-[#8C6D58] text-white',
-                'bg-[#2F3E46] text-white',
-                'bg-[#457B9D] text-white',
-                'bg-[#E76F51] text-white',
-                'bg-[#2A9D8F] text-white',
-            ];
-            const avatarBg = colorPool[Math.floor(Math.random() * colorPool.length)];
+            fetch('/data-pelanggan/simpan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    address: address,
+                    status: 'Aktif'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const newId = data.data.id;
+                    const initials =
+                        name
+                            .split(' ')
+                            .map((n) => n[0])
+                            .join('')
+                            .substring(0, 2)
+                            .toUpperCase() || 'P';
+                            
+                    const avatarBgMatch = (data.data.avatar_url || '').match(/bg-\[[^\]]+\] text-white/);
+                    const avatarBg = avatarBgMatch ? avatarBgMatch[0] : 'bg-[#2D6A4F] text-white';
 
-            const newCustomer = {
-                id: newId,
-                name: name,
-                initials: initials,
-                avatarBg: avatarBg,
-                ...averages,
-                p_rok: '-',
-            };
+                    const newCustomer = {
+                        id: newId,
+                        name: name,
+                        initials: initials,
+                        avatarBg: avatarBg,
+                        ...averages,
+                        p_rok: '-',
+                    };
 
-            customerSizes.push(newCustomer);
+                    customerSizes.push(newCustomer);
 
-            // Select the newly added customer
-            selectCustomer(newId);
+                    // Select the newly added customer
+                    selectCustomer(newId);
 
-            // Close modal
-            closeQuickCustomerModal();
+                    // Close modal
+                    closeQuickCustomerModal();
 
-            // Reset form
-            document.getElementById('quick-customer-form').reset();
+                    // Reset form
+                    document.getElementById('quick-customer-form').reset();
 
-            // Show success notification
-            showNotification('Pelanggan baru berhasil ditambahkan!');
+                    // Show success notification
+                    showNotification('Pelanggan baru berhasil ditambahkan!');
+                } else {
+                    alert('Gagal menyimpan pelanggan baru');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat menyimpan pelanggan');
+            });
         };
 
         // Toggle row action menu
@@ -715,10 +733,14 @@
         // Deadline subtext calculator
         function getDeadlineLabel(dateStr) {
             const deadline = new Date(dateStr);
-            const reference = new Date('2026-08-12'); // Fixed mockup anchor date
+            const reference = new Date();
+            
+            // Set both dates to midnight to ignore time differences
+            deadline.setHours(0, 0, 0, 0);
+            reference.setHours(0, 0, 0, 0);
 
             const diffTime = deadline - reference;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
             if (diffDays === 1) {
                 return {
@@ -734,11 +756,6 @@
                 return {
                     text: 'Terlewat ' + Math.abs(diffDays) + ' Hari',
                     class: 'text-red-700 font-bold dark:text-red-400 italic',
-                };
-            } else if (diffDays === 6) {
-                return {
-                    text: 'On Schedule',
-                    class: 'text-gray-400 dark:text-slate-400 font-medium italic',
                 };
             } else {
                 return {

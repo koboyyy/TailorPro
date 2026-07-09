@@ -75,118 +75,287 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Lingkar Badan -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Badan</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lingkar Badan
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-l-badan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-l-badan"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lingkar Pinggang -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggang</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lingkar Pinggang
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-l-pinggang" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-l-pinggang"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lebar Bahu -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Bahu</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lebar Bahu
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-p-bahu" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-p-bahu"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Panjang Lengan -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Lengan</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Panjang Lengan
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-p-lengan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-p-lengan"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lingkar Lengan -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Lengan</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lingkar Lengan
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-l-lengan" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-l-lengan"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lebar Dada -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Dada</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lebar Dada
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-l-dada" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-l-dada"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lebar Punggung -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Punggung</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lebar Punggung
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-l-punggung" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-l-punggung"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lingkar Pinggul -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggul</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lingkar Pinggul
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-l-pinggul" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-l-pinggul"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Panjang Baju -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Baju</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Panjang Baju
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-p-baju" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-p-baju"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Turun Pinggang -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Pinggang</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Turun Pinggang
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-t-pinggang" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-t-pinggang"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Turun Susu -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Susu</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Turun Susu
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-t-susu" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-t-susu"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lingkar Ketiak -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Ketiak</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Lingkar Ketiak
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-l-ketiak" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-l-ketiak"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
 
                     <!-- Panjang Rok/Celana -->
                     <div>
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Rok/Celana</span>
+                        <span
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
+                        >
+                            Panjang Rok/Celana
+                        </span>
                         <div class="relative">
-                            <input type="text" id="detail-p-rok" disabled class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300" />
-                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                            <input
+                                type="text"
+                                id="detail-p-rok"
+                                disabled
+                                class="w-full pr-12 pl-4 py-3 bg-gray-50/50 dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-2xl text-xs text-secondary dark:text-slate-300"
+                            />
+                            <span
+                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
+                            >
+                                CM
+                            </span>
                         </div>
                     </div>
                 </div>
