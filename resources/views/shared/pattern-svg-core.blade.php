@@ -50,7 +50,7 @@
                     const maxLebar = pt(C1_depan.x, 0).x + 60;
                     const maxTinggi = pt(0, D.y).y + 60;
 
-                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">`;
+                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%]" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">`;
 
                     // --- POLA BELAKANG (MERAH) ---
                     // Kurva F-E menggunakan tarikan mendatar dari F
@@ -186,7 +186,7 @@
 
                     // Generate seluruh elemen SVG
                     const svgUtuh = `
-                        <svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">
+                        <svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%]" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">
 
                             <path
                                 d="M ${A.x} ${A.y}
@@ -276,7 +276,7 @@
                     const maxLebar = pt(LK2, 0).x + 60;
                     const maxTinggi = pt(0, B.y).y + 60;
 
-                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">`;
+                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[45%] lg:w-[30%]" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi};">`;
 
                     // --- DAUN KERAH (Biru) ---
                     svg += `
@@ -436,7 +436,7 @@
                     const maxLebar = pt(C5.x, 0).x + 100;
                     const maxTinggi = pt(0, B.y).y + 60;
 
-                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[60%] lg:w-[45%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
+                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[60%] lg:w-[45%]" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
 
                     // Garis Sumbu dan Garis Bantu
                     const axes = [
@@ -588,7 +588,7 @@
                     const maxLebar = pt(frontA.x, 0).x + 80;
                     const maxTinggi = pt(0, panjang).y + 60;
 
-                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[70%] lg:w-[60%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
+                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[70%] lg:w-[60%]" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
 
                     // Pola Belakang (Biru)
                     svg += `
@@ -805,7 +805,7 @@
                     const maxLebar = pt(X_B1, 0).x + 50;
                     const maxTinggi = pt(0, Y_B).y + 50;
 
-                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[60%] lg:w-[45%] bg-white shadow border border-gray-200 rounded-lg" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
+                    let svg = `<svg viewBox="0 0 ${maxLebar} ${maxTinggi}" class="w-full md:w-[60%] lg:w-[45%]" style="height: auto; aspect-ratio: ${maxLebar}/${maxTinggi}; font-family: sans-serif;">`;
 
                     // Garis Bantu (Putus-putus)
                     const dashLines = [
