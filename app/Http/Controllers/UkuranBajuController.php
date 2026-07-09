@@ -42,10 +42,12 @@ class UkuranBajuController extends Controller
                 'p_bahu' => $ukuran->p_bahu ?? 0,
                 'p_lengan' => $ukuran->p_lengan ?? 0,
                 'l_lengan' => $ukuran->l_lengan ?? 0,
+                'l_dada' => $ukuran->l_dada ?? 0,
                 't_susu' => $ukuran->t_susu ?? 0,
                 't_pinggang' => $ukuran->t_pinggang ?? 0,
                 'l_pinggul' => $ukuran->l_pinggul ?? 0,
                 'p_baju' => $ukuran->p_baju ?? 0,
+                'l_ketiak' => $ukuran->l_ketiak ?? 0,
                 'p_rok' => $ukuran->p_rok ?? 0,
                 'updated_at' => $formattedDate,
             ];
@@ -96,10 +98,12 @@ class UkuranBajuController extends Controller
             'p_bahu' => $request->input('p_bahu', 0) ?: 0,
             'p_lengan' => $request->input('p_lengan', 0) ?: 0,
             'l_lengan' => $request->input('l_lengan', 0) ?: 0,
+            'l_dada' => $request->input('l_dada', 0) ?: 0,
             't_susu' => $request->input('t_susu', 0) ?: 0,
             't_pinggang' => $request->input('t_pinggang', 0) ?: 0,
             'l_pinggul' => $request->input('l_pinggul', 0) ?: 0,
             'p_baju' => $request->input('p_baju', 0) ?: 0,
+            'l_ketiak' => $request->input('l_ketiak', 0) ?: 0,
             'p_rok' => $request->input('p_rok', 0) ?: 0,
         ];
 

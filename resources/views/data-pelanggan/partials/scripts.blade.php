@@ -276,10 +276,12 @@
         document.getElementById('input-p-bahu').value = u.p_bahu || 0;
         document.getElementById('input-p-lengan').value = u.p_lengan || 0;
         document.getElementById('input-l-lengan').value = u.l_lengan || 0;
+        document.getElementById('input-l-dada').value = u.l_dada || 0;
         document.getElementById('input-t-susu').value = u.t_susu || 0;
         document.getElementById('input-t-pinggang').value = u.t_pinggang || 0;
         document.getElementById('input-l-pinggul').value = u.l_pinggul || 0;
         document.getElementById('input-p-baju').value = u.p_baju || 0;
+        document.getElementById('input-l-ketiak').value = u.l_ketiak || 0;
         document.getElementById('input-p-rok').value = u.p_rok || 0;
 
         ukuranModal.classList.remove('hidden');
@@ -306,10 +308,12 @@
             p_bahu: parseInt(document.getElementById('input-p-bahu').value) || 0,
             p_lengan: parseInt(document.getElementById('input-p-lengan').value) || 0,
             l_lengan: parseInt(document.getElementById('input-l-lengan').value) || 0,
+            l_dada: parseInt(document.getElementById('input-l-dada').value) || 0,
             t_susu: parseInt(document.getElementById('input-t-susu').value) || 0,
             t_pinggang: parseInt(document.getElementById('input-t-pinggang').value) || 0,
             l_pinggul: parseInt(document.getElementById('input-l-pinggul').value) || 0,
             p_baju: parseInt(document.getElementById('input-p-baju').value) || 0,
+            l_ketiak: parseInt(document.getElementById('input-l-ketiak').value) || 0,
             p_rok: parseInt(document.getElementById('input-p-rok').value) || 0,
         };
 

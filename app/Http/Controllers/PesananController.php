@@ -36,10 +36,12 @@ class PesananController extends Controller
                 'p_bahu' => $ukuran->p_bahu ?? null,
                 'p_lengan' => $ukuran->p_lengan ?? null,
                 'l_lengan' => $ukuran->l_lengan ?? null,
+                'l_dada' => $ukuran->l_dada ?? null,
                 't_susu' => $ukuran->t_susu ?? null,
                 't_pinggang' => $ukuran->t_pinggang ?? null,
                 'l_pinggul' => $ukuran->l_pinggul ?? null,
                 'p_baju' => $ukuran->p_baju ?? null,
+                'l_ketiak' => $ukuran->l_ketiak ?? null,
                 'p_rok' => $ukuran->p_rok ?? '-',
             ];
         });
@@ -83,10 +85,12 @@ class PesananController extends Controller
                 'p_bahu' => $pesanan->p_bahu,
                 'p_lengan' => $pesanan->p_lengan,
                 'l_lengan' => $pesanan->l_lengan,
+                'l_dada' => $pesanan->l_dada,
                 't_susu' => $pesanan->t_susu,
                 't_pinggang' => $pesanan->t_pinggang,
                 'l_pinggul' => $pesanan->l_pinggul,
                 'p_baju' => $pesanan->p_baju,
+                'l_ketiak' => $pesanan->l_ketiak,
                 'p_rok' => $pesanan->p_rok,
                 'photo' => $pesanan->photo_reference,
             ];
@@ -131,10 +135,12 @@ class PesananController extends Controller
             'p_bahu',
             'p_lengan',
             'l_lengan',
+            'l_dada',
             't_susu',
             't_pinggang',
             'l_pinggul',
             'p_baju',
+            'l_ketiak',
             'p_rok'
         ]);
 

@@ -33,10 +33,12 @@
         const inputPBahu = document.getElementById('input-p-bahu');
         const inputPLengan = document.getElementById('input-p-lengan');
         const inputLLengan = document.getElementById('input-l-lengan');
+        const inputLDada = document.getElementById('input-l-dada');
         const inputTSusu = document.getElementById('input-t-susu');
         const inputTPinggang = document.getElementById('input-t-pinggang');
         const inputLPinggul = document.getElementById('input-l-pinggul');
         const inputPBaju = document.getElementById('input-p-baju');
+        const inputLKetiak = document.getElementById('input-l-ketiak');
         const inputPRok = document.getElementById('input-p-rok');
 
         // Buttons
@@ -189,10 +191,12 @@
                 inputPBahu.value = '';
                 inputPLengan.value = '';
                 inputLLengan.value = '';
+                inputLDada.value = '';
                 inputTSusu.value = '';
                 inputTPinggang.value = '';
                 inputLPinggul.value = '';
                 inputPBaju.value = '';
+                inputLKetiak.value = '';
                 inputPRok.value = '';
 
                 btnSubmit.innerText = 'Simpan Data Baru';
@@ -219,10 +223,12 @@
             inputPBahu.value = customer.p_bahu;
             inputPLengan.value = customer.p_lengan;
             inputLLengan.value = customer.l_lengan;
+            inputLDada.value = customer.l_dada;
             inputTSusu.value = customer.t_susu;
             inputTPinggang.value = customer.t_pinggang;
             inputLPinggul.value = customer.l_pinggul;
             inputPBaju.value = customer.p_baju;
+            inputLKetiak.value = customer.l_ketiak;
             inputPRok.value = customer.p_rok == 0 ? '' : customer.p_rok;
 
             btnSubmit.innerText = 'Simpan Perubahan';
@@ -327,10 +333,12 @@
                 p_bahu: parseInt(inputPBahu.value) || 0,
                 p_lengan: parseInt(inputPLengan.value) || 0,
                 l_lengan: parseInt(inputLLengan.value) || 0,
+                l_dada: parseInt(inputLDada.value) || 0,
                 t_susu: parseInt(inputTSusu.value) || 0,
                 t_pinggang: parseInt(inputTPinggang.value) || 0,
                 l_pinggul: parseInt(inputLPinggul.value) || 0,
                 p_baju: parseInt(inputPBaju.value) || 0,
+                l_ketiak: parseInt(inputLKetiak.value) || 0,
                 p_rok: parseInt(inputPRok.value) || 0,
             };
 

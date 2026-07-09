@@ -18,10 +18,12 @@ class UkuranBaju extends Model
         'p_bahu',
         'p_lengan',
         'l_lengan',
+        'l_dada',
         't_susu',
         't_pinggang',
         'l_pinggul',
         'p_baju',
+        'l_ketiak',
         'p_rok',
     ];
 

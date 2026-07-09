@@ -223,10 +223,12 @@
             document.getElementById('input-p-bahu').value = customer.p_bahu;
             document.getElementById('input-p-lengan').value = customer.p_lengan;
             document.getElementById('input-l-lengan').value = customer.l_lengan;
+            document.getElementById('input-l-dada').value = customer.l_dada;
             document.getElementById('input-t-susu').value = customer.t_susu;
             document.getElementById('input-t-pinggang').value = customer.t_pinggang;
             document.getElementById('input-l-pinggul').value = customer.l_pinggul;
             document.getElementById('input-p-baju').value = customer.p_baju;
+            document.getElementById('input-l-ketiak').value = customer.l_ketiak;
             document.getElementById('input-p-rok').value = customer.p_rok;
         };
 
@@ -244,10 +246,12 @@
             document.getElementById('input-p-bahu').value = '';
             document.getElementById('input-p-lengan').value = '';
             document.getElementById('input-l-lengan').value = '';
+            document.getElementById('input-l-dada').value = '';
             document.getElementById('input-t-susu').value = '';
             document.getElementById('input-t-pinggang').value = '';
             document.getElementById('input-l-pinggul').value = '';
             document.getElementById('input-p-baju').value = '';
+            document.getElementById('input-l-ketiak').value = '';
             document.getElementById('input-p-rok').value = '';
         };
 
@@ -291,10 +295,12 @@
                 'p_bahu',
                 'p_lengan',
                 'l_lengan',
+                'l_dada',
                 't_susu',
                 't_pinggang',
                 'l_pinggul',
                 'p_baju',
+                'l_ketiak',
             ];
             const averages = {};
 
@@ -409,10 +415,12 @@
                 document.getElementById('input-p-bahu').value = order.p_bahu || '';
                 document.getElementById('input-p-lengan').value = order.p_lengan || '';
                 document.getElementById('input-l-lengan').value = order.l_lengan || '';
+                document.getElementById('input-l-dada').value = order.l_dada || '';
                 document.getElementById('input-t-susu').value = order.t_susu || '';
                 document.getElementById('input-t-pinggang').value = order.t_pinggang || '';
                 document.getElementById('input-l-pinggul').value = order.l_pinggul || '';
                 document.getElementById('input-p-baju').value = order.p_baju || '';
+                document.getElementById('input-l-ketiak').value = order.l_ketiak || '';
                 document.getElementById('input-p-rok').value =
                     order.p_rok && order.p_rok !== '-' ? order.p_rok : '';
 
@@ -477,10 +485,12 @@
             document.getElementById('detail-p-bahu').value = order.p_bahu || '-';
             document.getElementById('detail-p-lengan').value = order.p_lengan || '-';
             document.getElementById('detail-l-lengan').value = order.l_lengan || '-';
+            document.getElementById('detail-l-dada').value = order.l_dada || '-';
             document.getElementById('detail-t-susu').value = order.t_susu || '-';
             document.getElementById('detail-t-pinggang').value = order.t_pinggang || '-';
             document.getElementById('detail-l-pinggul').value = order.l_pinggul || '-';
             document.getElementById('detail-p-baju').value = order.p_baju || '-';
+            document.getElementById('detail-l-ketiak').value = order.l_ketiak || '-';
             document.getElementById('detail-p-rok').value = order.p_rok || '-';
 
             // Photo Reference Preview

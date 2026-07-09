@@ -202,16 +202,23 @@
             document.getElementById('detail-customer-name').innerText = activePattern.customerName;
             document.getElementById('detail-customer-id').innerText = activePattern.customerCode;
 
+            const u = activePattern.ukuran || activePattern;
+
             // Metric list
             const metrics = [
-                { label: 'Lingkar Dada', val: activePattern.l_dada },
-                { label: 'Panjang Baju', val: activePattern.p_baju },
-                { label: 'Lebar Bahu', val: activePattern.l_bahu },
-                { label: 'Panjang Lengan', val: activePattern.p_lengan },
-                { label: 'Lingkar Pinggang', val: activePattern.l_pinggang },
-                { label: 'Lingkar Pinggul', val: activePattern.l_pinggul },
-                { label: 'Panjang Celana', val: activePattern.p_celana },
-                { label: 'Panjang Rok', val: activePattern.p_rok },
+                { label: 'Lingkar Badan', val: u.l_badan },
+                { label: 'Lingkar Pinggang', val: u.l_pinggang },
+                { label: 'Lebar Bahu', val: u.p_bahu },
+                { label: 'Panjang Lengan', val: u.p_lengan },
+                { label: 'Lingkar Lengan', val: u.l_lengan },
+                { label: 'Lebar Dada', val: u.l_dada },
+                { label: 'Lebar Punggung', val: u.l_punggung },
+                { label: 'Lingkar Pinggul', val: u.l_pinggul },
+                { label: 'Panjang Baju', val: u.p_baju },
+                { label: 'Turun Pinggang', val: u.t_pinggang },
+                { label: 'Turun Susu', val: u.t_susu },
+                { label: 'Lingkar Ketiak', val: u.l_ketiak },
+                { label: 'Panjang Rok/Celana', val: u.p_rok },
             ];
 
             document.getElementById('detail-sizes-list').innerHTML = metrics

@@ -178,17 +178,18 @@
                 // Menyesuaikan dengan keys dari database
                 const metrics = [
                     { label: 'Lingkar Badan', val: selectedCustomer.l_badan },
-                    { label: 'Panjang Baju', val: selectedCustomer.p_baju },
-                    { label: 'Lebar Punggung (Bahu)', val: selectedCustomer.l_punggung },
-                    { label: 'Panjang Bahu', val: selectedCustomer.p_bahu },
+                    { label: 'Lingkar Pinggang', val: selectedCustomer.l_pinggang },
+                    { label: 'Lebar Bahu', val: selectedCustomer.p_bahu },
                     { label: 'Panjang Lengan', val: selectedCustomer.p_lengan },
                     { label: 'Lingkar Lengan', val: selectedCustomer.l_lengan },
-                    { label: 'Lingkar Pinggang', val: selectedCustomer.l_pinggang },
-                    { label: 'Tinggi Pinggang', val: selectedCustomer.t_pinggang },
+                    { label: 'Lebar Dada', val: selectedCustomer.l_dada },
+                    { label: 'Lebar Punggung', val: selectedCustomer.l_punggung },
                     { label: 'Lingkar Pinggul', val: selectedCustomer.l_pinggul },
-                    { label: 'Tinggi Dada', val: selectedCustomer.t_susu },
-                    { label: 'Panjang Rok', val: selectedCustomer.p_rok },
-                    { label: 'Panjang Celana', val: selectedCustomer.p_celana || '-' },
+                    { label: 'Panjang Baju', val: selectedCustomer.p_baju },
+                    { label: 'Turun Pinggang', val: selectedCustomer.t_pinggang },
+                    { label: 'Turun Susu', val: selectedCustomer.t_susu },
+                    { label: 'Lingkar Ketiak', val: selectedCustomer.l_ketiak },
+                    { label: 'Panjang Rok/Celana', val: selectedCustomer.p_rok },
                 ];
 
                 content.innerHTML = `
@@ -259,7 +260,7 @@
                         break;
 
                     case 'ROK':
-                        // Rumus: Panjang Rok + 20cm
+                        // Rumus: Panjang Rok/Celana + 20cm
                         estimasi = (pRok + 20) / 100;
                         if (estimasi < 1.25) estimasi = 1.25;
                         break;
@@ -488,7 +489,7 @@
                                         Pola Rok:
                                     </div>
                                     <ul class="ml-3 list-disc space-y-0.5">
-                                        <li>Panjang Rok (A &ndash; B / a &ndash; g) = ${panjang} cm</li>
+                                        <li>Panjang Rok/Celana (A &ndash; B / a &ndash; g) = ${panjang} cm</li>
                                         <li>Tinggi Pinggul (A &ndash; C / a &ndash; c) = ${tinggiPinggul} cm</li>
                                         <li>Lebar Pinggul Depan (c &ndash; e) = ${(pinggul / 4 + 1).toFixed(1)} cm</li>
                                         <li>Lebar Pinggul Belakang (C &ndash; E) = ${(pinggul / 4 - 1).toFixed(1)} cm</li>

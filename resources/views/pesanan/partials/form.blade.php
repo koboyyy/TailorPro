@@ -211,245 +211,106 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label
-                            for="input-l-badan"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Lingkar Badan
-                        </label>
+                        <label for="input-l-badan" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Badan</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-l-badan"
-                                name="l_badan"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-l-badan" name="l_badan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-l-pinggang"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Lingkar Pinggang
-                        </label>
+                        <label for="input-l-pinggang" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggang</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-l-pinggang"
-                                name="l_pinggang"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-l-pinggang" name="l_pinggang" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-l-punggung"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Lebar Punggung
-                        </label>
+                        <label for="input-p-bahu" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Bahu</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-l-punggung"
-                                name="l_punggung"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-p-bahu" name="p_bahu" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-p-bahu"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Panjang Bahu
-                        </label>
+                        <label for="input-p-lengan" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Lengan</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-p-bahu"
-                                name="p_bahu"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-p-lengan" name="p_lengan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-p-lengan"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Panjang Lengan
-                        </label>
+                        <label for="input-l-lengan" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Lengan</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-p-lengan"
-                                name="p_lengan"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-l-lengan" name="l_lengan" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-l-lengan"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Lingkar Lengan
-                        </label>
+                        <label for="input-l-dada" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Dada</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-l-lengan"
-                                name="l_lengan"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-l-dada" name="l_dada" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-t-susu"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Turun Susu
-                        </label>
+                        <label for="input-l-punggung" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lebar Punggung</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-t-susu"
-                                name="t_susu"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-l-punggung" name="l_punggung" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-t-pinggang"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Turun Pinggang
-                        </label>
+                        <label for="input-l-pinggul" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Pinggul</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-t-pinggang"
-                                name="t_pinggang"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-l-pinggul" name="l_pinggul" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-l-pinggul"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Lingkar Pinggul
-                        </label>
+                        <label for="input-p-baju" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Baju</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-l-pinggul"
-                                name="l_pinggul"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-p-baju" name="p_baju" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-p-baju"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Panjang Baju
-                        </label>
+                        <label for="input-t-pinggang" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Pinggang</label>
                         <div class="relative">
-                            <input
-                                type="number"
-                                id="input-p-baju"
-                                name="p_baju"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-t-pinggang" name="t_pinggang" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
 
                     <div>
-                        <label
-                            for="input-p-rok"
-                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5"
-                        >
-                            Panjang Rok
-                        </label>
+                        <label for="input-t-susu" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Turun Susu</label>
                         <div class="relative">
-                            <input
-                                type="text"
-                                id="input-p-rok"
-                                name="p_rok"
-                                placeholder="-"
-                                class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition"
-                            />
-                            <span
-                                class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400"
-                            >
-                                CM
-                            </span>
+                            <input type="number" id="input-t-susu" name="t_susu" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="input-l-ketiak" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Lingkar Ketiak</label>
+                        <div class="relative">
+                            <input type="number" id="input-l-ketiak" name="l_ketiak" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="input-p-rok" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Panjang Rok/Celana</label>
+                        <div class="relative">
+                            <input type="text" id="input-p-rok" name="p_rok" placeholder="-" class="w-full pr-12 pl-4 py-3 bg-background dark:bg-slate-800 border border-[#EFECE6]/80 dark:border-slate-700/80 rounded-2xl text-xs text-secondary dark:text-white focus:outline-none focus:border-primary transition" />
+                            <span class="absolute inset-y-0 right-4 flex items-center text-[10px] font-bold text-gray-400">CM</span>
                         </div>
                     </div>
                 </div>

@@ -48,10 +48,12 @@ class HasilkanPolaController extends Controller
                 'p_bahu' => $item->p_bahu,
                 'p_lengan' => $item->p_lengan,
                 'l_lengan' => $item->l_lengan,
+                'l_dada' => $item->l_dada,
                 't_susu' => $item->t_susu,
                 't_pinggang' => $item->t_pinggang,
                 'l_pinggul' => $item->l_pinggul,
                 'p_baju' => $item->p_baju,
+                'l_ketiak' => $item->l_ketiak,
                 'p_rok' => $item->p_rok,
                 // Timestamp
                 'created_at' => $item->created_at,

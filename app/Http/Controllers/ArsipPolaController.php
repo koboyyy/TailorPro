@@ -58,10 +58,12 @@ class ArsipPolaController extends Controller
                     'p_bahu' => $ukuran->p_bahu,
                     'p_lengan' => $ukuran->p_lengan,
                     'l_lengan' => $ukuran->l_lengan,
+                    'l_dada' => $ukuran->l_dada,
                     't_susu' => $ukuran->t_susu,
                     't_pinggang' => $ukuran->t_pinggang,
                     'l_pinggul' => $ukuran->l_pinggul,
                     'p_baju' => $ukuran->p_baju,
+                    'l_ketiak' => $ukuran->l_ketiak,
                     'p_rok' => $ukuran->p_rok,
                 ] : null,
             ];

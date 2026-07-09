@@ -83,36 +83,13 @@
                 </div>
             </div>
 
-            <!-- Lebar Punggung -->
-            <div>
-                <label
-                    for="input-l-punggung"
-                    class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
-                >
-                    Lebar Punggung
-                </label>
-                <div class="relative">
-                    <input
-                        type="number"
-                        id="input-l-punggung"
-                        class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
-                        required
-                    />
-                    <span
-                        class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
-                    >
-                        CM
-                    </span>
-                </div>
-            </div>
-
-            <!-- Panjang Bahu -->
+            <!-- Lebar Bahu -->
             <div>
                 <label
                     for="input-p-bahu"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
                 >
-                    Panjang Bahu
+                    Lebar Bahu
                 </label>
                 <div class="relative">
                     <input
@@ -175,18 +152,18 @@
                 </div>
             </div>
 
-            <!-- Turun Susu -->
+            <!-- Lebar Dada -->
             <div>
                 <label
-                    for="input-t-susu"
+                    for="input-l-dada"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
                 >
-                    Turun Susu/Tetek
+                    Lebar Dada
                 </label>
                 <div class="relative">
                     <input
                         type="number"
-                        id="input-t-susu"
+                        id="input-l-dada"
                         class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
                         required
                     />
@@ -198,18 +175,18 @@
                 </div>
             </div>
 
-            <!-- Turun Pinggang -->
+            <!-- Lebar Punggung -->
             <div>
                 <label
-                    for="input-t-pinggang"
+                    for="input-l-punggung"
                     class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
                 >
-                    Turun Pinggang
+                    Lebar Punggung
                 </label>
                 <div class="relative">
                     <input
                         type="number"
-                        id="input-t-pinggang"
+                        id="input-l-punggung"
                         class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
                         required
                     />
@@ -266,15 +243,84 @@
                     </span>
                 </div>
             </div>
+
+            <!-- Turun Pinggang -->
+            <div>
+                <label
+                    for="input-t-pinggang"
+                    class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
+                >
+                    Turun Pinggang
+                </label>
+                <div class="relative">
+                    <input
+                        type="number"
+                        id="input-t-pinggang"
+                        class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
+                        required
+                    />
+                    <span
+                        class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
+                    >
+                        CM
+                    </span>
+                </div>
+            </div>
+
+            <!-- Turun Susu -->
+            <div>
+                <label
+                    for="input-t-susu"
+                    class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
+                >
+                    Turun Susu/Tetek
+                </label>
+                <div class="relative">
+                    <input
+                        type="number"
+                        id="input-t-susu"
+                        class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
+                        required
+                    />
+                    <span
+                        class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
+                    >
+                        CM
+                    </span>
+                </div>
+            </div>
+
+            <!-- Lingkar Ketiak -->
+            <div>
+                <label
+                    for="input-l-ketiak"
+                    class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
+                >
+                    Lingkar Ketiak
+                </label>
+                <div class="relative">
+                    <input
+                        type="number"
+                        id="input-l-ketiak"
+                        class="w-full pl-3 pr-8 py-2 bg-[#F8F7F5] dark:bg-slate-800 text-slate-800 dark:text-white border border-transparent dark:border-slate-700/50 rounded-lg text-xs font-medium focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:border-primary focus:ring-1 focus:ring-primary transition duration-200"
+                        required
+                    />
+                    <span
+                        class="absolute inset-y-0 right-3 flex items-center text-[9px] font-bold text-gray-400"
+                    >
+                        CM
+                    </span>
+                </div>
+            </div>
         </div>
 
-        <!-- Panjang Rok (Full width span) -->
+        <!-- Panjang Rok/Celana (Full width span) -->
         <div>
             <label
                 for="input-p-rok"
                 class="text-[10px] font-bold uppercase tracking-wider text-grey block mb-1"
             >
-                Panjang Rok
+                Panjang Rok/Celana
             </label>
             <div class="relative">
                 <input
