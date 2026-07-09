@@ -496,6 +496,7 @@
             }
         }
     </script>
+    @include ('shared.pattern-svg-core')
     @yield ('scripts')
 </body>
 </html>
